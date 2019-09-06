@@ -33,12 +33,6 @@ public class Point
 	 isMidpoint = true;
  }
  
- public boolean get_isCorner()
- {
-	 return isCorner;
- }
- 
- 
  public boolean get_isMidpoint()
  {
 	 return isMidpoint;
@@ -55,3 +49,4 @@ public class Point
  }
  
 }
+ 
