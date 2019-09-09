@@ -17,11 +17,10 @@ public class Point
  
  public boolean get_isCorner()
  {
-<<<<<<< HEAD
 	 return isCorner; //blah blah blah
-=======
+
 	 return isCorner;   
->>>>>>> c948b9563477fcaf7e2c79d5c7a0129bae4a59ba
+
  }
  
  
