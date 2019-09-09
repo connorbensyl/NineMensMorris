@@ -1,5 +1,6 @@
 package sprint1;
 
-public class Square {
+public class Square 
+{
 
 }
