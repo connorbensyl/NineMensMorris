@@ -21,7 +21,7 @@ public class Point
  {
 	 return isCorner; 
 
-	 return isCorner;   
+	  
 
  }
  
