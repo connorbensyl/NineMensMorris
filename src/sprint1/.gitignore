@@ -3,6 +3,7 @@
 /testBoard.class
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /Gui.class
 /Gui$1.class
 =======
@@ -10,6 +11,10 @@
 /Square.class
 >>>>>>> ba307b5af2abedd29e1fcdac7ae45652947fdf63
 /Controller.class
+=======
+/Point.class
+/Square.class
+>>>>>>> ba307b5af2abedd29e1fcdac7ae45652947fdf63
 =======
 /Point.class
 /Square.class
