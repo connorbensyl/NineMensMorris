@@ -1,6 +1,5 @@
 package sprint1;
 
-
 public class Point 
 {
  private
@@ -20,8 +19,6 @@ public class Point
  public boolean get_isCorner()
  {
 	 return isCorner; 
-
-	  
 
  }
  
