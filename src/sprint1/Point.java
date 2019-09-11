@@ -1,6 +1,5 @@
 package sprint1;
 
-
 public class Point 
 {
  private
