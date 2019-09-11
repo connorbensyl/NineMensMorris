@@ -1,3 +1,4 @@
+package sprint1;
 
 
 public class Point 
@@ -20,7 +21,7 @@ public class Point
  {
 	 return isCorner; 
 
-	 return isCorner;   
+	  
 
  }
  

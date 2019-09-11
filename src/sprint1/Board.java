@@ -1,6 +1,7 @@
 package sprint1;
 
-public class Board {
+public class Board 
+{
 
 	private static final int TotalRows = 7;
 	private static final int TotalColumns = 7;
