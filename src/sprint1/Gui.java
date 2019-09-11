@@ -1,12 +1,19 @@
 package sprint1;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import java.awt.GridBagLayout;
 
 public class Gui {
 
-	private JFrame NineMensMorris;
+	private
+	
+	JFrame NineMensMorris;
+	JPanel NineMensMorrisBG;
 
 	/**
 	 * Launch the application.
@@ -40,7 +47,10 @@ public class Gui {
 		NineMensMorris.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		NineMensMorris.setVisible(true);
 		NineMensMorris.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
+		
+		NineMensMorrisBG = new JPanel();
+		NineMensMorrisBG.setBackground(Color.BLUE);
+		NineMensMorris.getContentPane().add(NineMensMorrisBG);
 
 	}
 
