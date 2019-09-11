@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 public class Gui {
 
-	private JFrame frame;
+	private JFrame NineMensMorris;
 
 	/**
 	 * Launch the application.
@@ -16,7 +16,7 @@ public class Gui {
 			public void run() {
 				try {
 					Gui window = new Gui();
-					window.frame.setVisible(true);
+					window.NineMensMorris.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,11 +35,12 @@ public class Gui {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		frame.setUndecorated(true);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		NineMensMorris = new JFrame();
+		NineMensMorris.setTitle("Nine Men's Morris");
+		NineMensMorris.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		NineMensMorris.setVisible(true);
+		NineMensMorris.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
 
 	}
 
