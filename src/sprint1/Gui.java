@@ -49,7 +49,7 @@ public class Gui {
 		NineMensMorris.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		NineMensMorrisBG = new JPanel();
-		NineMensMorrisBG.setBackground(Color.BLUE);
+		NineMensMorrisBG.setBackground(Color.WHITE);
 		NineMensMorris.getContentPane().add(NineMensMorrisBG);
 
 	}
