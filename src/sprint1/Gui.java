@@ -7,6 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import java.awt.GridBagLayout;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class Gui {
 
@@ -51,6 +56,23 @@ public class Gui {
 		NineMensMorrisBG = new JPanel();
 		NineMensMorrisBG.setBackground(Color.WHITE);
 		NineMensMorris.getContentPane().add(NineMensMorrisBG);
+		
+		JButton PVPButton = new JButton("Player VS Player");
+		PVPButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		PVPButton.setBounds(250,250,120,35);
+		NineMensMorrisBG.add(PVPButton);
+		
+		JButton PVAIButton = new JButton("Player VS AI");
+		PVAIButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		NineMensMorrisBG.add(PVAIButton);
+		
 
 	}
 
