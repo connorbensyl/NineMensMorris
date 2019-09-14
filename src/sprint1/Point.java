@@ -7,8 +7,10 @@ public class Point
 	 boolean isCorner;
      boolean isMidpoint;
      String pointState;
-     
-
+     Point lookRight;
+     Point lookLeft;
+     Point lookUp;
+     Point lookDown;
  
 
  
@@ -18,7 +20,10 @@ public class Point
 	 isCorner = iscorner;
 	 isMidpoint = ismidpoint;
 	 pointState = "none";
-	 
+	 lookRight = null;
+	 lookLeft = null;
+	 lookUp = null;
+	 lookDown = null;
  }
  
  Point(boolean iscorner, boolean ismidpoint, String point_state) //point occupied by a black piece, a white piece, or none
@@ -70,5 +75,27 @@ public class Point
 	 return pointState;
  }
  
+ public boolean isEmpty() {
+	 if (pointState=="none")
+		 return true;
+	 else
+		 return false;
+ }
+ 
+ public void setLeft(Point left) {
+	 lookLeft = left;
+ }
+ 
+ public void setRight(Point right) {
+	 lookRight = right;
+ }
+ 
+ public void setUp(Point up) {
+	 lookUp = up;
+ }
+ 
+ public void setDown(Point down) {
+	 lookDown = down;
+ }
 }
  

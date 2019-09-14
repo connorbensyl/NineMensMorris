@@ -10,6 +10,25 @@ public class Square
   Point middleRight = new Point(false,true);
   Point topRight = new Point(true,false);
   Point topMiddle = new Point(false,true);
-	
-	
+
+  public void connectLocalPoints() {
+		topLeft.setRight(topMiddle);
+		topLeft.setDown(middleLeft);
+		topMiddle.setLeft(topLeft);
+		topMiddle.setRight(topRight);
+		topRight.setLeft(topMiddle);
+		topRight.setDown(middleRight);
+		middleLeft.setUp(topLeft);
+		middleLeft.setDown(bottomLeft);
+		middleRight.setUp(topRight);
+		middleRight.setDown(bottomRight);
+		bottomLeft.setUp(middleLeft);
+		bottomLeft.setRight(bottomMiddle);
+		bottomMiddle.setLeft(bottomLeft);
+		bottomMiddle.setRight(bottomRight);
+		bottomRight.setLeft(bottomMiddle);
+		bottomRight.setUp(middleRight);
+  }
+  
 }
+
