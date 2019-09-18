@@ -20,7 +20,7 @@ public class Piece
 		 Color = PieceColor.white;
 	 }
 	 
-	 remainingPieces = 8;
+	 remainingPieces = 9;
  }
 
  public void removePiece()
