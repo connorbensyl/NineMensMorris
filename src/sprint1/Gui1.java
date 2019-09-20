@@ -17,7 +17,14 @@ import javax.swing.SwingConstants;
 
 public class Gui1 {
 
-	private
+	private Board board;
+	
+	public void setUp()	throws Exception{
+		board = new Board();
+	}
+	
+	public void tearDown() throws Exception{
+	}
 	
 	JFrame NineMensMorris;
 	JPanel NineMensMorrisBG;
