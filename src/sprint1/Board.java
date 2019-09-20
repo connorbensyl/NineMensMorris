@@ -9,6 +9,7 @@ public class Board
 	private Board board = new Board();
 	
 	public void setUp() throws Exception{
+		board = new Board();
 	}
 	
 	public void tearDown() throws Exception{

@@ -14,7 +14,14 @@ import javax.swing.border.EmptyBorder;
 
 public class Gui {
 
-	private
+	private Board board;
+	
+	public void setUp()	throws Exception{
+		board = new Board();
+	}
+	
+	public void tearDown() throws Exception{
+	}
 	
 	JFrame NineMensMorris;
 	JPanel NineMensMorrisBG;
