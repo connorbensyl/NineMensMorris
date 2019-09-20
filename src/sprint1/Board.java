@@ -1,5 +1,8 @@
 package sprint1;
 
+import sprint1.Gui;
+
+
 public class Board 
 {
 	Square outerSquare = new Square();

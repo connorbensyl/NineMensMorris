@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import sprint1.Board;
+
 
 public class Gui {
 
