@@ -4,20 +4,24 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.GridBagLayout;
+
 import javax.swing.JButton;
-import java.awt.BorderLayout;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
 
-public class Gui {
+
+public class Gui1 {
 
 	private
 	
 	JFrame NineMensMorris;
 	JPanel NineMensMorrisBG;
+	private JTextField txtWelcome;
 
 	/**
 	 * Launch the application.
@@ -26,7 +30,7 @@ public class Gui {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Gui window = new Gui();
+					Gui1 window = new Gui1();
 					window.NineMensMorris.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +42,7 @@ public class Gui {
 	/**
 	 * Create the application.
 	 */
-	public Gui() {
+	public Gui1() {
 		initialize();
 	}
 
@@ -48,9 +52,11 @@ public class Gui {
 	private void initialize() {
 		NineMensMorris = new JFrame();
 		NineMensMorris.setTitle("Nine Men's Morris");
+		NineMensMorris.setSize(1920,1080);
 		NineMensMorris.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		NineMensMorris.setVisible(true);
 		NineMensMorris.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		NineMensMorris.getContentPane().setLayout(new BorderLayout(0, 0));
 
 		
 		NineMensMorrisBG = new JPanel();
@@ -66,11 +72,11 @@ public class Gui {
 		});
 		NineMensMorrisBG.setLayout(null);
 		
-		PVPButton.setBounds(392,197,147,29);
+		PVPButton.setBounds(547,291,147,29);
 		NineMensMorrisBG.add(PVPButton);
 		
 		JButton PVAIButton = new JButton("Player VS AI");
-		PVAIButton.setBounds(404, 259, 121, 29);
+		PVAIButton.setBounds(562, 358, 121, 29);
 		PVAIButton.setForeground(Color.MAGENTA);
 		PVAIButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,8 +84,15 @@ public class Gui {
 		});
 		NineMensMorrisBG.add(PVAIButton);
 		
+		txtWelcome = new JTextField();
+		txtWelcome.setEditable(false);
+		txtWelcome.setText("Welcome to Nine Men's Morris");
+		txtWelcome.setBounds(488, 165, 273, 92);
+		txtWelcome.setHorizontalAlignment(SwingConstants.CENTER);
+		NineMensMorrisBG.add(txtWelcome);
+		txtWelcome.setColumns(10);
+
 
 
 	}
-
 }
