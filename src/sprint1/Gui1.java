@@ -32,6 +32,8 @@ public class Gui1 {
 	JFrame PlayerVsPlayer;
 	JFrame PlayerVsAI;
 	JPanel NineMensMorrisBG;
+	JPanel NineMensMorrisPVP;
+	JPanel NineMensMorrisPVA;
 	private JTextField txtWelcome;
 
 	/**
@@ -61,6 +63,9 @@ public class Gui1 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+
+		
 		NineMensMorris = new JFrame();
 		NineMensMorris.setTitle("Nine Men's Morris");
 		NineMensMorris.setSize(1920,1080);
@@ -90,6 +95,17 @@ public class Gui1 {
 		NineMensMorrisBG.setLayout(null);
 		NineMensMorris.getContentPane().add(NineMensMorrisBG);
 		
+		NineMensMorrisPVP = new JPanel();
+		NineMensMorrisPVP.setBounds(0, 0, 1920, 1080);
+		NineMensMorrisPVP.setBackground(new Color(102, 255, 240));
+		NineMensMorrisPVP.setLayout(null);
+		PlayerVsPlayer.getContentPane().add(NineMensMorrisPVP);
+		
+		NineMensMorrisPVA = new JPanel();
+		NineMensMorrisPVA.setBounds(0, 0, 1920, 1080);
+		NineMensMorrisPVA.setBackground(new Color(102, 90, 240));
+		NineMensMorrisPVA.setLayout(null);
+		PlayerVsAI.getContentPane().add(NineMensMorrisPVA);
 		
 		txtWelcome = new JTextField();
 		txtWelcome.setBackground(new Color(245, 245, 220));
@@ -109,6 +125,7 @@ public class Gui1 {
 			public void actionPerformed(ActionEvent e) {
 				NineMensMorris.setVisible(false);
 				PlayerVsPlayer.setVisible(true);
+
 			}
 		});
 
