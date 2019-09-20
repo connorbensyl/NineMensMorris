@@ -12,13 +12,13 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
-<<<<<<< HEAD:src/sprint1/Gui.java
+
 import javax.swing.border.EmptyBorder;
 import sprint1.Board;
 
-=======
+
 import javax.swing.SwingConstants;
->>>>>>> 7f7004ccec1efd8e2d08edf48bfe178e4ab5cbe3:src/sprint1/Gui1.java
+
 
 
 public class Gui1 {

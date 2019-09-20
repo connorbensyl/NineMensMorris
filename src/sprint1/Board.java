@@ -1,6 +1,6 @@
 package sprint1;
 
-import sprint1.Gui;
+import sprint1.Gui1;
 
 
 public class Board 
