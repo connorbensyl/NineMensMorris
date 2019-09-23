@@ -1,5 +1,7 @@
 package sprint1;
 
+
+
 public class Square 
 {
   Point topLeft = new Point(true,false); //arguments isCorner = true, isMidpoint = false
