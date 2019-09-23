@@ -8,6 +8,10 @@ public class Player {
 	public boolean fly;
 	public String name;
 	
+	public Player() {
+		
+	}
+	
 	public String getName() {
 		return name;
 	}
