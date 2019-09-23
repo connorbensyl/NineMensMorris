@@ -28,7 +28,21 @@ public class Player {
 		return (numPieces - numPiecesPlayed);
 	}
 	
-	public boolean canFly() {
+	//Can player fly
+	
+	public void notFly() {
+		if(numPieces >= 1) {
+			fly = false;
+		}
+	}
+	
+	public void canFly() {
+		if (numPieces == 0 && numPiecesPlayed == 3) {
+			fly = true;
+		}
+	}
+	
+	public boolean canPlayerFly() {
 		return fly;
 	}
 
