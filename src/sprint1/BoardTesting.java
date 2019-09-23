@@ -1,12 +1,13 @@
 package sprint1;
 
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class BoardTest {
+class BoardTesting {
+
 	public Board testboard = new Board();
 
 	@Test
@@ -32,7 +33,4 @@ class BoardTest {
 		testboard.connectPoints();
 		assertEquals(testboard.outerSquare.bottomLeft,testboard.outerSquare.middleLeft.lookDown);
 	}
-	
-	
-
 }
