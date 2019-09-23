@@ -3,8 +3,8 @@ package sprint1;
 public class Player {
 
 	public int numPieces;
-	public int numPiecesPlayed;
-	public int numGamesWon;
+	public int numPiecesPlayed = 0;
+	public int numGamesWon = 0;
 	public boolean fly;
 	public String name;
 	
