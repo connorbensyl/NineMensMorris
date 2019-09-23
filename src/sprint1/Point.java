@@ -86,16 +86,37 @@ public class Point
 	 lookLeft = left;
  }
  
+ public Point getLeft()
+ {
+	 return lookLeft;
+ }
+ 
  public void setRight(Point right) {
 	 lookRight = right;
+ }
+ 
+ public Point getRight()
+ {
+	 return lookRight;
  }
  
  public void setUp(Point up) {
 	 lookUp = up;
  }
  
+ public Point getUp()
+ {
+	 return lookUp;
+ }
+ 
  public void setDown(Point down) {
 	 lookDown = down;
  }
+ 
+ public Point getDown()
+ {
+	 return lookDown;
+ }
+ 
 }
  
