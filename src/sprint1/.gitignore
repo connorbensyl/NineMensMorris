@@ -43,7 +43,11 @@
 /Player2Moves.class
 /Move.class
 /BoardTest.class
+<<<<<<< HEAD
 /TestGUI$1.class
 /TestGUI.class
 /TestGUI$2.class
 /TestGUI$3.class
+=======
+/BoardTesting.class
+>>>>>>> 7f874671de0a6e104655d7a6b4aeffcbe04d35f4
