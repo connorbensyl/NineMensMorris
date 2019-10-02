@@ -56,7 +56,7 @@ public class Controller {
 		{
 			String color_of_piece = location.get_point_state();
 			location.set_point_state(color_of_piece);
-			player.decrement_unplayed_pieces();;
+			player.decrement_unplayed_pieces();
 			return "Piece placed";
 			
 		}

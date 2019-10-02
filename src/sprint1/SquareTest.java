@@ -10,14 +10,6 @@ import org.junit.jupiter.api.Test;
 class SquareTest {
 Square testSquare = new Square();
 
-	@BeforeEach
-	void setUp() throws Exception {
-	}
-
-	@AfterEach
-	void tearDown() throws Exception {
-	}
-
 	@Test
 	void pointExistsTest() {
 		Point a = testSquare.bottomLeft;
@@ -27,7 +19,7 @@ Square testSquare = new Square();
 	@Test
 	void lookTest() {
 		Point a = testSquare.bottomLeft;
-		assertEquals(a,testSquare.bottomLeft.lookUp);
+		assertEquals(a,testSquare.bottomLeft);
 	}
 	
 	@Test

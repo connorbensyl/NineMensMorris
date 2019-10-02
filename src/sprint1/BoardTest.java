@@ -11,21 +11,18 @@ class BoardTest {
 	public Board testboard = new Board();
 
 
-	
-
 	@Test
-	public void connectInterSquarePoints() {
+	 void connectInterSquarePoints() {
 	testboard.connectAllLocalPoints();
 	testboard.connectIntersquarePoints();
 	assertEquals(testboard.outerSquare.middleLeft,testboard.middleSquare.middleLeft.lookLeft);
 	}
 	
 	@Test
-		public void testConnectAllLocalPoints() {
+	void testConnectAllLocalPoints() {
 		testboard.connectAllLocalPoints();
 		assertEquals(testboard.outerSquare.bottomLeft,testboard.outerSquare.bottomMiddle.lookLeft);
 	}
-
 	
 	@Test 
 	void testConnectLocalPoints() {
