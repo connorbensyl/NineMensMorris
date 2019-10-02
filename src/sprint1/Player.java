@@ -38,8 +38,9 @@ public class Player {
 	public
 	//Can player fly
 	
-	public boolean canFly() {
-		if ((getPiecesLeftToPlace() == 0) && (piecesOnBoard == 3 )) {
+	boolean canFly() {
+		int a = getPiecesLeftToPlace();
+		if ((a == 0) && (piecesOnBoard == 3 )) {
 			return true;
 		}
 		else{
