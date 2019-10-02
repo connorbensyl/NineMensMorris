@@ -29,14 +29,17 @@ public class Player {
 		return numPiecesPlayed;
 	}
 	
-	public int piecesLeftToPlace() {
+	public int getPiecesLeftToPlace() {
 		return (initialPieceCount - numPiecesPlayed);
 	}
-	
+	public int getPiecesOnBoard() {
+		return piecesOnBoard;
+	}
+	public
 	//Can player fly
 	
 	public boolean canFly() {
-		if ((piecesLeftToPlace() == 0) && (piecesOnBoard == 3 )) {
+		if ((getPiecesLeftToPlace() == 0) && (piecesOnBoard == 3 )) {
 			return true;
 		}
 		else{
