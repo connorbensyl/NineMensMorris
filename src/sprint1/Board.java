@@ -1,5 +1,6 @@
 package sprint1;
 
+
 import sprint1.Gui1;
 
 
@@ -8,15 +9,6 @@ public class Board
 	Square outerSquare = new Square();
 	Square middleSquare = new Square();
 	Square innerSquare = new Square();
-
-	private Board board = new Board();
-	
-	public void setUp() throws Exception{
-		board = new Board();
-	}
-	
-	public void tearDown() throws Exception{
-	}
 	
 	public void connectIntersquarePoints() {
 		//outer square + middle square connect
@@ -44,9 +36,9 @@ public class Board
 		
 		middleSquare.middleRight.setLeft(innerSquare.middleRight);
 		innerSquare.middleRight.setRight(middleSquare.middleRight);
-		
 	}
-	public void connectPoints() {
+	
+	public void connectAllLocalPoints() {
 		outerSquare.connectLocalPoints();
 		middleSquare.connectLocalPoints();
 		innerSquare.connectLocalPoints();
