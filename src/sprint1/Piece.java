@@ -23,11 +23,14 @@ public class Piece
 	 remainingPieces = 9;
  }
 
- public void removePiece()
+ public void decrement_unplayed_pieces()
  {
 	 remainingPieces--;
  }
  
- 
+ public int getRemainingpieces()
+ {
+	 return remainingPieces;
+ }
 }
 
