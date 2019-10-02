@@ -16,7 +16,7 @@ public class Controller {
 		Phase = "Placing Pieces";
 		Player1_Pieces = new Piece("black");
 		Player2_Pieces = new Piece("white");
-		board.connectPoints(); //need to change this to "connect all local points"
+		board.connectAllLocalPoints(); //need to change this to "connect all local points"
 		board.connectIntersquarePoints();
 		while(Player1_Pieces.getRemainingpieces() != 0 && Player2_Pieces.getRemainingpieces() != 0)
 		{
@@ -56,7 +56,7 @@ public class Controller {
 		{
 			String color_of_piece = location.get_point_state();
 			location.set_point_state(color_of_piece);
-			player.decrement_unplayed_pieces();
+			player.decrement_unplayed_pieces();;
 			return "Piece placed";
 			
 		}
