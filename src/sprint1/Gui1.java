@@ -10,8 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import sprint1.Board;
 import sprint1.Rectangles;
 
@@ -85,8 +83,8 @@ public class Gui1{
 		PlayerVsPlayer.setTitle("Nine Men's Morris: Player VS Player");
 		PlayerVsPlayer.setSize(1920,1080);
 		PlayerVsPlayer.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		PlayerVsPlayer.setBackground(Color.cyan);
 		PlayerVsPlayer.add(rect);
+		//PlayerVsPlayer.getContentPane().setBackground(new Color(204, 166, 166));
 		PlayerVsPlayer.setVisible(false);
 		PlayerVsPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -107,10 +105,6 @@ public class Gui1{
 		NineMensMorris.getContentPane().add(NineMensMorrisBG);
 		
 		
-	/*	NineMensMorrisPVP = new JPanel();
-		NineMensMorrisPVP.setBounds(0, 0, 1920, 1080);
-		NineMensMorrisPVP.setBackground(new Color(102, 255, 240));
-		PlayerVsPlayer.getContentPane().add(NineMensMorrisPVP);*/
 		
 		NineMensMorrisPVA = new JPanel();
 		NineMensMorrisPVA.setBounds(0, 0, 1920, 1080);
