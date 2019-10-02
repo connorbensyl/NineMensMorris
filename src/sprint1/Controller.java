@@ -2,19 +2,45 @@ package sprint1;
 
 public class Controller {
 
-	private String Phase;
-	Board board = new Board();
-	Piece Player1_Pieces = new Piece("black");
-	Piece Player2_Pieces = new Piece("white");
-	Player player1;
-	Player player2;
 	
-	public static void main(String[] args) 
+	private String Phase;
+	private Board board = new Board();
+	private Piece Player1_Pieces;
+	private Piece Player2_Pieces;
+	private Player player1;
+	private Player player2;
+	boolean is_player1_turn;
+	
+	public void control_game() 
 	{
-		
-		board.connectPoints(); //need to change this to connect all local points
+		Phase = "Placing Pieces";
+		Player1_Pieces = new Piece("black");
+		Player2_Pieces = new Piece("white");
+		board.connectPoints(); //need to change this to "connect all local points"
 		board.connectIntersquarePoints();
+		while(Player1_Pieces.getRemainingpieces() != 0 && Player2_Pieces.getRemainingpieces() != 0)
+		{
+			if(is_player1_turn) //player 1's turn
+			{
+				
+				if(Player1_Pieces.getRemainingpieces() != 0)
+				{
+					//player 1 turn code, call placePiece function
+				}
+				is_player1_turn = false; //pass turn
+			}
+			else         //player 2's turn
+			{
+				
+				if(Player2_Pieces.getRemainingpieces() != 0)
+				{
+					//player 2 code, call PlacePiece function
+				}
+				is_player1_turn = true; //pass turn
+			}
+		}
 		
+		Phase = "Moving Pieces";
 		
 
 	}
@@ -37,29 +63,6 @@ public class Controller {
 		
 	}
 	
-	Board get_controller_Board()
-	{
-		return board;
-	}
-	
-	Piece getplayer1pieces()
-	{
-		return Player1_Pieces;
-	}
-	
-	Piece getplayer2pieces()
-	{
-		return Player2_Pieces;
-	}
-	
-	Player getPlayer1()
-	{
-		return player1;
-	}
-	
-	Player getPlayer2()
-	{
-		return player2;
-	}
+
 
 }
