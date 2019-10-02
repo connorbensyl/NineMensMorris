@@ -2,10 +2,11 @@ package sprint1;
 
 public class Player {
 
-	public int numPieces;
+	public int initialPieceCount = 9;
 	public int numPiecesPlayed = 0;
 	public int numGamesWon = 0;
-	public boolean fly;
+	public int piecesOnBoard = 0;
+	public boolean canFly;
 	public String name;
 	
 	public Player() {
@@ -20,34 +21,28 @@ public class Player {
 		this.name = name;
 	}
 	
-	public int getNumPieces() {
-		return numPieces;
+	public int getinitialPieceCount() {
+		return initialPieceCount;
 	}
 	
 	public int getNumPiecesPlayed() {
 		return numPiecesPlayed;
 	}
 	
-	public int piecesLeft() {
-		return (numPieces - numPiecesPlayed);
+	public int piecesLeftToPlace() {
+		return (initialPieceCount - numPiecesPlayed);
 	}
 	
 	//Can player fly
 	
-	public void notFly() {
-		if(numPieces >= 1) {
-			fly = false;
+	public boolean canFly() {
+		if ((piecesLeftToPlace() == 0) && (piecesOnBoard == 3 )) {
+			return true;
 		}
-	}
-	
-	public void canFly() {
-		if (numPieces == 0 && numPiecesPlayed == 3) {
-			fly = true;
+		else{
+			return false;
 		}
-	}
-	
-	public boolean canPlayerFly() {
-		return fly;
+		
 	}
 
 }
