@@ -34,12 +34,23 @@ Player testplayer = new Player();
 		testplayer.incrementGamesWon();
 	    assertEquals(testplayer.getNumGamesWon(),1);
 	}
+	
+	@Test
+	void getPiecesLeftToPlace() {
+	testplayer.playPiece();
+	assertEquals(testplayer.getPiecesLeftToPlace(), 8);
+	}
+	
 	@Test
 	void testcanFly()
 	{
 		assertEquals(testplayer.canFly(),false);
-		testplayer.setNumPiecesPlayed(6);
-		testplayer.setpiecesOnBoard(3);
+		for (int i=0;i<9;i++) {
+			testplayer.playPiece();	
+		}
+		for (int j=0;j<6;j++) {
+			testplayer.decrementpiecesOnBoard();
+		}
 		assertEquals(testplayer.canFly(), true);
 	}
 
