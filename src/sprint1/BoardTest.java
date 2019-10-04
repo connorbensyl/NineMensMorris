@@ -15,20 +15,20 @@ class BoardTest {
 	 void connectInterSquarePoints() {
 	testboard.connectAllLocalPoints();
 	testboard.connectIntersquarePoints();
-	assertEquals(testboard.outerSquare.middleLeft,testboard.middleSquare.middleLeft.lookLeft);
+	assertEquals(testboard.outerSquare.middleLeft,testboard.middleSquare.middleLeft.getLeft());
 	}
 	
 	@Test
 	void testConnectAllLocalPoints() {
 		testboard.connectAllLocalPoints();
-		assertEquals(testboard.outerSquare.bottomLeft,testboard.outerSquare.bottomMiddle.lookLeft);
+		assertEquals(testboard.outerSquare.bottomLeft,testboard.outerSquare.bottomMiddle.getLeft());
 	}
 	
 	@Test 
 	void testConnectLocalPoints() {
 		testboard.outerSquare.connectLocalPoints();
 		Point a = testboard.outerSquare.bottomLeft;
-		assertEquals(a,testboard.outerSquare.bottomMiddle.lookLeft);
+		assertEquals(a,testboard.outerSquare.bottomMiddle.getLeft());
 	}
 	
 	
