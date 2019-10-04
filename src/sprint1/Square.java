@@ -1,6 +1,6 @@
 package sprint1;
 
-
+import sprint1.Point;
 
 public class Square 
 {

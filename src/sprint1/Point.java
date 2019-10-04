@@ -1,16 +1,18 @@
 package sprint1;
 
+import sprint1.Point;
+
 public class Point 
 {
- private
  
-	 boolean isCorner;
-     boolean isMidpoint;
-     String pointState;
-     Point lookRight;
-     Point lookLeft;
-     Point lookUp;
-     Point lookDown;
+ 
+	 private boolean isCorner;
+     private boolean isMidpoint;
+     private String pointState;
+     private Point lookRight;
+     private Point lookLeft;
+     private Point lookUp;
+     private Point lookDown;
  
 
  
@@ -39,6 +41,10 @@ public class Point
 	 
 	 isCorner = iscorner;
 	 isMidpoint = ismidpoint;
+	 lookRight = null;
+	 lookLeft = null;
+	 lookUp = null;
+	 lookDown = null;
  }
  
  public boolean get_isCorner()
@@ -86,22 +92,16 @@ public class Point
 	 lookLeft = left;
  }
  
- public Point getLeft()
- {
-	 return lookLeft;
- }
- 
  public void setRight(Point right) {
 	 lookRight = right;
  }
  
- public Point getRight()
- {
-	 return lookRight;
- }
- 
  public void setUp(Point up) {
 	 lookUp = up;
+ }
+ 
+ public void setDown(Point down) {
+	 lookDown = down;
  }
  
  public Point getUp()
@@ -109,8 +109,14 @@ public class Point
 	 return lookUp;
  }
  
- public void setDown(Point down) {
-	 lookDown = down;
+ public Point getLeft()
+ {
+	 return lookLeft;
+ }
+ 
+ public Point getRight()
+ {
+	 return lookRight;
  }
  
  public Point getDown()
