@@ -54,7 +54,6 @@ public class Controller {
 			location.set_point_state(color_of_piece);
 
 
-			Player.decrement_unplayed_pieces();
 
 			owner_of_piece.decrementpiecesOnBoard();
 
