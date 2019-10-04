@@ -112,6 +112,32 @@ public class Rectangles extends JPanel {
 		g2d.drawRect(670,320,190,10);  
 	    g2d.setColor(Color.BLUE);  
 	    g2d.fillRect(670,320,190,10); 
+	    
+	    //Outer bottom left
+	    g2d.setColor(Color.RED);
+	    g2d.fillRect(345,565,25,25); 
+	     
+	    //Outer middle left
+	    g2d.fillRect(345,315,25,25); 
+	    
+	    //Outer top left
+	    g2d.fillRect(345,65,25,25); 
+	    
+	    //Outer top middle
+	    g2d.fillRect(595,65,25,25); 
+	    
+	    //Outer top right
+	    g2d.fillRect(845,65,25,25);
+	    
+	    //Outer middle right
+	    g2d.fillRect(845,315,25,25);
+	    
+	    //Outer bottom right
+	    g2d.fillRect(845,560,25,25);
+	    
+	    //Outer bottom middle
+	    g2d.fillRect(595,565,25,25); 
+	    
 	}
 	
 }
