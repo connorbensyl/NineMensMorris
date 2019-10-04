@@ -68,8 +68,6 @@ public class Controller {
 			owner_of_piece.playPiece();
 
 
-			owner_of_piece.playPiece();
-
 
 			return "Piece placed";
 			
