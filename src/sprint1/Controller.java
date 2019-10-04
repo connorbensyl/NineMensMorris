@@ -11,6 +11,11 @@ public class Controller {
 	
 	public void control_game() 
 	{
+		player1 = new Player();
+		player2 = new Player();
+		player1.setName("Connor");
+		player2.setName("Joshua");
+		is_player1_turn = true;
 		Phase = "Placing Pieces";
 		board.connectAllLocalPoints();
 		board.connectIntersquarePoints();
@@ -55,8 +60,17 @@ public class Controller {
 
 
 
+
+
+
+
 			owner_of_piece.decrementpiecesOnBoard();
 			owner_of_piece.playPiece();
+
+
+			owner_of_piece.playPiece();
+
+
 			return "Piece placed";
 			
 		}
