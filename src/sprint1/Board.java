@@ -63,7 +63,17 @@ public class Board
 		middleSquare.bottomLeft.set_coords(450, 470);
 		middleSquare.bottomMiddle.set_coords(600,490);
 		middleSquare.bottomRight.set_coords(750,480);
-		middleSquare.middleRight.set_coords(x, y);
+		middleSquare.middleRight.set_coords(765, 320);
+		middleSquare.topRight.set_coords(750, 170);
+		middleSquare.topMiddle.set_coords(600, 95);
+		
+		//coordinates for points on inner square
+		innerSquare.topLeft.set_coords(550, 270);
+		innerSquare.middleLeft.set_coords(550, 320);
+		innerSquare.bottomLeft.set_coords(550, 370);
+		innerSquare.bottomMiddle.set_coords(600, 400);
+		innerSquare.bottomRight.set_coords(650, 380);
+		innerSquare.middleRight.set_coords(670, y);
 	}
 	
 	
