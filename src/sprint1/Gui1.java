@@ -1,6 +1,7 @@
 package sprint1;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -69,7 +70,8 @@ public class Gui1{
 	private void initialize() {
 		
 		
-		Rectangles rect = new Rectangles();
+		Rectangles pvprect = new Rectangles();
+		Rectangles pvarect = new Rectangles();
 		
 		NineMensMorris = new JFrame();
 		NineMensMorris.setTitle("Nine Men's Morris");
@@ -83,8 +85,7 @@ public class Gui1{
 		PlayerVsPlayer.setTitle("Nine Men's Morris: Player VS Player");
 		PlayerVsPlayer.setSize(1920,1080);
 		PlayerVsPlayer.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		PlayerVsPlayer.add(rect);
-		//PlayerVsPlayer.getContentPane().setBackground(new Color(204, 166, 166));
+		PlayerVsPlayer.add(pvprect);
 		PlayerVsPlayer.setVisible(false);
 		PlayerVsPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -93,6 +94,7 @@ public class Gui1{
 		PlayerVsAI.setTitle("Nine Men's Morris: Player VS AI");
 		PlayerVsAI.setSize(1920,1080);
 		PlayerVsAI.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		PlayerVsAI.add(pvarect);
 		PlayerVsAI.setVisible(false);
 		PlayerVsAI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -105,12 +107,6 @@ public class Gui1{
 		NineMensMorris.getContentPane().add(NineMensMorrisBG);
 		
 		
-		
-		NineMensMorrisPVA = new JPanel();
-		NineMensMorrisPVA.setBounds(0, 0, 1920, 1080);
-		NineMensMorrisPVA.setBackground(new Color(102, 90, 240));
-		NineMensMorrisPVA.setLayout(null);
-		PlayerVsAI.getContentPane().add(NineMensMorrisPVA);
 		
 		txtWelcome = new JTextField();
 		txtWelcome.setBackground(new Color(245, 245, 220));
