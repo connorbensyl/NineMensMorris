@@ -25,7 +25,7 @@ Square testSquare = new Square();
 	@Test
 	void connectLocalPointsTest() {
 		testSquare.connectLocalPoints();
-		assertEquals(testSquare.bottomLeft.lookUp,testSquare.middleLeft);
+		assertEquals(testSquare.bottomLeft.getUp(),testSquare.middleLeft);
 	}
 
 }
