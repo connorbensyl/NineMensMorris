@@ -5,8 +5,6 @@ public class Controller {
 	
 	private String Phase;
 	private Board board = new Board();
-	private Piece Player1_Pieces;
-	private Piece Player2_Pieces;
 	private Player player1;
 	private Player player2;
 	boolean is_player1_turn;
@@ -14,16 +12,14 @@ public class Controller {
 	public void control_game() 
 	{
 		Phase = "Placing Pieces";
-		Player1_Pieces = new Piece("black");
-		Player2_Pieces = new Piece("white");
-		board.connectAllLocalPoints(); //need to change this to "connect all local points"
+		board.connectAllLocalPoints();
 		board.connectIntersquarePoints();
-		while(Player1_Pieces.getRemainingpieces() != 0 && Player2_Pieces.getRemainingpieces() != 0)
+		while(player1.getPiecesLeftToPlace() != 0 && player1.getPiecesLeftToPlace() != 0)
 		{
 			if(is_player1_turn) //player 1's turn
 			{
 				
-				if(Player1_Pieces.getRemainingpieces() != 0)
+				if(player1.getPiecesLeftToPlace() != 0)
 				{
 					//player 1 turn code, call placePiece function
 				}
@@ -32,7 +28,7 @@ public class Controller {
 			else         //player 2's turn
 			{
 				
-				if(Player2_Pieces.getRemainingpieces() != 0)
+				if(player2.getPiecesLeftToPlace() != 0)
 				{
 					//player 2 code, call PlacePiece function
 				}

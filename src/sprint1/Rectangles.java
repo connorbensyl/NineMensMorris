@@ -5,11 +5,13 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
+
 public class Rectangles extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
+		
 		
 		//Outer top
 		g2d.setColor(Color.BLACK);
@@ -91,8 +93,25 @@ public class Rectangles extends JPanel {
   	    g2d.setColor(Color.BLACK);
 		g2d.drawRect(600,70,10,190);  
 	    g2d.setColor(Color.BLUE);  
-	    g2d.fillRect(600,70,10,190);  
+	    g2d.fillRect(600,70,10,190); 
+	    
+  	    //left connection
+  	    g2d.setColor(Color.BLACK);
+		g2d.drawRect(350,320,190,10);  
+	    g2d.setColor(Color.BLUE);  
+	    g2d.fillRect(350,320,190,10);  
+	    
+	    //bottom connections
+		g2d.setColor(Color.BLACK);
+		g2d.drawRect(600,400,10,180); 
+	    g2d.setColor(Color.BLUE);  
+	    g2d.fillRect(600,400,10,180); 
 		
+	    //right connection
+  	    g2d.setColor(Color.BLACK);
+		g2d.drawRect(670,320,190,10);  
+	    g2d.setColor(Color.BLUE);  
+	    g2d.fillRect(670,320,190,10); 
 	}
 	
 }
