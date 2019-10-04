@@ -2,15 +2,15 @@ package sprint1;
 
 public class Player {
 
-	public int initialPieceCount = 9;
-	public int numPiecesPlayed = 0;
-	public int numGamesWon = 0;
-	public int piecesOnBoard = 0;
-	public boolean canFly;
-	public String name;
+	private int initialPieceCount = 9;
+	private int numPiecesPlayed = 0;
+	private int numGamesWon = 0;
+	private int piecesOnBoard = 0;
+	private boolean canFly;
+	private String name;
 	
 	public Player() {
-		
+		canFly = false;
 	}
 	
 	public String getName() {
@@ -35,6 +35,24 @@ public class Player {
 	public int getPiecesOnBoard() {
 		return piecesOnBoard;
 	}
+	
+	public int getNumGamesWon()
+	{
+		return numGamesWon;
+	}
+	
+	
+	public void setNumPiecesPlayed(int num) 
+	{
+		this.numPiecesPlayed = num;
+	}
+	
+	
+	
+	public void setpiecesOnBoard(int num) //for testing reasons so I don't have to decrement 6 times to test flying
+	{
+		this.piecesOnBoard = num;
+	}
 	public
 	//Can player fly
 	
@@ -48,5 +66,25 @@ public class Player {
 		}
 		
 	}
+	
+	
+	
+	public void playPiece()
+	{
+		numPiecesPlayed++;
+		piecesOnBoard++;
+	}
+	
+	public void decrementpiecesOnBoard()
+	{
+		piecesOnBoard--;
+	}
+	
+	public void incrementGamesWon()
+	{
+		numGamesWon++;
+	}
+	
+	
 
 }

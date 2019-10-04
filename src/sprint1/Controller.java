@@ -41,7 +41,7 @@ public class Controller {
 
 	}
 	
-	public String placePiece(Piece player, Point location)
+	public String placePiece(Player owner_of_piece, Point location)
 	{
 		
 		if(!location.isEmpty())
@@ -52,7 +52,7 @@ public class Controller {
 		{
 			String color_of_piece = location.get_point_state();
 			location.set_point_state(color_of_piece);
-			player.decrement_unplayed_pieces();;
+			owner_of_piece.decrementpiecesOnBoard();
 			return "Piece placed";
 			
 		}
