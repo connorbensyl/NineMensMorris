@@ -13,8 +13,8 @@ public class Point
      private Point lookLeft;
      private Point lookUp;
      private Point lookDown;
- 
-
+     private int xCoordinate;
+     private int yCoordinate;
  
  public Point(boolean iscorner, boolean ismidpoint)
  {
@@ -26,6 +26,8 @@ public class Point
 	 lookLeft = null;
 	 lookUp = null;
 	 lookDown = null;
+	 xCoordinate = null;
+	 yCoordinate = null;
  }
  
  Point(boolean iscorner, boolean ismidpoint, String point_state) //point occupied by a black piece, a white piece, or none
@@ -122,6 +124,14 @@ public class Point
  public Point getDown()
  {
 	 return lookDown;
+ }
+ 
+ public int get_xCoordinate() {
+	 return xCoordinate;
+ }
+ 
+ public int get_yCoordinate() {
+	 return yCoordinate;
  }
  
 }
