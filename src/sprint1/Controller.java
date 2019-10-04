@@ -26,6 +26,7 @@ public class Controller {
 				
 				if(player1.getPiecesLeftToPlace() != 0)
 				{
+			        
 					//player 1 turn code, call placePiece function
 				}
 				is_player1_turn = false; //pass turn

@@ -126,12 +126,10 @@ public class Point
 	 return lookDown;
  }
  
- public int get_xCoordinate() {
-	 return xCoordinate;
- }
- 
- public int get_yCoordinate() {
-	 return yCoordinate;
+ public void set_coords(int x, int y)
+ {
+	 this.xCoordinate = x;
+	 this.yCoordinate = y;
  }
  
 }

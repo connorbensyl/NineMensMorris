@@ -44,5 +44,13 @@ public class Board
 		innerSquare.connectLocalPoints();
 	}
 	
+	public void setSquareCoords()
+	{
+		outerSquare.topLeft.set_coords(350, 70);
+		outerSquare.middleLeft.set_coords(350, 320);
+		outerSquare.bottomLeft.set_coords(350, 570);
+		outerSquare.bottomMiddle.set_coords(, y);
+	}
+	
 	
 }
