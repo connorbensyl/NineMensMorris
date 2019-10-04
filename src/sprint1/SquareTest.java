@@ -1,15 +1,12 @@
 package sprint1;
-
-
 import static org.junit.jupiter.api.Assertions.*;
+
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 class SquareTest {
 Square testSquare = new Square();
-
 	@Test
 	void pointExistsTest() {
 		Point a = testSquare.bottomLeft;
