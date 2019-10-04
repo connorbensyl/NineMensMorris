@@ -49,7 +49,10 @@ public class Board
 		outerSquare.topLeft.set_coords(350, 70);
 		outerSquare.middleLeft.set_coords(350, 320);
 		outerSquare.bottomLeft.set_coords(350, 570);
-		outerSquare.bottomMiddle.set_coords(, y);
+		outerSquare.bottomMiddle.set_coords(600, 580);
+		outerSquare.bottomRight.set_coords(850,580);
+		outerSquare.middleRight.set_coords(670,320);
+		outerSquare.topRight.set_coords(, y);
 	}
 	
 	
