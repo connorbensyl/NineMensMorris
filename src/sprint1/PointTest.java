@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class PointTest {
-	Point testpoint = new Point(true,false);
+	int x; 
+	int y;
+	Point testpoint = new Point(true,false,x,y);
 
 	@Test
 	void test_is_point_corner() 
@@ -13,7 +15,6 @@ class PointTest {
 		testpoint.set_to_Corner();
 		assertEquals(testpoint.get_isCorner(),true);
 		assertEquals(testpoint.get_isMidpoint(),false);
-		
 	}
 	
 	void test_is_point_midpoint()
@@ -47,12 +48,12 @@ class PointTest {
 
 	@Test
 	void testAdjacentPoints() {
-		testpoint = new Point(false,true);
+		testpoint = new Point(false,true,x,y);
 		assertEquals(testpoint.get_isMidpoint(),true);
-		Point downpoint = new Point(true,false);
-		Point leftpoint = new Point(false,true);
-		Point rightpoint = new Point(false,true);
-		Point uppoint = new Point(true,false);
+		Point downpoint = new Point(true,false,x,y);
+		Point leftpoint = new Point(false,true,x,y);
+		Point rightpoint = new Point(false,true,x,y);
+		Point uppoint = new Point(true,false,x,y);
 		testpoint.setDown(downpoint);
 		assertEquals(testpoint.getDown(),downpoint);
 		testpoint.setLeft(leftpoint);
