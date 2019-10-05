@@ -3,11 +3,24 @@ package sprint1;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JPanel;
+
+import sprint3.product.Board.GameState;
 
 
 public class Rectangles extends JPanel {
-	
+	Rectangles(){
+		addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {  
+					int yRecieved = e.getY(); /// CELL_SIZE;
+					int xRecieved = e.getX(); /// CELL_SIZE;
+			}
+		});
+	}
+
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
@@ -89,6 +102,8 @@ public class Rectangles extends JPanel {
   	    g2d.setColor(Color.BLUE);  
   	    g2d.fillRect(670,250,10,160);
   	    
+  	    /////////////////////////////
+  	    
   	    //Top connection
   	    g2d.setColor(Color.BLACK);
 		g2d.drawRect(600,70,10,190);  
@@ -112,6 +127,8 @@ public class Rectangles extends JPanel {
 		g2d.drawRect(670,320,190,10);  
 	    g2d.setColor(Color.BLUE);  
 	    g2d.fillRect(670,320,190,10); 
+	    
+	    ////////////////////////////////
 	    
 	    //Outer bottom left
 	    g2d.setColor(Color.RED);
@@ -137,6 +154,56 @@ public class Rectangles extends JPanel {
 	    
 	    //Outer bottom middle
 	    g2d.fillRect(595,565,25,25); 
+	    
+	    //Center Top Left
+	    g2d.fillRect(445,165,25,25);
+	    
+	 	//Center Top middle
+	    g2d.fillRect(595,165,25,25);
+	    
+	    //Center Top right
+	    g2d.fillRect(745,165,25,25);
+	    
+	    //Center middle right
+	    g2d.fillRect(745,315,25,25); 
+	    
+	    //Center bottom right
+	    g2d.fillRect(745,465,25,25); 
+	    
+	    //Center bottom middle
+	    g2d.fillRect(595,465,25,25); 
+	    
+	    //Center bottom left
+	    g2d.fillRect(445,465,25,25);
+	    
+	    //Center middle left
+	    g2d.fillRect(445,315,25,25);
+	    
+	    //Inner middle left
+	    g2d.fillRect(523,312,25,25);
+	    
+	    //Inner top left
+  	    g2d.fillRect(524,245,25,25); 
+  	    
+  	    //Inner bottom left
+  	    g2d.fillRect(525,392,25,25);
+  	    
+  	    //Inner bottom middle
+  	    g2d.fillRect(593,395,25,25); 
+  	    
+  	    //Inner bottom right
+  	    g2d.fillRect(665,395,25,25); 
+  	    
+  	    //Inner middle right
+  	    g2d.fillRect(665,315,25,25); 
+  	    
+  	    //Inner middle top
+  	    g2d.fillRect(592,245,25,25); 
+  	    
+  	    //Inner middle right
+  	    g2d.fillRect(665,245,25,25); 
+  	    
+	    
 	    
 	}
 	
