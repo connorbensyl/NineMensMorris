@@ -9,6 +9,7 @@ public class Controller {
 	private Player player2;
 	boolean is_player1_turn;
 	
+	
 	public void control_game() 
 	{
 		player1 = new Player();
@@ -19,6 +20,7 @@ public class Controller {
 		Phase = "Placing Pieces";
 		board.connectAllLocalPoints();
 		board.connectIntersquarePoints();
+		board.setSquareCoords();
 		Point iterate = board.outerSquare.topLeft;
 		while(player1.getPiecesLeftToPlace() != 0 && player1.getPiecesLeftToPlace() != 0)
 		{
