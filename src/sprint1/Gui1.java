@@ -8,12 +8,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
 import sprint1.Board;
 import sprint1.Rectangles;
-
+import sprint3.product.Board.GameState;
 
 import javax.swing.SwingConstants;
 
@@ -98,7 +100,7 @@ public class Gui1{
 		PlayerVsAI.setVisible(false);
 		PlayerVsAI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
+		
 		
 		NineMensMorrisBG = new JPanel();
 		NineMensMorrisBG.setBounds(0, 0, 1920, 1080);
@@ -149,6 +151,4 @@ public class Gui1{
 
 
 	}
-	
-
 }
