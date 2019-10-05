@@ -3,11 +3,24 @@ package sprint1;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JPanel;
+
+import sprint3.product.Board.GameState;
 
 
 public class Rectangles extends JPanel {
-	
+	Rectangles(){
+		addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {  
+					int yRecieved = e.getY(); /// CELL_SIZE;
+					int xRecieved = e.getX(); /// CELL_SIZE;
+			}
+		});
+	}
+
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
