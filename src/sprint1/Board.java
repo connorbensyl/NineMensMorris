@@ -75,8 +75,8 @@ public class Board
 		innerSquare.bottomMiddle.set_coords(593, 395);
 		innerSquare.bottomRight.set_coords(665, 395);
 		innerSquare.middleRight.set_coords(665, 315);
-		innerSquare.topRight.set_coords(670, 270);
-		innerSquare.topMiddle.set_coords(592,245)
+		innerSquare.topRight.set_coords(665, 245);
+		innerSquare.topMiddle.set_coords(592,245);
 		
 		
 	}

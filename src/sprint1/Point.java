@@ -145,6 +145,16 @@ public void setNext(Point Next) {
 	 this.next = Next;
 	
 }
+
+public int get_xcoord()
+{
+	return xCoordinate;
+}
+
+public int get_ycoord()
+{
+	return yCoordinate;
+}
  
  
  

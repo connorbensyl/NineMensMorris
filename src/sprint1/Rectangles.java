@@ -200,7 +200,7 @@ public class Rectangles extends JPanel {
   	    //Inner middle top
   	    g2d.fillRect(592,245,25,25); 
   	    
-  	    //Inner middle right
+  	    //Inner top right
   	    g2d.fillRect(665,245,25,25); 
   	    
 	    
