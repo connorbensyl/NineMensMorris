@@ -9,16 +9,19 @@ public class Controller {
 	private Player player2;
 	boolean is_player1_turn;
 	
+	
 	public void control_game() 
 	{
 		player1 = new Player();
 		player2 = new Player();
-		player1.setName("Connor");
-		player2.setName("Joshua");
+		player1.setName("Jim");
+		player2.setName("Billy");
 		is_player1_turn = true;
 		Phase = "Placing Pieces";
 		board.connectAllLocalPoints();
 		board.connectIntersquarePoints();
+		board.setSquareCoords();
+		Point iterate = board.outerSquare.topLeft;
 		while(player1.getPiecesLeftToPlace() != 0 && player1.getPiecesLeftToPlace() != 0)
 		{
 			if(is_player1_turn) //player 1's turn
@@ -26,8 +29,32 @@ public class Controller {
 				
 				if(player1.getPiecesLeftToPlace() != 0)
 				{
-			        
-					//player 1 turn code, call placePiece function
+			        //if mouseclick, then the following code
+					while(iterate.next != board.innerSquare.topLeft)
+					{
+						if(iterate.get_xcoord() == mousexcoord && iterate.get_ycoord() == mouseycoord)
+						{
+							placePiece(player1, iterate);
+							player1.playPiece();
+							iterate = board.outerSquare.topLeft; // reset point iterate
+							//code for updating gui to show black piece here.
+							//mousexcoord and mouseycoord are placeholders because I'm not sure how mouseevents work with the gui - Connor
+							
+						}
+						
+						iterate = iterate.next;
+						
+						if(iterate.next == board.outerSquare.topLeft)
+						{
+							iterate = board.middleSquare.topLeft;
+						}
+						
+						if(iterate.next == board.middleSquare.topLeft)
+						{
+							iterate = board.innerSquare.topLeft;
+						}
+					}
+					
 				}
 				is_player1_turn = false; //pass turn
 			}
@@ -36,6 +63,30 @@ public class Controller {
 				
 				if(player2.getPiecesLeftToPlace() != 0)
 				{
+					//if mouseclick, then the following code
+					while(iterate.next != board.innerSquare.topLeft)
+					{
+						if(iterate.get_xcoord() == mousexcoord && iterate.get_ycoord() == mouseycoord)
+						{
+							placePiece(player2, iterate);
+							player2.playPiece();
+							iterate = board.outerSquare.topLeft; // reset point iterate
+							//code for updating gui to show white piece here.
+							//mousexcoord and mouseycoord are placeholders because I'm not sure how mouseevents work with the gui - Connor
+							
+						}
+						
+						iterate = iterate.next;
+						
+						if(iterate.next == board.outerSquare.topLeft)
+						{
+							iterate = board.middleSquare.topLeft;
+						}
+						
+						if(iterate.next == board.middleSquare.topLeft)
+						{
+							iterate = board.innerSquare.topLeft;
+						}
 					//player 2 code, call PlacePiece function
 				}
 				is_player1_turn = true; //pass turn
@@ -43,6 +94,7 @@ public class Controller {
 		}
 		
 		Phase = "Moving Pieces";
+		}
 		
 
 	}

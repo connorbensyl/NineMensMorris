@@ -15,6 +15,7 @@ public class Point
      private Point lookDown;
      private int xCoordinate;
      private int yCoordinate;
+     Point next;
  
  public Point(boolean iscorner, boolean ismidpoint, int x, int y)
  {
@@ -131,6 +132,31 @@ public class Point
 	 this.xCoordinate = x;
 	 this.yCoordinate = y;
  }
+ 
+ 
+ 
+ 
+ public Point getNext()
+ {
+	 return next;
+ }
+
+public void setNext(Point Next) {
+	 this.next = Next;
+	
+}
+
+public int get_xcoord()
+{
+	return xCoordinate;
+}
+
+public int get_ycoord()
+{
+	return yCoordinate;
+}
+ 
+ 
  
 }
  

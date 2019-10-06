@@ -48,22 +48,37 @@ public class Board
 	{   
 		
 		//coordinates for points on outer square
-		outerSquare.topLeft.set_coords(350, 70);
-		outerSquare.middleLeft.set_coords(350, 320);
-		outerSquare.bottomLeft.set_coords(350, 570);
-		outerSquare.bottomMiddle.set_coords(600, 580);
-		outerSquare.bottomRight.set_coords(850,580);
-		outerSquare.middleRight.set_coords(670,320);
-		outerSquare.topRight.set_coords(850, 70);
-		outerSquare.topMiddle.set_coords(600, 70);
+		outerSquare.topLeft.set_coords(345,65);
+		outerSquare.middleLeft.set_coords(345,315);
+		outerSquare.bottomLeft.set_coords(345,565);
+		outerSquare.bottomMiddle.set_coords(595,565);
+		outerSquare.bottomRight.set_coords(845,560);
+		outerSquare.middleRight.set_coords(845,315);
+		outerSquare.topRight.set_coords(845,65);
+		outerSquare.topMiddle.set_coords(595,65);
 		
 		//coordinates for points on middle square
-		middleSquare.topLeft.set_coords(450, 170);
-		middleSquare.middleLeft.set_coords(450, 320);
-		middleSquare.bottomLeft.set_coords(450, 470);
-		middleSquare.bottomMiddle.set_coords(600,490);
-		middleSquare.bottomRight.set_coords(750,480);
-		middleSquare.middleRight.set_coords(x, y);
+		middleSquare.topLeft.set_coords(445, 165);
+		middleSquare.middleLeft.set_coords(445, 315);
+		middleSquare.bottomLeft.set_coords(445, 465);
+		middleSquare.bottomMiddle.set_coords(595, 465);
+		middleSquare.bottomRight.set_coords(845,560);
+		middleSquare.middleRight.set_coords(745, 315);
+		middleSquare.topRight.set_coords(845, 65);
+		middleSquare.topMiddle.set_coords(595, 165);
+		
+		
+		//coordinates for points on inner square
+		innerSquare.topLeft.set_coords(524, 245);
+		innerSquare.middleLeft.set_coords(523, 312);
+		innerSquare.bottomLeft.set_coords(525, 392);
+		innerSquare.bottomMiddle.set_coords(593, 395);
+		innerSquare.bottomRight.set_coords(665, 395);
+		innerSquare.middleRight.set_coords(665, 315);
+		innerSquare.topRight.set_coords(665, 245);
+		innerSquare.topMiddle.set_coords(592,245);
+		
+		
 	}
 	
 	
