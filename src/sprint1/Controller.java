@@ -21,7 +21,7 @@ public class Controller {
 		board.connectAllLocalPoints();
 		board.connectIntersquarePoints();
 		board.setSquareCoords();
-		Point iterate = board.outerSquare.topLeft;
+		Point iterate = board.outerSquare.topLeft&;
 		while(player1.getPiecesLeftToPlace() != 0 && player1.getPiecesLeftToPlace() != 0)
 		{
 			if(is_player1_turn) //player 1's turn
@@ -36,13 +36,113 @@ public class Controller {
 						{
 							placePiece(player1, iterate);
 							player1.playPiece();
-							iterate = board.outerSquare.topLeft; // reset point iterate
+							if(board.outerSquare.topLeft == iterate)
+							{
+								board.outerSquare.topLeft.set_point_state("black");
+							}
+							else if(board.outerSquare.middleLeft == iterate)
+							{
+								board.outerSquare.middleLeft.set_point_state("black");
+							}
+							else if(board.outerSquare.bottomLeft == iterate)
+							{
+								board.outerSquare.bottomLeft.set_point_state("black");
+							}
+							else if(board.outerSquare.bottomMiddle == iterate)
+							{
+								board.outerSquare.bottomMiddle.set_point_state("black");
+							}
+							else if(board.outerSquare.bottomRight == iterate)
+							{
+								board.outerSquare.bottomrRight.set_point_state("black");
+							}
+							else if(board.outerSquare.middleRight == iterate)
+							{
+								board.outerSquare.middleRight.set_point_state("black");
+							}
+							else if(board.outerSquare.topRight == iterate)
+							{
+								board.outerSquare.topRight.set_point_state("black");
+							}
+							else if(board.outerSquare.topMiddle == iterate)
+							{
+								board.outerSquare.topMiddle.set_point_state("black");
+							}
+							else if(board.middleSquare.topLeft == iterate)
+							{
+								board.middleSquare.topLeft.set_point_state("black");
+							}
+							else if(board.middleSquare.middleLeft == iterate)
+							{
+								board.middleSquare.middleLeft.set_point_state("black");
+							}
+							else if(board.middleSquare.bottomLeft == iterate)
+							{
+								board.middleSquare.bottomLeft.set_point_state("black");
+							}
+							else if(board.middleSquare.bottomMiddle == iterate)
+							{
+								board.middleSquare.bottomMiddle.set_point_state("black");
+							}
+							else if(board.middleSquare.bottomRight == iterate)
+							{
+								board.middleSquare.bottomrRight.set_point_state("black");
+							}
+							else if(board.middleSquare.middleRight == iterate)
+							{
+								board.middleSquare.middleRight.set_point_state("black");
+							}
+							else if(board.middleSquare.topRight == iterate)
+							{
+								board.middleSquare.topRight.set_point_state("black");
+							}
+							else if(board.middleSquare.topMiddle == iterate)
+							{
+								board.middleSquare.topMiddle.set_point_state("black");
+							}
+							if(board.innerSquare.topLeft == iterate)
+							{
+								board.innerSquare.topLeft.set_point_state("black");
+							}
+							else if(board.innerSquare.middleLeft == iterate)
+							{
+								board.innerSquare.middleLeft.set_point_state("black");
+							}
+							else if(board.innerSquare.bottomLeft == iterate)
+							{
+								board.innerSquare.bottomLeft.set_point_state("black");
+							}
+							else if(board.innerSquare.bottomMiddle == iterate)
+							{
+								board.innerSquare.bottomMiddle.set_point_state("black");
+							}
+							else if(board.innerSquare.bottomRight == iterate)
+							{
+								board.innerSquare.bottomrRight.set_point_state("black");
+							}
+							else if(board.innerSquare.middleRight == iterate)
+							{
+								board.innerSquare.middleRight.set_point_state("black");
+							}
+							else if(board.innerSquare.topRight == iterate)
+							{
+								board.innerSquare.topRight.set_point_state("black");
+							}
+							else if(board.innerSquare.topMiddle == iterate)
+							{
+								board.innerSquare.topMiddle.set_point_state("black");
+							}
+							
+							
+							
+							iterate = board.outerSquare.topLeft;
+							// reset point iterate
 							//code for updating gui to show black piece here.
 							//mousexcoord and mouseycoord are placeholders because I'm not sure how mouseevents work with the gui - Connor
 							
 						}
 						
-						iterate = iterate.next;
+						
 						
 						if(iterate.next == board.outerSquare.topLeft)
 						{
@@ -53,6 +153,8 @@ public class Controller {
 						{
 							iterate = board.innerSquare.topLeft;
 						}
+						
+						iterate = iterate.next;
 					}
 					
 				}
@@ -70,6 +172,102 @@ public class Controller {
 						{
 							placePiece(player2, iterate);
 							player2.playPiece();
+							if(board.outerSquare.topLeft == iterate)
+							{
+								board.outerSquare.topLeft.set_point_state("white");
+							}
+							else if(board.outerSquare.middleLeft == iterate)
+							{
+								board.outerSquare.middleLeft.set_point_state("white");
+							}
+							else if(board.outerSquare.bottomLeft == iterate)
+							{
+								board.outerSquare.bottomLeft.set_point_state("white");
+							}
+							else if(board.outerSquare.bottomMiddle == iterate)
+							{
+								board.outerSquare.bottomMiddle.set_point_state("white");
+							}
+							else if(board.outerSquare.bottomRight == iterate)
+							{
+								board.outerSquare.bottomrRight.set_point_state("white");
+							}
+							else if(board.outerSquare.middleRight == iterate)
+							{
+								board.outerSquare.middleRight.set_point_state("white");
+							}
+							else if(board.outerSquare.topRight == iterate)
+							{
+								board.outerSquare.topRight.set_point_state("white");
+							}
+							else if(board.outerSquare.topMiddle == iterate)
+							{
+								board.outerSquare.topMiddle.set_point_state("white");
+							}
+							else if(board.middleSquare.topLeft == iterate)
+							{
+								board.middleSquare.topLeft.set_point_state("black");
+							}
+							else if(board.middleSquare.middleLeft == iterate)
+							{
+								board.middleSquare.middleLeft.set_point_state("white");
+							}
+							else if(board.middleSquare.bottomLeft == iterate)
+							{
+								board.middleSquare.bottomLeft.set_point_state("white");
+							}
+							else if(board.middleSquare.bottomMiddle == iterate)
+							{
+								board.middleSquare.bottomMiddle.set_point_state("white");
+							}
+							else if(board.middleSquare.bottomRight == iterate)
+							{
+								board.middleSquare.bottomrRight.set_point_state("white");
+							}
+							else if(board.middleSquare.middleRight == iterate)
+							{
+								board.middleSquare.middleRight.set_point_state("white");
+							}
+							else if(board.middleSquare.topRight == iterate)
+							{
+								board.middleSquare.topRight.set_point_state("white");
+							}
+							else if(board.middleSquare.topMiddle == iterate)
+							{
+								board.middleSquare.topMiddle.set_point_state("white");
+							}
+							if(board.innerSquare.topLeft == iterate)
+							{
+								board.innerSquare.topLeft.set_point_state("white");
+							}
+							else if(board.innerSquare.middleLeft == iterate)
+							{
+								board.innerSquare.middleLeft.set_point_state("white");
+							}
+							else if(board.innerSquare.bottomLeft == iterate)
+							{
+								board.innerSquare.bottomLeft.set_point_state("white");
+							}
+							else if(board.innerSquare.bottomMiddle == iterate)
+							{
+								board.innerSquare.bottomMiddle.set_point_state("white");
+							}
+							else if(board.innerSquare.bottomRight == iterate)
+							{
+								board.innerSquare.bottomrRight.set_point_state("white");
+							}
+							else if(board.innerSquare.middleRight == iterate)
+							{
+								board.innerSquare.middleRight.set_point_state("white");
+							}
+							else if(board.innerSquare.topRight == iterate)
+							{
+								board.innerSquare.topRight.set_point_state("white");
+							}
+							else if(board.innerSquare.topMiddle == iterate)
+							{
+								board.innerSquare.topMiddle.set_point_state("white");
+							}
 							iterate = board.outerSquare.topLeft; // reset point iterate
 							//code for updating gui to show white piece here.
 							//mousexcoord and mouseycoord are placeholders because I'm not sure how mouseevents work with the gui - Connor
@@ -87,7 +285,7 @@ public class Controller {
 						{
 							iterate = board.innerSquare.topLeft;
 						}
-					//player 2 code, call PlacePiece function
+					
 				}
 				is_player1_turn = true; //pass turn
 			}
