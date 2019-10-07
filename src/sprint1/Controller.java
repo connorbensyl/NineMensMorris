@@ -1,5 +1,4 @@
 package sprint1;
-
 public class Controller {
 
 	
@@ -8,9 +7,12 @@ public class Controller {
 	private Player player1;
 	private Player player2;
 	boolean is_player1_turn;
+	Gui1 gui;
+	public Controller(Gui1 parentGui) {
+		Gui1 gui = parentGui;
+	}
 	
-	
-	public void control_game() 
+	public void control_game(Gui1 controllerGui) 
 	{
 		player1 = new Player();
 		player2 = new Player();
@@ -32,8 +34,9 @@ public class Controller {
 			        //if mouseclick, then the following code
 					while(iterate.next != board.innerSquare.topLeft)
 					{
-						if(iterate.get_xcoord() == mousexcoord && iterate.get_ycoord() == mouseycoord)
+						if(iterate.get_xcoord() == gui.xRecieved && iterate.get_ycoord() == gui.yRecieved)
 						{
+							
 							placePiece(player1, iterate);
 							player1.playPiece();
 							iterate = board.outerSquare.topLeft; // reset point iterate
@@ -66,7 +69,7 @@ public class Controller {
 					//if mouseclick, then the following code
 					while(iterate.next != board.innerSquare.topLeft)
 					{
-						if(iterate.get_xcoord() == mousexcoord && iterate.get_ycoord() == mouseycoord)
+						if(iterate.get_xcoord() == gui.xRecieved && iterate.get_ycoord() == gui.yRecieved)
 						{
 							placePiece(player2, iterate);
 							player2.playPiece();
