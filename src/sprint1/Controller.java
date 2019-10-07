@@ -57,7 +57,7 @@ public class Controller {
 							}
 							else if(board.outerSquare.bottomRight == iterate)
 							{
-								board.outerSquare.bottomrRight.set_point_state("black");
+								board.outerSquare.bottomRight.set_point_state("black");
 							}
 							else if(board.outerSquare.middleRight == iterate)
 							{
