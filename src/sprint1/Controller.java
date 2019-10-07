@@ -89,7 +89,7 @@ public class Controller {
 							}
 							else if(board.middleSquare.bottomRight == iterate)
 							{
-								board.middleSquare.bottomrRight.set_point_state("black");
+								board.middleSquare.bottomRight.set_point_state("black");
 							}
 							else if(board.middleSquare.middleRight == iterate)
 							{
@@ -121,7 +121,7 @@ public class Controller {
 							}
 							else if(board.innerSquare.bottomRight == iterate)
 							{
-								board.innerSquare.bottomrRight.set_point_state("black");
+								board.innerSquare.bottomRight.set_point_state("black");
 							}
 							else if(board.innerSquare.middleRight == iterate)
 							{
@@ -193,7 +193,7 @@ public class Controller {
 							}
 							else if(board.outerSquare.bottomRight == iterate)
 							{
-								board.outerSquare.bottomrRight.set_point_state("white");
+								board.outerSquare.bottomRight.set_point_state("white");
 							}
 							else if(board.outerSquare.middleRight == iterate)
 							{
@@ -225,7 +225,7 @@ public class Controller {
 							}
 							else if(board.middleSquare.bottomRight == iterate)
 							{
-								board.middleSquare.bottomrRight.set_point_state("white");
+								board.middleSquare.bottomRight.set_point_state("white");
 							}
 							else if(board.middleSquare.middleRight == iterate)
 							{
@@ -257,7 +257,7 @@ public class Controller {
 							}
 							else if(board.innerSquare.bottomRight == iterate)
 							{
-								board.innerSquare.bottomrRight.set_point_state("white");
+								board.innerSquare.bottomRight.set_point_state("white");
 							}
 							else if(board.innerSquare.middleRight == iterate)
 							{
