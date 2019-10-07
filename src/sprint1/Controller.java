@@ -23,7 +23,7 @@ public class Controller {
 		board.connectAllLocalPoints();
 		board.connectIntersquarePoints();
 		board.setSquareCoords();
-		Point iterate = board.outerSquare.topLeft&;
+		Point iterate = board.outerSquare.topLeft;
 		while(player1.getPiecesLeftToPlace() != 0 && player1.getPiecesLeftToPlace() != 0)
 		{
 			if(is_player1_turn) //player 1's turn
