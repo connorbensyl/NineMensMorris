@@ -1,5 +1,4 @@
 package sprint1;
-
 public class Controller {
 
 	
@@ -8,9 +7,12 @@ public class Controller {
 	private Player player1;
 	private Player player2;
 	boolean is_player1_turn;
+	Gui1 gui;
+	public Controller(Gui1 parentGui) {
+		Gui1 gui = parentGui;
+	}
 	
-	
-	public void control_game() 
+	public void control_game(Gui1 controllerGui) 
 	{
 		player1 = new Player();
 		player2 = new Player();
@@ -21,7 +23,7 @@ public class Controller {
 		board.connectAllLocalPoints();
 		board.connectIntersquarePoints();
 		board.setSquareCoords();
-		Point iterate = board.outerSquare.topLeft&;
+		Point iterate = board.outerSquare.topLeft;
 		while(player1.getPiecesLeftToPlace() != 0 && player1.getPiecesLeftToPlace() != 0)
 		{
 			if(is_player1_turn) //player 1's turn
@@ -32,8 +34,9 @@ public class Controller {
 			        //if mouseclick, then the following code
 					while(iterate.next != board.innerSquare.topLeft)
 					{
-						if(iterate.get_xcoord() == mousexcoord && iterate.get_ycoord() == mouseycoord)
+						if(iterate.get_xcoord() == gui.xRecieved && iterate.get_ycoord() == gui.yRecieved)
 						{
+							
 							placePiece(player1, iterate);
 							player1.playPiece();
 							if(board.outerSquare.topLeft == iterate)
@@ -54,7 +57,7 @@ public class Controller {
 							}
 							else if(board.outerSquare.bottomRight == iterate)
 							{
-								board.outerSquare.bottomrRight.set_point_state("black");
+								board.outerSquare.bottomRight.set_point_state("black");
 							}
 							else if(board.outerSquare.middleRight == iterate)
 							{
@@ -86,7 +89,7 @@ public class Controller {
 							}
 							else if(board.middleSquare.bottomRight == iterate)
 							{
-								board.middleSquare.bottomrRight.set_point_state("black");
+								board.middleSquare.bottomRight.set_point_state("black");
 							}
 							else if(board.middleSquare.middleRight == iterate)
 							{
@@ -118,7 +121,7 @@ public class Controller {
 							}
 							else if(board.innerSquare.bottomRight == iterate)
 							{
-								board.innerSquare.bottomrRight.set_point_state("black");
+								board.innerSquare.bottomRight.set_point_state("black");
 							}
 							else if(board.innerSquare.middleRight == iterate)
 							{
@@ -168,7 +171,7 @@ public class Controller {
 					//if mouseclick, then the following code
 					while(iterate.next != board.innerSquare.topLeft)
 					{
-						if(iterate.get_xcoord() == mousexcoord && iterate.get_ycoord() == mouseycoord)
+						if(iterate.get_xcoord() == gui.xRecieved && iterate.get_ycoord() == gui.yRecieved)
 						{
 							placePiece(player2, iterate);
 							player2.playPiece();
@@ -190,7 +193,7 @@ public class Controller {
 							}
 							else if(board.outerSquare.bottomRight == iterate)
 							{
-								board.outerSquare.bottomrRight.set_point_state("white");
+								board.outerSquare.bottomRight.set_point_state("white");
 							}
 							else if(board.outerSquare.middleRight == iterate)
 							{
@@ -222,7 +225,7 @@ public class Controller {
 							}
 							else if(board.middleSquare.bottomRight == iterate)
 							{
-								board.middleSquare.bottomrRight.set_point_state("white");
+								board.middleSquare.bottomRight.set_point_state("white");
 							}
 							else if(board.middleSquare.middleRight == iterate)
 							{
@@ -254,7 +257,7 @@ public class Controller {
 							}
 							else if(board.innerSquare.bottomRight == iterate)
 							{
-								board.innerSquare.bottomrRight.set_point_state("white");
+								board.innerSquare.bottomRight.set_point_state("white");
 							}
 							else if(board.innerSquare.middleRight == iterate)
 							{

@@ -8,17 +8,12 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 
-import sprint3.product.Board.GameState;
+//import sprint3.product.Board.GameState;
 
 
 public class Rectangles extends JPanel {
 	Rectangles(){
-		addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {  
-					int yRecieved = e.getY(); /// CELL_SIZE;
-					int xRecieved = e.getX(); /// CELL_SIZE;
-			}
-		});
+	
 	}
 
 	public void paintComponent(Graphics g) {

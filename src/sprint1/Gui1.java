@@ -15,15 +15,17 @@ import javax.swing.JTextField;
 
 import sprint1.Board;
 import sprint1.Rectangles;
-import sprint3.product.Board.GameState;
 
 import javax.swing.SwingConstants;
 
 
 
-public class Gui1{
+public class Gui1 extends JFrame {
 
 	private Board board;
+	
+	Controller controller;
+	
 	
 	public void setUp()	throws Exception{
 		board = new Board();
@@ -39,12 +41,16 @@ public class Gui1{
 	JPanel NineMensMorrisPVP;
 	JPanel NineMensMorrisPVA;
 	private JTextField txtWelcome;
+	int yRecieved;
+	int xRecieved;
 
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -60,8 +66,16 @@ public class Gui1{
 	/**
 	 * Create the application.
 	 */
-	public Gui1() {
+	public Gui1(){
 		initialize();
+		controller = new Controller(this);
+		
+		addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {  
+					int yRecieved = e.getY(); /// CELL_SIZE;
+					int xRecieved = e.getX(); /// CELL_SIZE;
+			}
+		});
 	}
 	
 
