@@ -41,7 +41,6 @@ public class Player {
 		return numGamesWon;
 	}
 	
-	
 	public void setNumPiecesPlayed(int num) 
 	{
 		this.numPiecesPlayed = num;

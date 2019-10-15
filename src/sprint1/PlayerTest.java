@@ -27,6 +27,7 @@ Player testplayer = new Player();
 		testplayer.decrementpiecesOnBoard();
 		assertEquals(testplayer.getPiecesOnBoard(),0);
 	}
+	
 	@Test
 	void testincrementgameswon()
 	{

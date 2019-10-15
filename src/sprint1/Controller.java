@@ -1,6 +1,5 @@
 package sprint1;
 public class Controller {
-
 	
 	private String Phase;
 	private Board board = new Board();

@@ -4,8 +4,6 @@ import sprint1.Point;
 
 public class Point 
 {
- 
- 
 	 private boolean isCorner;
      private boolean isMidpoint;
      private String pointState;
@@ -132,9 +130,6 @@ public class Point
 	 this.xCoordinate = x;
 	 this.yCoordinate = y;
  }
- 
- 
- 
  
  public Point getNext()
  {

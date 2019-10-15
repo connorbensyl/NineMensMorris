@@ -25,4 +25,5 @@ Square testSquare = new Square();
 		assertEquals(testSquare.bottomLeft.getUp(),testSquare.middleLeft);
 	}
 
+	//Todo: create setnext test
 }
