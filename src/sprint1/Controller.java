@@ -1,5 +1,6 @@
 package sprint1;
 public class Controller {
+
 	
 	private String Phase;
 	private Board board = new Board();
@@ -299,7 +300,7 @@ public class Controller {
 
 	}
 	
-	public String placePiece(Player owner_of_piece, Point location)
+	public String placePiece(Board board, Player owner_of_piece, int xcoord, int ycoord)
 	{
 		
 		if(!location.isEmpty())
