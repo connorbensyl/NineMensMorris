@@ -78,5 +78,7 @@ public class Board
 		innerSquare.topMiddle.set_coords(592,245);
 	}
 	
-	
+	public void possibleMills() {
+		
+	}
 }

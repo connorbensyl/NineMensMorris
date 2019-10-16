@@ -7,6 +7,6 @@ public class Move {
 	
 	boolean aMill() {
 		int mill = 3;
-		
+		return true;
 	}
 }
