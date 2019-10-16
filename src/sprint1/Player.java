@@ -54,7 +54,7 @@ public class Player {
 	{
 		this.piecesOnBoard = num;
 	}
-	public
+	
 	//Can player fly
 	
 	boolean canFly() {

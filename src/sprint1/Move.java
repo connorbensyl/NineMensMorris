@@ -1,8 +1,12 @@
 package sprint1;
 
+import sprint1.Player;
 public class Move {
 
-	public boolean aMill() {
+	private boolean aMill = false;
+	
+	boolean aMill() {
+		int mill = 3;
 		
 	}
 }
