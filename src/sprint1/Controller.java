@@ -209,7 +209,7 @@ public class Controller {
 							}
 							else if(board.middleSquare.topLeft == iterate)
 							{
-								board.middleSquare.topLeft.set_point_state("black");
+								board.middleSquare.topLeft.set_point_state("white");
 							}
 							else if(board.middleSquare.middleLeft == iterate)
 							{
