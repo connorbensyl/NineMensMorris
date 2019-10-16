@@ -37,7 +37,7 @@ public class Controller {
 						if(iterate.get_xcoord() == gui.xRecieved && iterate.get_ycoord() == gui.yRecieved)
 						{
 							
-							placePiece(player1, iterate);
+							playPiece(player1, iterate);
 							player1.playPiece();
 							if(board.outerSquare.topLeft == iterate)
 							{
@@ -303,30 +303,46 @@ public class Controller {
 	public String placePiece(Board board, Player owner_of_piece, int xcoord, int ycoord)
 	{
 		
-		if(!location.isEmpty())
+		if(xcoord < 600)
 		{
-			return "Point is already occupied by a piece";
-		}
+		if(ycoord < 320)
+		{
+			if(ycoord < 200)
+			{
+				
+			}
+			else
+			{
+				
+			}
+			
+		} 
 		else
 		{
-			String color_of_piece = location.get_point_state();
-			location.set_point_state(color_of_piece);
-
-
-
-
-
-
-
-			owner_of_piece.decrementpiecesOnBoard();
-			owner_of_piece.playPiece();
-
-
-
-			return "Piece placed";
-			
+			if(ycoord < 320)
+			{
+				
+			}
+			else
+			{
+				
+			}
 		}
 		
+	}
+		else
+		{
+			if(ycoord < 320)
+			{
+				
+			}
+			else
+			{
+				
+			}
+		}
+		owner_of_piece.increment_piece_values();
+		return "Piece placed";
 	}
 	
 
