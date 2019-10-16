@@ -6,7 +6,7 @@ public class Player {
 	private int numPiecesPlayed = 0;
 	private int numGamesWon = 0;
 	private int piecesOnBoard = 0;
-	private boolean canFly;
+	private boolean canFly = false;
 	private String name;
 	
 	public Player() {
@@ -17,7 +17,8 @@ public class Player {
 		return name;
 	}
 	
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 	
@@ -61,7 +62,8 @@ public class Player {
 		if ((a == 0) && (piecesOnBoard == 3 )) {
 			return true;
 		}
-		else{
+		else
+		{
 			return false;
 		}
 		
@@ -69,12 +71,49 @@ public class Player {
 	
 	
 	
-	public void playPiece()
+	public void playPiece(Board board, String color, int xcoord, int ycoord)
 	{
+		if(xcoord < 600)
+		{
+		if(ycoord < 320)
+		{
+			if(ycoord < 200)
+			{
+				
+			}
+			else
+			{
+				
+			}
+			
+		} 
+		else
+		{
+			if(ycoord < 320)
+			{
+				
+			}
+			else
+			{
+				
+			}
+		}
+		
+	}
+		else
+		{
+			if(ycoord < 320)
+			{
+				
+			}
+			else
+			{
+				
+			}
+		}
 		numPiecesPlayed++;
 		piecesOnBoard++;
 	}
-	
 	public void decrementpiecesOnBoard()
 	{
 		piecesOnBoard--;
