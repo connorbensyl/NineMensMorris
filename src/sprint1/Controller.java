@@ -292,40 +292,194 @@ public class Controller {
 			}
 		}
 		
-		Phase = "Moving Pieces";
+		
 		}
 		
 
 	}
 	
-	public String placePiece(Player owner_of_piece, Point location)
+	public void playPiece(String color, int xcoord, int ycoord)
 	{
 		
-		if(!location.isEmpty())
+		if(xcoord < 600) {
+		if(ycoord > 320)
 		{
-			return "Point is already occupied by a piece";
-		}
+			if(ycoord < 440)
+			{
+				if(xcoord > 500)
+				{
+					if(xcoord < 550)
+					{
+						if(ycoord < 350)
+						{
+							board.innerSquare.middleLeft.set_point_state(color);
+							
+						}
+						else
+						{
+							board.innerSquare.bottomLeft.set_point_state(color);
+							
+
+						}
+					}
+					else
+					{
+						board.innerSquare.bottomMiddle.set_point_state(color);
+						
+					}
+				}
+				else
+				{
+					if(xcoord < 400)
+					{
+						board.outerSquare.middleLeft.set_point_state(color);
+						
+					}
+					else
+					{
+						board.middleSquare.middleLeft.set_point_state(color);
+						
+					}
+				}
+			}
+			else
+			{
+				if(ycoord > 500)
+				{
+					if(xcoord < 440)
+					{
+						board.outerSquare.bottomLeft.set_point_state(color);
+					
+					}
+					else
+					{
+						board.outerSquare.bottomMiddle.set_point_state(color);
+						
+					}
+				}
+				else
+				{
+					if(xcoord < 500)
+					{
+						board.middleSquare.bottomLeft.set_point_state(color);
+						
+						
+					}
+					else
+					{
+						board.middleSquare.bottomMiddle.set_point_state(color);
+						
+					}
+				}
+			}
+			
+		} 
 		else
 		{
-			String color_of_piece = location.get_point_state();
-			location.set_point_state(color_of_piece);
-
-
-
-
-
-
-
-			owner_of_piece.decrementpiecesOnBoard();
-			owner_of_piece.playPiece();
-
-
-
-			return "Piece placed";
-			
+			if(xcoord > 550)
+			{
+				if(ycoord > 200)
+				{
+					board.innerSquare.topMiddle.set_point_state(color);
+					
+				}
+				else
+				{
+					if(ycoord > 100)
+					{
+						board.middleSquare.topMiddle.set_point_state(color);
+					}
+					else
+					{
+						board.outerSquare.topMiddle.set_point_state(color);
+					}
+				}
+			}
+			else
+			{
+				if(ycoord > 200)
+				{
+					board.innerSquare.topLeft.set_point_state(color);
+				}
+				else
+				{
+					if(ycoord > 100)
+					{
+						board.middleSquare.topLeft.set_point_state(color);
+					}
+					else
+					{
+						board.outerSquare.topLeft.set_point_state(color);
+					}
+				}
+			}
 		}
 		
 	}
+	else // x > 600
+	{
+	 if(ycoord > 320)
+	 {
+		 if(ycoord < 350)
+		 {
+			 if(xcoord < 700)
+			 {
+				 board.innerSquare.middleRight.set_point_state(color);
+			 }
+			 else
+			 {
+				 if(xcoord < 800)
+				 {
+					 board.middleSquare.middleRight.set_point_state(color);
+				 }
+				 else
+				 {
+					 board.outerSquare.middleRight.set_point_state(color);
+				 }
+			 }
+		 }
+		 else
+		 {
+			 if(xcoord < 700)
+			 {
+				 if(ycoord < 440)
+				 {
+					 board.innerSquare.bottomLeft.set_point_state(color);
+				 }
+				 else
+				 {
+					 board.middleSquare.bottomLeft.set_point_state(color);
+				 }
+			 }
+			 else
+			 {
+				 board.outerSquare.bottomLeft.set_point_state(color);
+			 }
+		 }
+	 }
+	 else // y < 320
+	 {
+		 if(xcoord > 700)
+		 {
+			 board.outerSquare.topRight.set_point_state(color);
+		 }
+		 else
+		 {
+			 if(ycoord > 200)
+			 {
+				 board.innerSquare.topRight.set_point_state(color);
+			 }
+			 else
+			 {
+				 board.middleSquare.topRight.set_point_state(color);
+			 }
+		 }
+	 }
+	}
+	}
+	
+
+
 	
 
 

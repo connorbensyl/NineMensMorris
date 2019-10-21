@@ -144,20 +144,37 @@ public class Player {
 				}
 				else
 				{
-					
+					if(xcoord < 500)
+					{
+						board.middleSquare.bottomLeft.set_point_state(color);
+						return board;
+						
+					}
+					else
+					{
+						board.middleSquare.bottomMiddle.set_point_state(color);
+						return board;
+					}
 				}
 			}
-			
+		}
 		} 
 		else
 		{
-			if(ycoord < 320)
+			if(xcoord > 550)
 			{
-				
-			}
-			else
-			{
-				
+				if(ycoord > 200)
+				{
+					board.innerSquare.topMiddle.set_point_state(color);
+					return board;
+				}
+				else
+				{
+					if(ycoord > 100)
+					{
+						board.middleSquare.topMiddle.set_point_state(color);
+					}
+				}
 			}
 		}
 		
