@@ -23,11 +23,12 @@ public class Controller {
 		board.connectIntersquarePoints();
 		board.setSquareCoords();
 		Point iterate = board.outerSquare.topLeft;
+		//piece placement start
 		while(player1.getPiecesLeftToPlace() != 0 && player1.getPiecesLeftToPlace() != 0)
 		{
 			if(is_player1_turn) //player 1's turn
 			{
-				
+				//player.placepiece(board)
 				if(player1.getPiecesLeftToPlace() != 0)
 				{
 			        //if mouseclick, then the following code
@@ -35,7 +36,6 @@ public class Controller {
 					{
 						if(iterate.get_xcoord() == gui.xRecieved && iterate.get_ycoord() == gui.yRecieved)
 						{
-							
 							placePiece(player1, iterate);
 							player1.playPiece();
 							if(board.outerSquare.topLeft == iterate)
@@ -141,7 +141,6 @@ public class Controller {
 							// reset point iterate
 							//code for updating gui to show black piece here.
 							//mousexcoord and mouseycoord are placeholders because I'm not sure how mouseevents work with the gui - Connor
-							
 						}
 						
 						

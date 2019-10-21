@@ -45,7 +45,6 @@ public class Board
 	
 	public void setSquareCoords()
 	{   
-		
 		//coordinates for points on outer square
 		outerSquare.topLeft.set_coords(345,65);
 		outerSquare.middleLeft.set_coords(345,315);
