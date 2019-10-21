@@ -1,7 +1,7 @@
 package sprint1;
 public class Controller {
 	
-	private String Phase;
+	
 	private Board board = new Board();
 	private Player player1;
 	private Player player2;
