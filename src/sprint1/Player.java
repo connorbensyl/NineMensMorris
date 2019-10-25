@@ -62,7 +62,7 @@ public class Player {
 	
 	
 	
-	public void setpiecesOnBoard(int num) //for testing reasons so I don't have to decrement 6 times to test flying
+	public void setpiecesOnBoard(int num) 
 	{
 		this.piecesOnBoard = num;
 	}
