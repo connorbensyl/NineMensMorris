@@ -99,7 +99,7 @@ public class Gui1 extends JFrame {
 		PlayerVsPlayer.setTitle("Nine Men's Morris: Player VS Player");
 		PlayerVsPlayer.setSize(1920,1080);
 		PlayerVsPlayer.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		PlayerVsPlayer.add(pvprect);
+		PlayerVsPlayer.getContentPane().add(pvprect);
 		PlayerVsPlayer.setVisible(false);
 		PlayerVsPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -108,7 +108,7 @@ public class Gui1 extends JFrame {
 		PlayerVsAI.setTitle("Nine Men's Morris: Player VS AI");
 		PlayerVsAI.setSize(1920,1080);
 		PlayerVsAI.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		PlayerVsAI.add(pvarect);
+		PlayerVsAI.getContentPane().add(pvarect);
 		PlayerVsAI.setVisible(false);
 		PlayerVsAI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
