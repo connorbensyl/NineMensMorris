@@ -1,8 +1,7 @@
 package sprint1;
 public class Controller {
-
 	
-	private String Phase;
+	
 	private Board board = new Board();
 	private Player player1;
 	private Player player2;
@@ -19,11 +18,11 @@ public class Controller {
 		player1.setName("Jim");
 		player2.setName("Billy");
 		is_player1_turn = true;
-		Phase = "Placing Pieces";
 		board.connectAllLocalPoints();
 		board.connectIntersquarePoints();
 		board.setSquareCoords();
-		Point iterate = board.outerSquare.topLeft;
+		
+		//piece placement start
 		while(player1.getPiecesLeftToPlace() != 0 && player1.getPiecesLeftToPlace() != 0)
 		{
 			if(is_player1_turn) //player 1's turn
@@ -31,134 +30,7 @@ public class Controller {
 				
 				if(player1.getPiecesLeftToPlace() != 0)
 				{
-			        //if mouseclick, then the following code
-					while(iterate.next != board.innerSquare.topLeft)
-					{
-						if(iterate.get_xcoord() == gui.xRecieved && iterate.get_ycoord() == gui.yRecieved)
-						{
-							
-							playPiece(player1, iterate);
-							player1.playPiece();
-							if(board.outerSquare.topLeft == iterate)
-							{
-								board.outerSquare.topLeft.set_point_state("black");
-							}
-							else if(board.outerSquare.middleLeft == iterate)
-							{
-								board.outerSquare.middleLeft.set_point_state("black");
-							}
-							else if(board.outerSquare.bottomLeft == iterate)
-							{
-								board.outerSquare.bottomLeft.set_point_state("black");
-							}
-							else if(board.outerSquare.bottomMiddle == iterate)
-							{
-								board.outerSquare.bottomMiddle.set_point_state("black");
-							}
-							else if(board.outerSquare.bottomRight == iterate)
-							{
-								board.outerSquare.bottomRight.set_point_state("black");
-							}
-							else if(board.outerSquare.middleRight == iterate)
-							{
-								board.outerSquare.middleRight.set_point_state("black");
-							}
-							else if(board.outerSquare.topRight == iterate)
-							{
-								board.outerSquare.topRight.set_point_state("black");
-							}
-							else if(board.outerSquare.topMiddle == iterate)
-							{
-								board.outerSquare.topMiddle.set_point_state("black");
-							}
-							else if(board.middleSquare.topLeft == iterate)
-							{
-								board.middleSquare.topLeft.set_point_state("black");
-							}
-							else if(board.middleSquare.middleLeft == iterate)
-							{
-								board.middleSquare.middleLeft.set_point_state("black");
-							}
-							else if(board.middleSquare.bottomLeft == iterate)
-							{
-								board.middleSquare.bottomLeft.set_point_state("black");
-							}
-							else if(board.middleSquare.bottomMiddle == iterate)
-							{
-								board.middleSquare.bottomMiddle.set_point_state("black");
-							}
-							else if(board.middleSquare.bottomRight == iterate)
-							{
-								board.middleSquare.bottomRight.set_point_state("black");
-							}
-							else if(board.middleSquare.middleRight == iterate)
-							{
-								board.middleSquare.middleRight.set_point_state("black");
-							}
-							else if(board.middleSquare.topRight == iterate)
-							{
-								board.middleSquare.topRight.set_point_state("black");
-							}
-							else if(board.middleSquare.topMiddle == iterate)
-							{
-								board.middleSquare.topMiddle.set_point_state("black");
-							}
-							if(board.innerSquare.topLeft == iterate)
-							{
-								board.innerSquare.topLeft.set_point_state("black");
-							}
-							else if(board.innerSquare.middleLeft == iterate)
-							{
-								board.innerSquare.middleLeft.set_point_state("black");
-							}
-							else if(board.innerSquare.bottomLeft == iterate)
-							{
-								board.innerSquare.bottomLeft.set_point_state("black");
-							}
-							else if(board.innerSquare.bottomMiddle == iterate)
-							{
-								board.innerSquare.bottomMiddle.set_point_state("black");
-							}
-							else if(board.innerSquare.bottomRight == iterate)
-							{
-								board.innerSquare.bottomRight.set_point_state("black");
-							}
-							else if(board.innerSquare.middleRight == iterate)
-							{
-								board.innerSquare.middleRight.set_point_state("black");
-							}
-							else if(board.innerSquare.topRight == iterate)
-							{
-								board.innerSquare.topRight.set_point_state("black");
-							}
-							else if(board.innerSquare.topMiddle == iterate)
-							{
-								board.innerSquare.topMiddle.set_point_state("black");
-							}
-							
-							
-							
-							iterate = board.outerSquare.topLeft;
-							// reset point iterate
-							//code for updating gui to show black piece here.
-							//mousexcoord and mouseycoord are placeholders because I'm not sure how mouseevents work with the gui - Connor
-							
-						}
-						
-						
-						
-						if(iterate.next == board.outerSquare.topLeft)
-						{
-							iterate = board.middleSquare.topLeft;
-						}
-						
-						if(iterate.next == board.middleSquare.topLeft)
-						{
-							iterate = board.innerSquare.topLeft;
-						}
-						
-						iterate = iterate.next;
-					}
+					playPiece("black",gui.xRecieved,gui.yRecieved);
 					
 				}
 				is_player1_turn = false; //pass turn
@@ -168,182 +40,200 @@ public class Controller {
 				
 				if(player2.getPiecesLeftToPlace() != 0)
 				{
-					//if mouseclick, then the following code
-					while(iterate.next != board.innerSquare.topLeft)
-					{
-						if(iterate.get_xcoord() == gui.xRecieved && iterate.get_ycoord() == gui.yRecieved)
-						{
-							placePiece(player2, iterate);
-							player2.playPiece();
-							if(board.outerSquare.topLeft == iterate)
-							{
-								board.outerSquare.topLeft.set_point_state("white");
-							}
-							else if(board.outerSquare.middleLeft == iterate)
-							{
-								board.outerSquare.middleLeft.set_point_state("white");
-							}
-							else if(board.outerSquare.bottomLeft == iterate)
-							{
-								board.outerSquare.bottomLeft.set_point_state("white");
-							}
-							else if(board.outerSquare.bottomMiddle == iterate)
-							{
-								board.outerSquare.bottomMiddle.set_point_state("white");
-							}
-							else if(board.outerSquare.bottomRight == iterate)
-							{
-								board.outerSquare.bottomRight.set_point_state("white");
-							}
-							else if(board.outerSquare.middleRight == iterate)
-							{
-								board.outerSquare.middleRight.set_point_state("white");
-							}
-							else if(board.outerSquare.topRight == iterate)
-							{
-								board.outerSquare.topRight.set_point_state("white");
-							}
-							else if(board.outerSquare.topMiddle == iterate)
-							{
-								board.outerSquare.topMiddle.set_point_state("white");
-							}
-							else if(board.middleSquare.topLeft == iterate)
-							{
-								board.middleSquare.topLeft.set_point_state("white");
-							}
-							else if(board.middleSquare.middleLeft == iterate)
-							{
-								board.middleSquare.middleLeft.set_point_state("white");
-							}
-							else if(board.middleSquare.bottomLeft == iterate)
-							{
-								board.middleSquare.bottomLeft.set_point_state("white");
-							}
-							else if(board.middleSquare.bottomMiddle == iterate)
-							{
-								board.middleSquare.bottomMiddle.set_point_state("white");
-							}
-							else if(board.middleSquare.bottomRight == iterate)
-							{
-								board.middleSquare.bottomRight.set_point_state("white");
-							}
-							else if(board.middleSquare.middleRight == iterate)
-							{
-								board.middleSquare.middleRight.set_point_state("white");
-							}
-							else if(board.middleSquare.topRight == iterate)
-							{
-								board.middleSquare.topRight.set_point_state("white");
-							}
-							else if(board.middleSquare.topMiddle == iterate)
-							{
-								board.middleSquare.topMiddle.set_point_state("white");
-							}
-							if(board.innerSquare.topLeft == iterate)
-							{
-								board.innerSquare.topLeft.set_point_state("white");
-							}
-							else if(board.innerSquare.middleLeft == iterate)
-							{
-								board.innerSquare.middleLeft.set_point_state("white");
-							}
-							else if(board.innerSquare.bottomLeft == iterate)
-							{
-								board.innerSquare.bottomLeft.set_point_state("white");
-							}
-							else if(board.innerSquare.bottomMiddle == iterate)
-							{
-								board.innerSquare.bottomMiddle.set_point_state("white");
-							}
-							else if(board.innerSquare.bottomRight == iterate)
-							{
-								board.innerSquare.bottomRight.set_point_state("white");
-							}
-							else if(board.innerSquare.middleRight == iterate)
-							{
-								board.innerSquare.middleRight.set_point_state("white");
-							}
-							else if(board.innerSquare.topRight == iterate)
-							{
-								board.innerSquare.topRight.set_point_state("white");
-							}
-							else if(board.innerSquare.topMiddle == iterate)
-							{
-								board.innerSquare.topMiddle.set_point_state("white");
-							}
-							iterate = board.outerSquare.topLeft; // reset point iterate
-							//code for updating gui to show white piece here.
-							//mousexcoord and mouseycoord are placeholders because I'm not sure how mouseevents work with the gui - Connor
-							
-						}
-						
-						iterate = iterate.next;
-						
-						if(iterate.next == board.outerSquare.topLeft)
-						{
-							iterate = board.middleSquare.topLeft;
-						}
-						
-						if(iterate.next == board.middleSquare.topLeft)
-						{
-							iterate = board.innerSquare.topLeft;
-						}
-					
+					playPiece("white",gui.xRecieved,gui.yRecieved);
 				}
 				is_player1_turn = true; //pass turn
 			}
 		}
 		
-		Phase = "Moving Pieces";
+		
 		}
 		
 
-	}
 	
-	public String placePiece(Board board, Player owner_of_piece, int xcoord, int ycoord)
+	
+	public void playPiece(String color, int xcoord, int ycoord)
 	{
 		
-		if(xcoord < 600)
+		if(xcoord < 600) {
+		if(ycoord > 320)
 		{
-		if(ycoord < 320)
-		{
-			if(ycoord < 200)
+			if(ycoord < 440)
 			{
-				
+				if(xcoord > 500)
+				{
+					if(xcoord < 550)
+					{
+						if(ycoord < 350)
+						{
+							board.innerSquare.middleLeft.set_point_state(color);
+							
+						}
+						else
+						{
+							board.innerSquare.bottomLeft.set_point_state(color);
+							
+
+						}
+					}
+					else
+					{
+						board.innerSquare.bottomMiddle.set_point_state(color);
+						
+					}
+				}
+				else
+				{
+					if(xcoord < 400)
+					{
+						board.outerSquare.middleLeft.set_point_state(color);
+						
+					}
+					else
+					{
+						board.middleSquare.middleLeft.set_point_state(color);
+						
+					}
+				}
 			}
 			else
 			{
-				
+				if(ycoord > 500)
+				{
+					if(xcoord < 440)
+					{
+						board.outerSquare.bottomLeft.set_point_state(color);
+					
+					}
+					else
+					{
+						board.outerSquare.bottomMiddle.set_point_state(color);
+						
+					}
+				}
+				else
+				{
+					if(xcoord < 500)
+					{
+						board.middleSquare.bottomLeft.set_point_state(color);
+						
+						
+					}
+					else
+					{
+						board.middleSquare.bottomMiddle.set_point_state(color);
+						
+					}
+				}
 			}
 			
 		} 
 		else
 		{
-			if(ycoord < 320)
+			if(xcoord > 550)
 			{
-				
+				if(ycoord > 200)
+				{
+					board.innerSquare.topMiddle.set_point_state(color);
+					
+				}
+				else
+				{
+					if(ycoord > 100)
+					{
+						board.middleSquare.topMiddle.set_point_state(color);
+					}
+					else
+					{
+						board.outerSquare.topMiddle.set_point_state(color);
+					}
+				}
 			}
 			else
 			{
-				
+				if(ycoord > 200)
+				{
+					board.innerSquare.topLeft.set_point_state(color);
+				}
+				else
+				{
+					if(ycoord > 100)
+					{
+						board.middleSquare.topLeft.set_point_state(color);
+					}
+					else
+					{
+						board.outerSquare.topLeft.set_point_state(color);
+					}
+				}
 			}
 		}
 		
 	}
-		else
-		{
-			if(ycoord < 320)
-			{
-				
-			}
-			else
-			{
-				
-			}
-		}
-		owner_of_piece.increment_piece_values();
-		return "Piece placed";
+	else // x > 600
+	{
+	 if(ycoord > 320)
+	 {
+		 if(ycoord < 350)
+		 {
+			 if(xcoord < 700)
+			 {
+				 board.innerSquare.middleRight.set_point_state(color);
+			 }
+			 else
+			 {
+				 if(xcoord < 800)
+				 {
+					 board.middleSquare.middleRight.set_point_state(color);
+				 }
+				 else
+				 {
+					 board.outerSquare.middleRight.set_point_state(color);
+				 }
+			 }
+		 }
+		 else
+		 {
+			 if(xcoord < 700)
+			 {
+				 if(ycoord < 440)
+				 {
+					 board.innerSquare.bottomLeft.set_point_state(color);
+				 }
+				 else
+				 {
+					 board.middleSquare.bottomLeft.set_point_state(color);
+				 }
+			 }
+			 else
+			 {
+				 board.outerSquare.bottomLeft.set_point_state(color);
+			 }
+		 }
+	 }
+	 else // y < 320
+	 {
+		 if(xcoord > 700)
+		 {
+			 board.outerSquare.topRight.set_point_state(color);
+		 }
+		 else
+		 {
+			 if(ycoord > 200)
+			 {
+				 board.innerSquare.topRight.set_point_state(color);
+			 }
+			 else
+			 {
+				 board.middleSquare.topRight.set_point_state(color);
+			 }
+		 }
+	 }
 	}
+	}
+	
+
+
 	
 
 

@@ -8,9 +8,21 @@ public class Player {
 	private int piecesOnBoard = 0;
 	private boolean canFly = false;
 	private String name;
+	private String phase;
 	
 	public Player() {
 		canFly = false;
+		phase = "placing pieces";
+	}
+	
+	public void setPhase(String phase)
+	{
+		this.phase = phase;
+	}
+	
+	public String getPhase()
+	{
+		return this.phase;
 	}
 	
 	public String getName() {
@@ -50,11 +62,11 @@ public class Player {
 	
 	
 	
-	public void setpiecesOnBoard(int num) //for testing reasons so I don't have to decrement 6 times to test flying
+	public void setpiecesOnBoard(int num) 
 	{
 		this.piecesOnBoard = num;
 	}
-	
+	public
 	//Can player fly
 	
 	boolean canFly() {
@@ -71,49 +83,7 @@ public class Player {
 	
 	
 	
-	public void playPiece(Board board, String color, int xcoord, int ycoord)
-	{
-		if(xcoord < 600)
-		{
-		if(ycoord < 320)
-		{
-			if(ycoord < 200)
-			{
-				
-			}
-			else
-			{
-				
-			}
-			
-		} 
-		else
-		{
-			if(ycoord < 320)
-			{
-				
-			}
-			else
-			{
-				
-			}
-		}
-		
-	}
-		else
-		{
-			if(ycoord < 320)
-			{
-				
-			}
-			else
-			{
-				
-			}
-		}
-		numPiecesPlayed++;
-		piecesOnBoard++;
-	}
+	
 	public void decrementpiecesOnBoard()
 	{
 		piecesOnBoard--;
