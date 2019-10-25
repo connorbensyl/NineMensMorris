@@ -79,10 +79,16 @@ public class Player {
 			return false;
 		}
 		
+		
+		
 	}
 	
 	
-	
+	public void playPiece_incr_decr()
+	{
+		this.piecesOnBoard++;
+		this.numPiecesPlayed++;
+	}
 	
 	public void decrementpiecesOnBoard()
 	{
@@ -93,6 +99,7 @@ public class Player {
 	{
 		numGamesWon++;
 	}
+	
 	
 	
 

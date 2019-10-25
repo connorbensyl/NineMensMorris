@@ -20,7 +20,7 @@ Player testplayer = new Player();
 	@Test
 	void testplaypieceanddecrement()
 	{
-		testplayer.playPiece();
+		
 		assertEquals(testplayer.getNumPiecesPlayed(),1);
 		assertEquals(testplayer.getPiecesOnBoard(),1);
 		assertEquals(testplayer.getPiecesLeftToPlace(),8);

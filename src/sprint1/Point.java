@@ -151,7 +151,79 @@ public int get_ycoord()
 	return yCoordinate;
 }
  
+
+public boolean isPartOfMill()
+{
+  
+  if(this.pointState == "null")
+  {
+	  return false;
+	  
+  }
+  if(this.isMidpoint)
+  {
+	if(this.lookRight.pointState != "null" && this.lookLeft.pointState != "null")
+	{
+	  if(this.pointState == this.lookLeft.pointState && this.pointState == this.lookRight.pointState)
+	  {
+		  return true;
+	  }
+	}
+	
+	if(this.lookUp.pointState != "null" && this.lookDown.pointState != "null")
+	{
+		if(this.pointState == this.lookUp.pointState && this.pointState == this.lookDown.pointState)
+		  {
+			  return true;
+		  }
+	}
+  }
+	  
+  if(this.lookLeft.pointState != "null")
+	  {
+		  if(this.pointState == this.lookLeft.pointState && this.lookLeft.pointState == this.lookLeft.lookLeft.pointState)
+		  {
+			  return true;
+		  } 
+	  }
+	  
+	  if(this.lookRight.pointState != "null")
+	  {
+		  if(this.pointState == this.lookRight.pointState && this.lookRight.pointState == this.lookRight.lookRight.pointState)
+		  {
+			  return true;
+		  }
+	  }
+	  
+	  if(this.lookDown.pointState != "null")
+	  {
+		  if(this.pointState == this.lookDown.pointState && this.lookDown.pointState == this.lookDown.lookDown.pointState)
+		  {
+			  return true;
+		  }
+	  }
+	  
+	  if(this.lookUp.pointState != "null")
+	  {
+		  if(this.pointState == this.lookUp.pointState && this.lookUp.pointState == this.lookUp.lookUp.pointState)
+		  {
+			  return true;
+		  }
+	  }
+	  
+	  
+	  //if none of the above are true
+		return false;  
+  }
+	
+	  
+	  
+	  
+	  
+	  
+ 
  
  
 }
+
  
