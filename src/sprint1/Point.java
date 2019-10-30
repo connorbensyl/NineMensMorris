@@ -13,25 +13,26 @@ public class Point
      private Point lookDown;
      private int xCoordinate;
      private int yCoordinate;
-     Point next;
+     Point nullPoint;
  
  public Point(boolean iscorner, boolean ismidpoint, int x, int y)
  {
-	 
+	 nullPoint = new Point(false,false,-10,-10);
 	 isCorner = iscorner;
 	 isMidpoint = ismidpoint;
-	 pointState = null;
-	 lookRight = null;
-	 lookLeft = null;
-	 lookUp = null;
-	 lookDown = null;
+	 pointState = "none";
+	 lookRight = nullPoint;
+	 lookLeft = nullPoint;
+	 lookUp = nullPoint;
+	 lookDown = nullPoint;
 	 xCoordinate = x;
 	 yCoordinate = y;
+	 
  }
  
  Point(boolean iscorner, boolean ismidpoint, String point_state) //point occupied by a black piece, a white piece, or none
  {
-	 if(point_state.toLowerCase() != "black" && point_state.toLowerCase() != "white" && point_state != null)
+	 if(point_state.toLowerCase() != "black" && point_state.toLowerCase() != "white" && point_state != "none")
 	 {
 		 System.out.print("point_state invalid argument");
 	 }
@@ -83,7 +84,7 @@ public class Point
  }
  
  public boolean isEmpty() {
-	 if (pointState==null)
+	 if (pointState=="none")
 		 return true;
 	 else
 		 return false;
@@ -131,15 +132,6 @@ public class Point
 	 this.yCoordinate = y;
  }
  
- public Point getNext()
- {
-	 return next;
- }
-
-public void setNext(Point Next) {
-	 this.next = Next;
-	
-}
 
 public int get_xcoord()
 {
