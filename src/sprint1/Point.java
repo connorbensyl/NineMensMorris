@@ -14,10 +14,15 @@ public class Point
      private int xCoordinate;
      private int yCoordinate;
      Point nullPoint;
+     
+public Point()
+{
+    	 
+}
  
  public Point(boolean iscorner, boolean ismidpoint, int x, int y)
  {
-	 nullPoint = new Point(false,false,-10,-10);
+	 nullPoint = new Point();
 	 isCorner = iscorner;
 	 isMidpoint = ismidpoint;
 	 pointState = "none";
@@ -147,14 +152,14 @@ public int get_ycoord()
 public boolean isPartOfMill()
 {
   
-  if(this.pointState.isEmpty())
+  if(this == this.getnullPoint() || this.isEmpty())
   {
 	  return false;
 	  
   }
-  if(this.isMidpoint)
+  if(this.isMidpoint && this != this.nullPoint)
   {
-	if(!this.lookRight.pointState.isEmpty() && !this.lookLeft.pointState.isEmpty())
+	if(!this.lookRight.pointState.isEmpty() && !this.lookLeft.pointState.isEmpty() && this.lookRight != this.nullPoint && this.lookLeft != this.nullPoint)
 	{
 	  if(this.pointState == this.lookLeft.pointState && this.pointState == this.lookRight.pointState)
 	  {
@@ -162,7 +167,7 @@ public boolean isPartOfMill()
 	  }
 	}
 	
-	if(!this.lookUp.pointState.isEmpty() && !this.lookDown.pointState.isEmpty())
+	if(!this.lookUp.pointState.isEmpty() && !this.lookDown.pointState.isEmpty() && this.lookUp != this.nullPoint && this.lookDown != this.nullPoint)
 	{
 		if(this.pointState == this.lookUp.pointState && this.pointState == this.lookDown.pointState)
 		  {
@@ -171,7 +176,7 @@ public boolean isPartOfMill()
 	}
   }
 	  
-  if(!this.lookLeft.pointState.isEmpty())
+  if((!this.lookLeft.pointState.isEmpty()) && this.lookLeft != this.nullPoint)
 	  {
 		  if(this.pointState == this.lookLeft.pointState && this.lookLeft.pointState == this.lookLeft.lookLeft.pointState)
 		  {
@@ -179,7 +184,7 @@ public boolean isPartOfMill()
 		  } 
 	  }
 	  
-	  if(!this.lookRight.pointState.isEmpty())
+	  if(!this.lookRight.pointState.isEmpty() && this.lookRight != this.nullPoint)
 	  {
 		  if(this.pointState == this.lookRight.pointState && this.lookRight.pointState == this.lookRight.lookRight.pointState)
 		  {
@@ -187,7 +192,7 @@ public boolean isPartOfMill()
 		  }
 	  }
 	  
-	  if(!this.lookDown.pointState.isEmpty())
+	  if(!this.lookDown.pointState.isEmpty() && this.lookDown != this.nullPoint)
 	  {
 		  if(this.pointState == this.lookDown.pointState && this.lookDown.pointState == this.lookDown.lookDown.pointState)
 		  {
@@ -195,7 +200,7 @@ public boolean isPartOfMill()
 		  }
 	  }
 	  
-	  if(!this.lookUp.pointState.isEmpty())
+	  if(!this.lookUp.pointState.isEmpty() && this.lookUp != this.nullPoint)
 	  {
 		  if(this.pointState == this.lookUp.pointState && this.lookUp.pointState == this.lookUp.lookUp.pointState)
 		  {
@@ -208,7 +213,10 @@ public boolean isPartOfMill()
 		return false;  
   }
 	
-	  
+public Point getnullPoint()
+{
+	return nullPoint;
+}
 	  
 	  
 	  
