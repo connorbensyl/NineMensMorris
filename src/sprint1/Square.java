@@ -34,7 +34,7 @@ public class Square
 		bottomRight.setUp(middleRight);
   }
   
-  public void setPointNext()
+ /* public void setPointNext()
   {
 	  topLeft.setNext(middleLeft);
 	  middleLeft.setNext(bottomLeft);
@@ -46,6 +46,6 @@ public class Square
 	  topMiddle.setNext(topLeft);
 	  
   }
-  
+  */
 }
 
