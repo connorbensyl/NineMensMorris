@@ -8,11 +8,14 @@ public class Main {
 		b.connectAllLocalPoints();
 		b.connectIntersquarePoints();
 		b.setSquareCoords();
-		b.innerSquare.bottomRight.set_point_state("black");
-		b.innerSquare.middleRight.set_point_state("black");
-		b.innerSquare.topRight.set_point_state("black");
-		System.out.println(b.innerSquare.bottomRight.isPartOfMill());
-		
+		b.innerSquare.bottomLeft.set_point_state("black");
+		b.innerSquare.middleLeft.set_point_state("black");
+		b.innerSquare.topLeft.set_point_state("black");
+		System.out.println(b.innerSquare.bottomLeft.isPartOfMill());
+		System.out.println(b.innerSquare.middleLeft.isPartOfMill());
+		Gui1 gui = new Gui1();
+		Controller control = new Controller(gui);
+		control.control_game(gui);
 		
 	}
 
