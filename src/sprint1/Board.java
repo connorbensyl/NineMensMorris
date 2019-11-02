@@ -3,7 +3,6 @@ package sprint1;
 
 import sprint1.Gui1;
 
-
 public class Board 
 {
 	Square outerSquare = new Square();
@@ -46,7 +45,6 @@ public class Board
 	
 	public void setSquareCoords()
 	{   
-		
 		//coordinates for points on outer square
 		outerSquare.topLeft.set_coords(345,65);
 		outerSquare.middleLeft.set_coords(345,315);
@@ -77,9 +75,8 @@ public class Board
 		innerSquare.middleRight.set_coords(665, 315);
 		innerSquare.topRight.set_coords(665, 245);
 		innerSquare.topMiddle.set_coords(592,245);
-		
-		
 	}
+	
 	
 	
 }

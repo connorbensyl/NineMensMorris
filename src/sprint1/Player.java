@@ -6,18 +6,31 @@ public class Player {
 	private int numPiecesPlayed = 0;
 	private int numGamesWon = 0;
 	private int piecesOnBoard = 0;
-	private boolean canFly;
+	private boolean canFly = false;
 	private String name;
+	private String phase;
 	
 	public Player() {
 		canFly = false;
+		phase = "placing pieces";
+	}
+	
+	public void setPhase(String phase)
+	{
+		this.phase = phase;
+	}
+	
+	public String getPhase()
+	{
+		return this.phase;
 	}
 	
 	public String getName() {
 		return name;
 	}
 	
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 	
@@ -49,7 +62,7 @@ public class Player {
 	
 	
 	
-	public void setpiecesOnBoard(int num) //for testing reasons so I don't have to decrement 6 times to test flying
+	public void setpiecesOnBoard(int num) 
 	{
 		this.piecesOnBoard = num;
 	}
@@ -61,18 +74,20 @@ public class Player {
 		if ((a == 0) && (piecesOnBoard == 3 )) {
 			return true;
 		}
-		else{
+		else
+		{
 			return false;
 		}
+		
+		
 		
 	}
 	
 	
-	
-	public void playPiece()
+	public void increment_after_piece_played()
 	{
-		numPiecesPlayed++;
-		piecesOnBoard++;
+		this.piecesOnBoard++;
+		this.numPiecesPlayed++;
 	}
 	
 	public void decrementpiecesOnBoard()
@@ -84,6 +99,7 @@ public class Player {
 	{
 		numGamesWon++;
 	}
+	
 	
 	
 

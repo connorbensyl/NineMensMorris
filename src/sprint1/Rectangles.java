@@ -5,13 +5,21 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JButton;
 
 import javax.swing.JPanel;
+
+import sprint1.Controller;
 
 //import sprint3.product.Board.GameState;
 
 
 public class Rectangles extends JPanel {
+	
+	Controller testButtons;
+	
 	Rectangles(){
 	
 	}
@@ -124,10 +132,19 @@ public class Rectangles extends JPanel {
 	    g2d.fillRect(670,320,190,10); 
 	    
 	    ////////////////////////////////
+	    // Buttons
+	    JButton WButton = new JButton("White");
+	    JButton BButton = new JButton("Black");
 	    
 	    //Outer bottom left
 	    g2d.setColor(Color.RED);
 	    g2d.fillRect(345,565,25,25); 
+	    
+	    /*if (testButtons.is_player1_turn) {
+	    	WButton.setForeground(Color.black);
+	    	WButton.setBounds(345,565,25,25);
+	    }*/
+	    
 	     
 	    //Outer middle left
 	    g2d.fillRect(345,315,25,25); 

@@ -20,13 +20,14 @@ Player testplayer = new Player();
 	@Test
 	void testplaypieceanddecrement()
 	{
-		testplayer.playPiece();
+		
 		assertEquals(testplayer.getNumPiecesPlayed(),1);
 		assertEquals(testplayer.getPiecesOnBoard(),1);
 		assertEquals(testplayer.getPiecesLeftToPlace(),8);
 		testplayer.decrementpiecesOnBoard();
 		assertEquals(testplayer.getPiecesOnBoard(),0);
 	}
+	
 	@Test
 	void testincrementgameswon()
 	{
@@ -37,7 +38,7 @@ Player testplayer = new Player();
 	
 	@Test
 	void getPiecesLeftToPlace() {
-	testplayer.playPiece();
+	testplayer.increment_after_piece_played();
 	assertEquals(testplayer.getPiecesLeftToPlace(), 8);
 	}
 	
@@ -46,7 +47,7 @@ Player testplayer = new Player();
 	{
 		assertEquals(testplayer.canFly(),false);
 		for (int i=0;i<9;i++) {
-			testplayer.playPiece();	
+			testplayer.increment_after_piece_played();
 		}
 		for (int j=0;j<6;j++) {
 			testplayer.decrementpiecesOnBoard();

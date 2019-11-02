@@ -21,14 +21,12 @@ class PointTest {
 	{
 		testpoint.set_to_Midpoint();
 		assertEquals(testpoint.get_isMidpoint(),true);
-		assertEquals(testpoint.get_isCorner(),false);
-		
+		assertEquals(testpoint.get_isCorner(),false);	
 	}
 	
 	void test_is_point_empty()
 	{
 		assertEquals(testpoint.isEmpty(),true);
-		
 	}
 	
 	void test_is_point_occupied()
