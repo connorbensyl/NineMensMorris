@@ -62,9 +62,9 @@ public class Board
 		middleSquare.middleLeft.set_coords(445, 315);
 		middleSquare.bottomLeft.set_coords(445, 465);
 		middleSquare.bottomMiddle.set_coords(595, 465);
-		middleSquare.bottomRight.set_coords(845,560);
+		middleSquare.bottomRight.set_coords(745,560);
 		middleSquare.middleRight.set_coords(745, 315);
-		middleSquare.topRight.set_coords(845, 65);
+		middleSquare.topRight.set_coords(745, 65);
 		middleSquare.topMiddle.set_coords(595, 165);
 		
 		
