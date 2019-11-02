@@ -13,7 +13,8 @@ public class Point
      private Point lookDown;
      private int xCoordinate;
      private int yCoordinate;
-     Point nullPoint;
+     private static Point nullPoint = new Point(false,false,0,0);
+     
      
 public Point()
 {
@@ -22,7 +23,7 @@ public Point()
  
  public Point(boolean iscorner, boolean ismidpoint, int x, int y)
  {
-	 nullPoint = new Point();
+	 
 	 isCorner = iscorner;
 	 isMidpoint = ismidpoint;
 	 pointState = "none";
@@ -48,10 +49,10 @@ public Point()
 	 
 	 isCorner = iscorner;
 	 isMidpoint = ismidpoint;
-	 lookRight = null;
-	 lookLeft = null;
-	 lookUp = null;
-	 lookDown = null;
+	 lookRight = nullPoint;
+	 lookLeft = nullPoint;
+	 lookUp = nullPoint;
+	 lookDown = nullPoint;
  }
  
  public boolean get_isCorner()

@@ -38,7 +38,7 @@ Player testplayer = new Player();
 	
 	@Test
 	void getPiecesLeftToPlace() {
-	testplayer.playPiece();
+	testplayer.increment_after_piece_played();
 	assertEquals(testplayer.getPiecesLeftToPlace(), 8);
 	}
 	
@@ -47,7 +47,7 @@ Player testplayer = new Player();
 	{
 		assertEquals(testplayer.canFly(),false);
 		for (int i=0;i<9;i++) {
-			testplayer.playPiece();	
+			testplayer.increment_after_piece_played();
 		}
 		for (int j=0;j<6;j++) {
 			testplayer.decrementpiecesOnBoard();

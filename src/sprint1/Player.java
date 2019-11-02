@@ -84,7 +84,7 @@ public class Player {
 	}
 	
 	
-	public void playPiece_incr_decr()
+	public void increment_after_piece_played()
 	{
 		this.piecesOnBoard++;
 		this.numPiecesPlayed++;

@@ -34,18 +34,6 @@ public class Square
 		bottomRight.setUp(middleRight);
   }
   
-  public void setPointNext()
-  {
-	  topLeft.setNext(middleLeft);
-	  middleLeft.setNext(bottomLeft);
-	  bottomLeft.setNext(bottomMiddle);
-	  bottomMiddle.setNext(bottomRight);
-	  bottomRight.setNext(middleRight);
-	  middleRight.setNext(topRight);
-	  topRight.setNext(topMiddle);
-	  topMiddle.setNext(topLeft);
-	  
-  }
-  
+ 
 }
 
