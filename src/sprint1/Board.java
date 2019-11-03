@@ -8,7 +8,7 @@ public class Board
 	Square outerSquare = new Square();
 	Square middleSquare = new Square();
 	Square innerSquare = new Square();
-	
+	Point pointUsing = null;
 	public void connectIntersquarePoints() {
 		//outer square + middle square connect
 		outerSquare.topMiddle.setDown(middleSquare.topMiddle);
@@ -77,6 +77,11 @@ public class Board
 		innerSquare.topMiddle.set_coords(592,245);
 	}
 	
-	
+	public void setPointUsing(Point in) {
+		pointUsing = in;
+	}
+	public Point getPointUsing() {
+		return pointUsing;
+	}
 	
 }
