@@ -144,15 +144,6 @@ public class Rectangles extends JPanel {
 	    //Outer bottom left
 	    g2d.setColor(Color.RED);
 	    g2d.fillRect(345,565,25,25); 
-	    addMouseListener(new MouseAdapter() {
-	    	public void mouseClicked(MouseEvent e) {
-	    		if (testButtons.is_player1_turn) {
-	    			white.setColor(Color.black);
-	    			white.drawOval(345,565,25,25);
-	    			}
-	    		}
-	    	});
-	    
 	     
 	    //Outer middle left
 	    g2d.fillRect(345,315,25,25); 
