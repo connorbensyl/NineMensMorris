@@ -66,7 +66,7 @@ public class Gui1 extends JFrame{
 	 */
 	public Gui1(){
 		initialize();
-		controller = new Controller(this);
+		
 		
 		addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {  
@@ -74,6 +74,7 @@ public class Gui1 extends JFrame{
 					int xRecieved = e.getX(); /// CELL_SIZE;
 			}
 		});
+		controller = new Controller(this);
 	}
 	
 
@@ -195,4 +196,12 @@ public class Gui1 extends JFrame{
 
 
 	}
+	
+	/* update visual elements of board*/
+	
+void updateBoard() {
+		
+	}
 }
+
+

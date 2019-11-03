@@ -9,8 +9,9 @@ public class Player {
 	private boolean canFly = false;
 	private String name;
 	private String phase;
-	
-	public Player() {
+	public  String color;
+	public Player(String colorIn) {
+		color = colorIn;
 		canFly = false;
 		phase = "placing pieces";
 	}

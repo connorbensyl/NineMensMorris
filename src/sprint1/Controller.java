@@ -3,7 +3,7 @@ public class Controller {
 
 
 	private Board board = new Board();
-	private Player player1;
+	private Player  player1;
 	private Player player2;
 	boolean is_player1_turn;
 	Gui1 gui;
@@ -13,8 +13,8 @@ public class Controller {
 	String moveType = "none";
 	public void control_game(Gui1 controllerGui) 
 	{
-		player1 = new Player();
-		player2 = new Player();
+		player1 = new Player("black");
+		player2 = new Player("white");
 		player1.setName("Todd");
 		player2.setName("Steve");
 		player1.setPhase("placing pieces");
@@ -44,7 +44,6 @@ public class Controller {
 			}
 			else         //player 2's turn
 			{
-
 				if(player2.getPiecesLeftToPlace() != 0)
 				{
 					playPiece(player2,moveType,gui.xRecieved,gui.yRecieved);
@@ -60,11 +59,24 @@ public class Controller {
 		//piece movement start
 		while(player1.getPhase() != "flying" || player2.getPhase() != "flying")
 		{
+			moveType = "move from";
 			if(is_player1_turn)
 			{
 				if(player1.getPiecesOnBoard() > 3)
 				{
-
+					playPiece(player1, moveType, gui.xRecieved,gui.yRecieved);
+				}
+				else
+				{
+					player1.setPhase("flying");
+				}
+			}
+			else //player 2's turn
+			{
+				moveType = "move from";
+				if(player1.getPiecesOnBoard() > 3)
+				{
+					playPiece(player2, moveType, gui.xRecieved,gui.yRecieved);
 				}
 				else
 				{
@@ -95,10 +107,23 @@ public class Controller {
 							if(ycoord < 350)
 							{
 								if (move == "place piece") {
-									board.innerSquare.middleLeft.set_point_state(color);
+									board.innerSquare.middleLeft.set_point_state(currentPlayer.color);
+									//check for created mill
 									if (board.innerSquare.middleLeft.isPartOfMill()) {
-										
-									}
+										moveType = "remove Piece";
+										playPiece(currentPlayer, moveType, gui.xRecieved,gui.yRecieved);
+									}	
+								}
+								if (move =="remove piece") {
+									//remove piece if piece exists and is not in mill
+								}
+								if (move == "move from") {
+									//selected piece becomes pieceToMove //this will not work because passByValue only
+									//moveType changes to "move to"
+									//call playpiece to find point moved to
+								}
+								if (move =="move to") {
+									//if point is empty, remove piece from 
 								}
 							}
 							else
@@ -106,7 +131,7 @@ public class Controller {
 								if (move == "place piece") {
 								if(board.innerSquare.bottomLeft.isEmpty()) 
 								{
-									board.innerSquare.bottomLeft.set_point_state(color);
+									board.innerSquare.bottomLeft.set_point_state(currentPlayer.color);
 									return board.innerSquare.bottomLeft.isPartOfMill();
 								}
 							}
@@ -117,7 +142,7 @@ public class Controller {
 							if (move == "place piece") {
 							if(board.innerSquare.bottomMiddle.isEmpty()) 
 							{
-								board.innerSquare.bottomMiddle.set_point_state(color);
+								board.innerSquare.bottomMiddle.set_point_state(currentPlayer.color);
 								return board.innerSquare.bottomMiddle.isPartOfMill();
 							}
 							}
@@ -130,7 +155,7 @@ public class Controller {
 							if (move == "place piece") {
 							if(board.outerSquare.middleLeft.isEmpty()) 
 							{
-								board.outerSquare.middleLeft.set_point_state(color);
+								board.outerSquare.middleLeft.set_point_state(currentPlayer.color);
 								return board.outerSquare.middleLeft.isPartOfMill();
 							}
 							}
@@ -140,7 +165,7 @@ public class Controller {
 							if (move == "place piece") {
 							if(board.middleSquare.middleLeft.isEmpty()) 
 							{
-								board.middleSquare.middleLeft.set_point_state(color);
+								board.middleSquare.middleLeft.set_point_state(currentPlayer.color);
 								return board.middleSquare.middleLeft.isPartOfMill();
 							}
 							}
@@ -153,11 +178,10 @@ public class Controller {
 					{
 						if(xcoord < 440)
 						{   
-							
 							if (move == "place piece") {
 							if(board.outerSquare.bottomLeft.isEmpty()) 
 							{
-								board.outerSquare.bottomLeft.set_point_state(color);
+								board.outerSquare.bottomLeft.set_point_state(currentPlayer.color);
 								return board.outerSquare.bottomLeft.isPartOfMill();
 							}
 							}
@@ -168,7 +192,7 @@ public class Controller {
 							if (move == "place piece") {
 							if(board.outerSquare.bottomMiddle.isEmpty()) 
 							{
-								board.outerSquare.bottomMiddle.set_point_state(color);
+								board.outerSquare.bottomMiddle.set_point_state(currentPlayer.color);
 								return board.outerSquare.bottomMiddle.isPartOfMill();
 							}
 						}
@@ -182,19 +206,18 @@ public class Controller {
 								if (move == "place piece") {
 							if(board.middleSquare.bottomLeft.isEmpty()) 
 							{
-								board.middleSquare.bottomLeft.set_point_state(color);
+								board.middleSquare.bottomLeft.set_point_state(currentPlayer.color);
 								return board.middleSquare.bottomLeft.isPartOfMill();
 							}
 								}
 							}
-
 						}
 						else
 						{
 							if (move == "place piece") {
 							if(board.middleSquare.bottomMiddle.isEmpty()) 
 							{
-								board.middleSquare.bottomMiddle.set_point_state(color);
+								board.middleSquare.bottomMiddle.set_point_state(currentPlayer.color);
 								return board.middleSquare.bottomMiddle.isPartOfMill();
 							}
 							}
@@ -212,7 +235,7 @@ public class Controller {
 						if (move == "place piece") {
 						if(board.innerSquare.topMiddle.isEmpty()) 
 						{
-							board.innerSquare.topMiddle.set_point_state(color);
+							board.innerSquare.topMiddle.set_point_state(currentPlayer.color);
 							return board.innerSquare.topMiddle.isPartOfMill();
 						}
 						}
@@ -224,7 +247,7 @@ public class Controller {
 							if (move == "place piece") {
 							if(board.middleSquare.topMiddle.isEmpty())
 							{
-								board.middleSquare.topMiddle.set_point_state(color);
+								board.middleSquare.topMiddle.set_point_state(currentPlayer.color);
 								return board.middleSquare.topMiddle.isPartOfMill();
 							}
 							}
@@ -234,7 +257,7 @@ public class Controller {
 							if (move == "place piece") {
 							if(board.outerSquare.topMiddle.isEmpty())
 							{
-								board.outerSquare.topMiddle.set_point_state(color);
+								board.outerSquare.topMiddle.set_point_state(currentPlayer.color);
 								return board.outerSquare.topMiddle.isPartOfMill();
 							}
 							}
@@ -248,7 +271,7 @@ public class Controller {
 						if (move == "place piece") {
 						if(board.innerSquare.topLeft.isEmpty())
 						{
-							board.innerSquare.topLeft.set_point_state(color);
+							board.innerSquare.topLeft.set_point_state(currentPlayer.color);
 							board.innerSquare.topLeft.isPartOfMill();
 						}
 						}
@@ -258,12 +281,12 @@ public class Controller {
 						if (move == "place piece") {
 						if(ycoord > 100)
 						{
-							board.middleSquare.topLeft.set_point_state(color);
+							board.middleSquare.topLeft.set_point_state(currentPlayer.color);
 							return board.middleSquare.topLeft.isPartOfMill();
 						}
 						else
 						{
-							board.outerSquare.topLeft.set_point_state(color);
+							board.outerSquare.topLeft.set_point_state(currentPlayer.color);
 							return board.outerSquare.topLeft.isPartOfMill();
 						}
 					}
@@ -283,7 +306,7 @@ public class Controller {
 						if (move == "place piece") {
 						if(board.innerSquare.middleRight.isEmpty()) 
 						{
-							board.innerSquare.middleRight.set_point_state(color);
+							board.innerSquare.middleRight.set_point_state(currentPlayer.color);
 							return board.innerSquare.middleRight.isPartOfMill();
 						}
 						}
@@ -295,7 +318,7 @@ public class Controller {
 							if (move == "place piece") {
 							if(board.middleSquare.middleRight.isEmpty()) 
 							{
-								board.middleSquare.middleRight.set_point_state(color);
+								board.middleSquare.middleRight.set_point_state(currentPlayer.color);
 								return board.middleSquare.middleRight.isPartOfMill();
 							}
 							}
@@ -305,7 +328,7 @@ public class Controller {
 							{
 							if(board.outerSquare.middleRight.isEmpty())
 							{
-								board.outerSquare.middleRight.set_point_state(color);
+								board.outerSquare.middleRight.set_point_state(currentPlayer.color);
 								return board.outerSquare.middleRight.isPartOfMill();
 							}
 							}
@@ -319,20 +342,20 @@ public class Controller {
 						if(ycoord < 440)
 						{
 							if (move == "place piece") {
-							if(board.innerSquare.bottomLeft.isEmpty()) 
+							if(board.innerSquare.bottomRight.isEmpty()) 
 							{
-								board.innerSquare.bottomLeft.set_point_state(color);
-								return board.innerSquare.bottomLeft.isPartOfMill();
+								board.innerSquare.bottomRight.set_point_state(currentPlayer.color);
+								return board.innerSquare.bottomRight.isPartOfMill();
 							}
 							}
 						}
 						else
 						{
 							if (move == "place piece") {
-							if(board.middleSquare.bottomLeft.isEmpty())
+							if(board.middleSquare.bottomRight.isEmpty())
 							{
-								board.middleSquare.bottomLeft.set_point_state(color);
-								return board.middleSquare.bottomLeft.isPartOfMill();
+								board.middleSquare.bottomRight.set_point_state(currentPlayer.color);
+								return board.middleSquare.bottomRight.isPartOfMill();
 							}
 							}
 						}
@@ -340,10 +363,10 @@ public class Controller {
 					else
 					{
 						if (move == "place piece") {
-						if(board.outerSquare.bottomLeft.isEmpty()) 
+						if(board.outerSquare.bottomRight.isEmpty()) 
 						{
-							board.outerSquare.bottomLeft.set_point_state(color);
-							return board.outerSquare.bottomLeft.isPartOfMill();
+							board.outerSquare.bottomRight.set_point_state(currentPlayer.color);
+							return board.outerSquare.bottomRight.isPartOfMill();
 						}
 						}
 					}
@@ -356,7 +379,7 @@ public class Controller {
 					if (move == "place piece") {
 					if(board.outerSquare.topRight.isEmpty()) 
 					{
-						board.outerSquare.topRight.set_point_state(color);
+						board.outerSquare.topRight.set_point_state(currentPlayer.color);
 						return board.outerSquare.topRight.isPartOfMill();
 					}
 					}
@@ -368,7 +391,7 @@ public class Controller {
 						{
 						if(board.innerSquare.topRight.isEmpty()) 
 						{
-							board.innerSquare.topRight.set_point_state(color);
+							board.innerSquare.topRight.set_point_state(currentPlayer.color);
 							return board.innerSquare.topRight.isPartOfMill();
 						}
 						}
@@ -378,7 +401,7 @@ public class Controller {
 						if (move == "place piece") {
 						if(board.middleSquare.topRight.isEmpty()) 
 						{
-							board.middleSquare.topRight.set_point_state(color);
+							board.middleSquare.topRight.set_point_state(currentPlayer.color);
 							return board.middleSquare.topRight.isPartOfMill();
 						}
 						}

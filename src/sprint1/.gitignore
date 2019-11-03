@@ -1,68 +1,8 @@
-/Board$Cell.class
-/Board.class
-/testBoard.class
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/Gui.class
-/Gui$1.class
-=======
-/Point.class
-/Square.class
-<<<<<<< HEAD
-/module-info.class
-=======
->>>>>>> ba307b5af2abedd29e1fcdac7ae45652947fdf63
-/Controller.class
-=======
-/Point.class
-/Square.class
->>>>>>> ba307b5af2abedd29e1fcdac7ae45652947fdf63
-=======
-/Point.class
-/Square.class
->>>>>>> ba307b5af2abedd29e1fcdac7ae45652947fdf63
-/Piece$PieceColor.class
-/Piece.class
-<<<<<<< HEAD
-/Gui$2.class
-/Gui$3.class
-=======
->>>>>>> 1cc9792f272ccc762e3134378b0593a6c902fb8e
->>>>>>> 51a881c88150d19bf8f7fcd633666523dadf865a
-/Moves.class
-<<<<<<< HEAD
-/Gui1$1.class
-/Gui1.class
-/Gui1$2.class
-/Gui1$3.class
-=======
->>>>>>> d2e6a4a1847d0ee697217298e9c0c648f7f5ef44
-/Player.class
-/Player1Moves.class
-/Player2Moves.class
-/Move.class
-/BoardTest.class
-<<<<<<< HEAD
-/TestGUI$1.class
-/TestGUI.class
-/TestGUI$2.class
-/TestGUI$3.class
-=======
-/BoardTesting.class
->>>>>>> 7f874671de0a6e104655d7a6b4aeffcbe04d35f4
-<<<<<<< HEAD
-/Rectangles.class
-=======
-/BoardTest2.class
-/SquareTest.class
->>>>>>> 71192a96bf271af3377825ffe4db07358dba12d1
-/NineMensMorris.class
-/PlayerTest.class
-/PointTest.class
-/testTest.class
 /Rectangles$1.class
+<<<<<<< HEAD
 /Gui1$4.class
 /Main.class
 /Test_isPartOfMill.class
 /Gui1$5.class
+=======
+>>>>>>> 71e0dc73f7b62713982ae84fcf3a1e5cea3ae309
