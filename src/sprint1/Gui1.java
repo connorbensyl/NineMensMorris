@@ -22,12 +22,8 @@ import sprint1.Rectangles;
 import javax.swing.SwingConstants;
 
 
-
-
 public class Gui1 extends JFrame{
     private static final long serialVersionUID = 1L;
-
-
 
 
 	private Board board;
