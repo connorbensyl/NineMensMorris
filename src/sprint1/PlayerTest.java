@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class PlayerTest {
-Player testplayer = new Player();
+Player testplayer = new Player("black");
 	@Test
 	void testPlayerdefaults() {
 		testplayer.setName("Connor");
