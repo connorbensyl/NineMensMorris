@@ -1,6 +1,7 @@
 package sprint1;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
@@ -20,10 +21,12 @@ public class Rectangles extends JPanel {
 	
 	Controller testButtons;
 	
-	Rectangles(){
+	@Override
+	   public Dimension getPreferredSize() {
+	        return new Dimension(1920, 1080);
+	    }
 	
-	}
-
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
