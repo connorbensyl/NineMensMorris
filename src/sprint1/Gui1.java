@@ -127,7 +127,22 @@ public class Gui1 extends JFrame{
 		txtaiplayer.setBounds(1050, 16, 273, 92);
 
 		
-
+	    // Buttons
+	//	Controller testButtons;
+		
+	    JButton WButton = new JButton("White");
+	    WButton.setBounds(554,290,147,29);
+	    WButton.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    	
+	    	
+	    	}
+	    });
+	    
+	    
+	    
+	    JButton BButton = new JButton("Black");
+	    
 		
 		JButton PVPButton = new JButton("Player VS Player");
 		PVPButton.setForeground(Color.RED);
@@ -143,6 +158,7 @@ public class Gui1 extends JFrame{
 				NineMensMorrisBG.add(txtplayer1);
 				NineMensMorrisBG.add(txtplayer2);
 				NineMensMorrisBG.add(pvprect);
+			//	NineMensMorrisBG.add(WButton);
 				NineMensMorrisBG.repaint();
 				NineMensMorrisBG.revalidate();
 				

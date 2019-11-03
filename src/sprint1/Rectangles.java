@@ -19,7 +19,6 @@ import sprint1.Controller;
 
 public class Rectangles extends JPanel {
 	
-	Controller testButtons;
 	
 	@Override
 	   public Dimension getPreferredSize() {
@@ -135,18 +134,11 @@ public class Rectangles extends JPanel {
 	    g2d.fillRect(670,320,190,10); 
 	    
 	    ////////////////////////////////
-	    // Buttons
-	    JButton WButton = new JButton("White");
-	    JButton BButton = new JButton("Black");
+
 	    
 	    //Outer bottom left
 	    g2d.setColor(Color.RED);
 	    g2d.fillRect(345,565,25,25); 
-	    
-	    /*if (testButtons.is_player1_turn) {
-	    	WButton.setForeground(Color.black);
-	    	WButton.setBounds(345,565,25,25);
-	    }*/
 	    
 	     
 	    //Outer middle left
