@@ -108,9 +108,22 @@ public class Controller {
 							{
 								if (move == "place piece") {
 									board.innerSquare.middleLeft.set_point_state(currentPlayer.color);
+									//check for created mill
 									if (board.innerSquare.middleLeft.isPartOfMill()) {
-										
-									}
+										moveType = "remove Piece";
+										playPiece(currentPlayer, moveType, gui.xRecieved,gui.yRecieved);
+									}	
+								}
+								if (move =="remove piece") {
+									//remove piece if piece exists and is not in mill
+								}
+								if (move == "move from") {
+									//selected piece becomes pieceToMove //this will not work because passByValue only
+									//moveType changes to "move to"
+									//call playpiece to find point moved to
+								}
+								if (move =="move to") {
+									//if point is empty, remove piece from 
 								}
 							}
 							else
