@@ -19,7 +19,6 @@ import sprint1.Rectangles;
 import javax.swing.SwingConstants;
 
 
-
 public class Gui1 extends JFrame {
 
 	private Board board;

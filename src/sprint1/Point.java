@@ -16,6 +16,7 @@ public class Point
      private static Point nullPoint = new Point(false,false,0,0);
      
      
+     
 public Point()
 {
     	 
