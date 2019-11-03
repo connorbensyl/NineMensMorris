@@ -1,10 +1,12 @@
 package sprint1;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -12,6 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import sprint1.Controller;
 
 import sprint1.Board;
 import sprint1.Rectangles;
@@ -19,13 +22,17 @@ import sprint1.Rectangles;
 import javax.swing.SwingConstants;
 
 
+<<<<<<< HEAD
 
+public class Gui1 extends JFrame{
+    private static final long serialVersionUID = 1L;
+=======
 public class Gui1 extends JFrame {
+>>>>>>> 22c3f3ef16755b404793a5acb72e9a715b96aa74
 
 	private Board board;
 	
 	Controller controller;
-	
 	
 	public void setUp()	throws Exception{
 		board = new Board();
@@ -35,11 +42,8 @@ public class Gui1 extends JFrame {
 	}
 	
 	JFrame NineMensMorris;
-	JFrame PlayerVsPlayer;
-	JFrame PlayerVsAI;
 	JPanel NineMensMorrisBG;
-	JPanel NineMensMorrisPVP;
-	JPanel NineMensMorrisPVA;
+
 	private JTextField txtWelcome;
 	int yRecieved;
 	int xRecieved;
@@ -82,7 +86,8 @@ public class Gui1 extends JFrame {
 	 */
 
 	private void initialize() {
-		
+
+
 		
 		Rectangles pvprect = new Rectangles();
 		Rectangles pvarect = new Rectangles();
@@ -93,34 +98,15 @@ public class Gui1 extends JFrame {
 		NineMensMorris.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		NineMensMorris.setVisible(true);
 		NineMensMorris.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		PlayerVsPlayer = new JFrame();
-		PlayerVsPlayer.setTitle("Nine Men's Morris: Player VS Player");
-		PlayerVsPlayer.setSize(1920,1080);
-		PlayerVsPlayer.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		PlayerVsPlayer.getContentPane().add(pvprect);
-		PlayerVsPlayer.setVisible(false);
-		PlayerVsPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		PlayerVsAI = new JFrame();
-		PlayerVsAI.setTitle("Nine Men's Morris: Player VS AI");
-		PlayerVsAI.setSize(1920,1080);
-		PlayerVsAI.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		PlayerVsAI.getContentPane().add(pvarect);
-		PlayerVsAI.setVisible(false);
-		PlayerVsAI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
 		
-		
-		NineMensMorrisBG = new JPanel();
+		NineMensMorrisBG = new JPanel(new BorderLayout());
 		NineMensMorrisBG.setBounds(0, 0, 1920, 1080);
 		NineMensMorrisBG.setBackground(new Color(240, 255, 240));
 		NineMensMorrisBG.setLayout(null);
 		NineMensMorris.getContentPane().add(NineMensMorrisBG);
-		
-		
+
 		
 		txtWelcome = new JTextField();
 		txtWelcome.setBackground(new Color(245, 245, 220));
@@ -131,6 +117,20 @@ public class Gui1 extends JFrame {
 		txtWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 		NineMensMorrisBG.add(txtWelcome);
 		txtWelcome.setColumns(10);
+		
+		JLabel txtplayer1 = new JLabel();
+		txtplayer1.setText("Player: ");
+		txtplayer1.setBounds(14, 16, 273, 92);
+		
+		JLabel txtplayer2 = new JLabel();
+		txtplayer2.setText("Player: ");
+		txtplayer2.setBounds(1050, 16, 273, 92);
+		
+		JLabel txtaiplayer = new JLabel();
+		txtaiplayer.setText("AI: ");
+		txtaiplayer.setBounds(1050, 16, 273, 92);
+
+		
 
 		
 		JButton PVPButton = new JButton("Player VS Player");
@@ -138,8 +138,17 @@ public class Gui1 extends JFrame {
 		PVPButton.setBounds(554,290,147,29);
 		PVPButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PlayerVsPlayer.setVisible(true);
-				NineMensMorris.setVisible(false);
+				NineMensMorrisBG.removeAll();
+				NineMensMorrisBG.repaint();
+				NineMensMorrisBG.revalidate();
+				
+				NineMensMorrisBG.setLayout(new BorderLayout());
+				NineMensMorrisBG.setBackground(new Color(210, 255, 180));
+				NineMensMorrisBG.add(txtplayer1);
+				NineMensMorrisBG.add(txtplayer2);
+				NineMensMorrisBG.add(pvprect);
+				NineMensMorrisBG.repaint();
+				NineMensMorrisBG.revalidate();
 				
 
 			}
@@ -153,8 +162,19 @@ public class Gui1 extends JFrame {
 		PVAIButton.setForeground(Color.MAGENTA);
 		PVAIButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PlayerVsAI.setVisible(true);
-				NineMensMorris.setVisible(false);
+				
+				NineMensMorrisBG.removeAll();
+				NineMensMorrisBG.repaint();
+				NineMensMorrisBG.revalidate();
+				
+				NineMensMorrisBG.setLayout(new BorderLayout());
+				NineMensMorrisBG.setBackground(new Color(210, 255, 240));
+				NineMensMorrisBG.add(txtplayer1);
+				NineMensMorrisBG.add(txtaiplayer);
+				NineMensMorrisBG.add(pvarect);
+				NineMensMorrisBG.repaint();
+				NineMensMorrisBG.revalidate();
+
 			
 			}
 		});
