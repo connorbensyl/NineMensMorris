@@ -136,17 +136,22 @@ public class Rectangles extends JPanel {
 	    
 	    ////////////////////////////////
 	    // Buttons
+	    Graphics2D white = (Graphics2D)g;
+	    
 	    JButton WButton = new JButton("White");
 	    JButton BButton = new JButton("Black");
 	    
 	    //Outer bottom left
 	    g2d.setColor(Color.RED);
 	    g2d.fillRect(345,565,25,25); 
-	    
-	    /*if (testButtons.is_player1_turn) {
-	    	WButton.setForeground(Color.black);
-	    	WButton.setBounds(345,565,25,25);
-	    }*/
+	    addMouseListener(new MouseAdapter() {
+	    	public void mouseClicked(MouseEvent e) {
+	    		if (testButtons.is_player1_turn) {
+	    			white.setColor(Color.black);
+	    			white.drawOval(345,565,25,25);
+	    			}
+	    		}
+	    	});
 	    
 	     
 	    //Outer middle left
