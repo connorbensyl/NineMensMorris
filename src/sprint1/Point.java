@@ -17,10 +17,7 @@ public class Point
      
      
      
-public Point()
-{
-    	 
-}
+
  
  public Point(boolean iscorner, boolean ismidpoint, int x, int y)
  {
