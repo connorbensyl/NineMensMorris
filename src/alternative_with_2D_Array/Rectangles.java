@@ -1,4 +1,4 @@
-package sprint1;
+package alternative_with_2D_Array;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,9 +12,9 @@ import javax.swing.JButton;
 
 import javax.swing.JPanel;
 
-import sprint1.Controller;
 
-//import sprint3.product.Board.GameState;
+
+
 
 
 public class Rectangles extends JPanel {
@@ -215,3 +215,4 @@ public class Rectangles extends JPanel {
 	}
 	
 }
+

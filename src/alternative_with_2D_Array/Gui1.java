@@ -1,4 +1,4 @@
-package sprint1;
+package alternative_with_2D_Array;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,10 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
-import sprint1.Controller;
 
-import sprint1.Board;
-import sprint1.Rectangles;
 
 import javax.swing.SwingConstants;
 
@@ -203,5 +200,3 @@ void updateBoard() {
 		
 	}
 }
-
-
