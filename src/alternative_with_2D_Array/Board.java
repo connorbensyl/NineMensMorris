@@ -67,26 +67,86 @@ public class Board
 	{
 		if(grid[x][y].getUsable() && grid[x][y].get_point_state() != "none")
 		{
-	    if(rightMill(x,y) || leftMill(x,y) || upMill(x,y) || downMill(x,y) || horizontal_MidpointMill(x,y) || vertical_MidpointMill(x,y))
-	    {
-	    	return true;
-	    }
+	  
 		}
 		
 		return false;
 
 	}
 	
-	public boolean rightMill(int x, int y)
+	public boolean CheckForMill_OuterSquare(int x, int y)
 	{
-		if(grid[x][y].get_point_state() == grid[x+1][y].get_point_state() && grid[x+1][y].get_point_state() == grid[x+2][y].get_point_state())
+		if(y == 0)
+		{
+			if(x == 3)
+			{
+				if(upMill(x,y,1))
+				{
+					return true;
+				}
+				else if(horizontal_MidpointMill(x,y,3))
+				{
+					return true;
+				}
+			}
+			else if(upMill(x,y,3))
+			{
+				return true;
+			}
+			else if(rightMill(x,y,3) || leftMill(x,y,3))
+			{
+				return true;
+			}
+			
+			
+		}
+		else if(y == 6)
+		{
+			if(x == 3)
+			{
+				if(downMill(x,y,1))
+				{
+					return true;
+				}
+				else if(horizontal_MidpointMill(x,y,3))
+				{
+					return true;
+				}
+			}
+			else if(downMill(x,y,3))
+			{
+				return true;
+			}
+			else if(rightMill(x,y,3) || leftMill(x,y,3))
+			{
+				return true;
+			}
+		}
+		if(x == 0 || x == 6 && y == 3)
+		{
+			if(rightMill(x,y,1) || leftMill(x,y,1))
+			{
+				return true;
+			}
+		}
+		
+		
+		
+
+		
+		return false;
+	}
+	
+	public boolean rightMill(int x, int y, int n) //where n is the spacing between valid points which differ depending on which square it's in
+	{
+		if(grid[x][y].get_point_state() == grid[x+n][y].get_point_state() && grid[x+n][y].get_point_state() == grid[x+(2*n)][y].get_point_state())
 		{
 			return true;
 		}
 		else return false;
 	}
 	
-	public boolean leftMill(int x, int y)
+	public boolean leftMill(int x, int y, int n)
 	{
 		if(grid[x][y].get_point_state() == grid[x-1][y].get_point_state() && grid[x-1][y].get_point_state() == grid[x-2][y].get_point_state())
 		{
@@ -95,7 +155,7 @@ public class Board
 		else return false;
 	}
 	
-	public boolean upMill(int x, int y)
+	public boolean upMill(int x, int y, int n)
 	{
 		if(grid[x][y].get_point_state() == grid[x][y+1].get_point_state() && grid[x][y+1].get_point_state() == grid[x][y+2].get_point_state())
 		{
@@ -104,7 +164,7 @@ public class Board
 		else return false;
 	}
 	
-	public boolean downMill(int x, int y)
+	public boolean downMill(int x, int y, int n)
 	{
 
 		if(grid[x][y].get_point_state() == grid[x][y-1].get_point_state() && grid[x][y-1].get_point_state() == grid[x][y-2].get_point_state())
@@ -114,17 +174,17 @@ public class Board
 		else return false;
 	}
 	
-	public boolean horizontal_MidpointMill(int x, int y)
+	public boolean horizontal_MidpointMill(int x, int y, int n)
 	{
 
-		if(grid[x][y].get_point_state() == grid[x-1][y].get_point_state() && grid[x][y].get_point_state() == grid[x+1][y].get_point_state())
+		if(grid[x][y].get_point_state() == grid[x-n][y].get_point_state() && grid[x][y].get_point_state() == grid[x+n][y].get_point_state())
 		{
 			return true;
 		}
 		else return false;
 	}
 	
-	public boolean vertical_MidpointMill(int x, int y)
+	public boolean vertical_MidpointMill(int x, int y, int n)
 	{
 
 		if(grid[x][y].get_point_state() == grid[x][y+1].get_point_state() && grid[x][y].get_point_state() == grid[x][y-1].get_point_state())
