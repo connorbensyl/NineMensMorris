@@ -122,9 +122,13 @@ public class Board
 				return true;
 			}
 		}
-		if(x == 0 || x == 6 && y == 3)
+		if((x == 0 || x == 6) && y == 3)
 		{
 			if(rightMill(x,y,1) || leftMill(x,y,1))
+			{
+				return true;
+			}
+			else if(grid[x][y].get_point_state() == grid[x][y+3].get_point_state() && grid[x][y].get_point_state() == grid[x][y-3].get_point_state())
 			{
 				return true;
 			}
@@ -134,7 +138,7 @@ public class Board
 		
 
 		
-		return false;
+		return false; //if none of the above is true then return false
 	}
 	
 	public boolean rightMill(int x, int y, int n) //where n is the spacing between valid points which differ depending on which square it's in
