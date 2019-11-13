@@ -67,7 +67,18 @@ public class Board
 	{
 		if(grid[x][y].getUsable() && grid[x][y].get_point_state() != "none")
 		{
-	  
+		  if((x == 0 || x == 3 || x == 6) && (y == 0 || y == 3 || y == 6))
+		  {
+			  return CheckForMill_OuterSquare(x,y);
+		  }
+		  else if((x == 1 || x == 3 || x == 5) && (y == 1 || y == 3 || y == 5))
+		  {
+			  return CheckForMill_MiddleSquare(x,y);
+		  }
+		  else if((x == 2 || x == 3 || x == 4) && (y == 2 || y == 3 || y == 4))
+		  {
+			  return CheckForMill_InnerSquare(x,y);
+		  }
 		}
 		
 		return false;
@@ -134,14 +145,88 @@ public class Board
 			}
 		}
 		
-		
-		
-
-		
 		return false; //if none of the above is true then return false
 	}
 	
-	public boolean rightMill(int x, int y, int n) //where n is the spacing between valid points which differ depending on which square it's in
+	public boolean CheckForMill_MiddleSquare(int x, int y)
+	{
+		if(x == 1 || x == 5)
+		{
+			if(y == 1 || y == 5)
+			{
+				if(upMill(x,y,2) || downMill(x,y,2))
+				{
+					return true;
+				}
+				if(rightMill(x,y,2) || leftMill(x,y,2))
+				{
+					return true;
+				}
+			}
+			else if(y == 3)
+			{
+				if(horizontal_MidpointMill(x,y,1) || vertical_MidpointMill(x,y,2))
+				{
+					return true;
+				}
+			}
+			
+		}
+		else if(x == 3)
+		{
+			if(y == 1 || y == 5)
+			{
+				if(horizontal_MidpointMill(x,y,2) || vertical_MidpointMill(x,y,1))
+				{
+					return true;
+				}
+					
+			}
+			
+		}
+		
+		
+		return false;
+	}
+	
+	public boolean CheckForMill_InnerSquare(int x, int y)
+	{
+		if(x == 2 || x == 4)
+		{
+			if(y == 2 || y == 4)
+			{
+				if(upMill(x,y,1) || downMill(x,y,1) || leftMill(x,y,1) || rightMill(x,y,1))
+				{
+					return true;
+				}
+			}
+			else if(y == 3)
+			{
+				if(leftMill(x,y,1) || rightMill(x,y,1) || vertical_MidpointMill(x,y,1))
+				{
+					return true;
+				}
+				
+			}
+		}
+		else if(x == 3)
+		{
+			if(y == 2 || y == 4)
+			{
+				if(downMill(x,y,1) || upMill(x,y,1))
+				{
+					return true;
+				}
+			}
+		}
+		
+		
+		
+		
+		return false;
+	}
+	
+	public boolean rightMill(int x, int y, int n) //where n is the spacing between valid points which differ depending on which square the point is in
 	{
 		if(grid[x][y].get_point_state() == grid[x+n][y].get_point_state() && grid[x+n][y].get_point_state() == grid[x+(2*n)][y].get_point_state())
 		{
