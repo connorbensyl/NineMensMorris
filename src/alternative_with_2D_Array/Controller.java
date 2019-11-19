@@ -86,5 +86,19 @@ public void control_game(Gui1 controllerGui)
 		}
 	}
 }
+public void has_valid_move(String color)
+{
+	for(int i = 0; i < 6; i++)
+	{
+		for(int j = 0; j < 6; j++)
+		{
+			if(board.grid[i][j].get_point_state() == color)
+			{
+				
+			}
+		}
+	}
+}
+
 }
 
