@@ -92,6 +92,7 @@ public class Gui1 extends JFrame{
 		NineMensMorris.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		NineMensMorris.setVisible(true);
 		NineMensMorris.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 
 
 		
@@ -156,7 +157,7 @@ public class Gui1 extends JFrame{
 				NineMensMorrisBG.add(txtplayer1);
 				NineMensMorrisBG.add(txtplayer2);
 				NineMensMorrisBG.add(pvprect);
-			//	NineMensMorrisBG.add(WButton);
+			    NineMensMorrisBG.add(WButton);
 				NineMensMorrisBG.repaint();
 				NineMensMorrisBG.revalidate();
 				

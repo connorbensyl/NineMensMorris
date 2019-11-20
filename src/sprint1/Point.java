@@ -13,13 +13,14 @@ public class Point
      private Point lookDown;
      private int xCoordinate;
      private int yCoordinate;
-     private static Point nullPoint = new Point(false,false,0,0);
-     
-     
-     
-
+     private static Point nullPoint = new Point();
+     private PointID ID;
  
- public Point(boolean iscorner, boolean ismidpoint, int x, int y)
+ public Point()
+ {
+	 
+ }
+ public Point(boolean iscorner, boolean ismidpoint,PointID id)
  {
 	 
 	 isCorner = iscorner;
@@ -29,8 +30,7 @@ public class Point
 	 lookLeft = nullPoint;
 	 lookUp = nullPoint;
 	 lookDown = nullPoint;
-	 xCoordinate = x;
-	 yCoordinate = y;
+	 this.ID = id;
 	 
  }
  
@@ -52,6 +52,7 @@ public class Point
 	 lookUp = nullPoint;
 	 lookDown = nullPoint;
  }
+ 
  
  public boolean get_isCorner()
  {
@@ -96,18 +97,22 @@ public class Point
  
  public void setLeft(Point left) {
 	 lookLeft = left;
+	 lookLeft.lookRight = this; //added 11/19/2019: this point sees the point to the left and the point to the left also sees this point
  }
  
  public void setRight(Point right) {
 	 lookRight = right;
+	 lookRight.lookLeft = this;
  }
  
  public void setUp(Point up) {
 	 lookUp = up;
+	 lookUp.lookDown = this;
  }
  
  public void setDown(Point down) {
 	 lookDown = down;
+	 lookDown.lookUp = this; 
  }
  
  public Point getUp()
@@ -218,7 +223,15 @@ public Point getnullPoint()
 }
 	  
 	  
-	  
+public void setID(pointID id)
+{
+	this.ID = id;
+}
+
+public pointID getID()
+{
+	return ID;
+}
 	  
  
  

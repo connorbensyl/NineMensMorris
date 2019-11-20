@@ -7,6 +7,7 @@ public class Controller {
 	private Player player2;
 	boolean is_player1_turn;
 	Gui1 gui;
+	PointID pieceID;
 	public Controller(Gui1 parentGui) {
 		Gui1 gui = parentGui;
 	}
@@ -20,9 +21,8 @@ public class Controller {
 		player1.setPhase("placing pieces");
 		player2.setPhase("placing pieces");
 		is_player1_turn = true;
-		board.connectAllLocalPoints();
-		board.connectIntersquarePoints();
-		board.setSquareCoords();
+		board.connectAllPoints();
+		board.setPointCoords();
 		
 		//piece placement start
 		while(player1.getPhase() != "moving pieces" || player2.getPhase() != "moving pieces")
@@ -33,7 +33,7 @@ public class Controller {
 				if(player1.getPiecesLeftToPlace() != 0)
 				{
 					moveType = "place piece";
-					playPiece(player1,moveType, gui.xRecieved,gui.yRecieved);
+					pieceID = getID(gui.xRecieved,gui.yRecieved); //replace placePiece function with getID
 					player1.increment_after_piece_played();
 				}
 				else
@@ -46,7 +46,7 @@ public class Controller {
 			{
 				if(player2.getPiecesLeftToPlace() != 0)
 				{
-					playPiece(player2,moveType,gui.xRecieved,gui.yRecieved);
+					pieceID = getID(gui.xRecieved,gui.yRecieved);
 					player2.increment_after_piece_played();
 				}
 				else
@@ -64,7 +64,7 @@ public class Controller {
 			{
 				if(player1.getPiecesOnBoard() > 3)
 				{
-					playPiece(player1, moveType, gui.xRecieved,gui.yRecieved);
+					pieceID = getID(gui.xRecieved,gui.yRecieved);
 				}
 				else
 				{
@@ -76,7 +76,7 @@ public class Controller {
 				moveType = "move from";
 				if(player1.getPiecesOnBoard() > 3)
 				{
-					playPiece(player2, moveType, gui.xRecieved,gui.yRecieved);
+					pieceID = getID(gui.xRecieved,gui.yRecieved);
 				}
 				else
 				{
@@ -86,13 +86,9 @@ public class Controller {
 		}
 	}
 	
-	public boolean playPiece(Player currentPlayer, String move, int xcoord, int ycoord ) //returns true if the piece that has been placed is in a mill
+	public PointID getID(int xcoord, int ycoord) //returns true if the piece that has been placed is in a mill
 	{
-		String color = "none";
-		if( currentPlayer == player1){
-			color = "black";
-		}
-		else color = "white";
+		
 		
 		if(xcoord < 600) 
 		{
@@ -106,69 +102,27 @@ public class Controller {
 						{
 							if(ycoord < 350)
 							{
-								if (move == "place piece") {
-									board.innerSquare.middleLeft.set_point_state(currentPlayer.color);
-									//check for created mill
-									if (board.innerSquare.middleLeft.isPartOfMill()) {
-										moveType = "remove Piece";
-										playPiece(currentPlayer, moveType, gui.xRecieved,gui.yRecieved);
-									}	
-								}
-								if (move =="remove piece") {
-									//remove piece if piece exists and is not in mill
-								}
-								if (move == "move from") {
-									//selected piece becomes pieceToMove //this will not work because passByValue only
-									//moveType changes to "move to"
-									//call playpiece to find point moved to
-								}
-								if (move =="move to") {
-									//if point is empty, remove piece from 
-								}
+								return PointID.innerSquare_middleLeft;
 							}
 							else
 							{
-								if (move == "place piece") {
-								if(board.innerSquare.bottomLeft.isEmpty()) 
-								{
-									board.innerSquare.bottomLeft.set_point_state(currentPlayer.color);
-									return board.innerSquare.bottomLeft.isPartOfMill();
-								}
-							}
+								return PointID.innerSquare_bottomLeft;
 							}
 						}
 						else
 						{
-							if (move == "place piece") {
-							if(board.innerSquare.bottomMiddle.isEmpty()) 
-							{
-								board.innerSquare.bottomMiddle.set_point_state(currentPlayer.color);
-								return board.innerSquare.bottomMiddle.isPartOfMill();
-							}
-							}
+							return PointID.innerSquare_bottomMiddle;
 						}
 					}
 					else
 					{
 						if(xcoord < 400)
 						{
-							if (move == "place piece") {
-							if(board.outerSquare.middleLeft.isEmpty()) 
-							{
-								board.outerSquare.middleLeft.set_point_state(currentPlayer.color);
-								return board.outerSquare.middleLeft.isPartOfMill();
-							}
-							}
+							return PointID.outerSquare_middleLeft;
 						}
 						else
 						{
-							if (move == "place piece") {
-							if(board.middleSquare.middleLeft.isEmpty()) 
-							{
-								board.middleSquare.middleLeft.set_point_state(currentPlayer.color);
-								return board.middleSquare.middleLeft.isPartOfMill();
-							}
-							}
+							return PointID.middleSquare_middleLeft;
 						}
 					}
 				}
@@ -178,49 +132,23 @@ public class Controller {
 					{
 						if(xcoord < 440)
 						{   
-							if (move == "place piece") {
-							if(board.outerSquare.bottomLeft.isEmpty()) 
-							{
-								board.outerSquare.bottomLeft.set_point_state(currentPlayer.color);
-								return board.outerSquare.bottomLeft.isPartOfMill();
-							}
-							}
+							return PointID.outerSquare_bottomLeft;
 
 						}
 						else
 						{
-							if (move == "place piece") {
-							if(board.outerSquare.bottomMiddle.isEmpty()) 
-							{
-								board.outerSquare.bottomMiddle.set_point_state(currentPlayer.color);
-								return board.outerSquare.bottomMiddle.isPartOfMill();
-							}
-						}
+							return PointID.outerSquare_bottomMiddle;
 						}
 					}
 					else
 					{
 						if(xcoord < 500)
 						{
-							{
-								if (move == "place piece") {
-							if(board.middleSquare.bottomLeft.isEmpty()) 
-							{
-								board.middleSquare.bottomLeft.set_point_state(currentPlayer.color);
-								return board.middleSquare.bottomLeft.isPartOfMill();
-							}
-								}
-							}
+							return PointID.middleSquare_bottomLeft;
 						}
 						else
 						{
-							if (move == "place piece") {
-							if(board.middleSquare.bottomMiddle.isEmpty()) 
-							{
-								board.middleSquare.bottomMiddle.set_point_state(currentPlayer.color);
-								return board.middleSquare.bottomMiddle.isPartOfMill();
-							}
-							}
+							return PointID.middleSquare_bottomMiddle;
 						}
 					}
 				}
@@ -232,35 +160,17 @@ public class Controller {
 				{
 					if(ycoord > 200)
 					{
-						if (move == "place piece") {
-						if(board.innerSquare.topMiddle.isEmpty()) 
-						{
-							board.innerSquare.topMiddle.set_point_state(currentPlayer.color);
-							return board.innerSquare.topMiddle.isPartOfMill();
-						}
-						}
+						return PointID.innerSquare_topMiddle;
 					}
 					else
 					{
 						if(ycoord > 100)
 						{
-							if (move == "place piece") {
-							if(board.middleSquare.topMiddle.isEmpty())
-							{
-								board.middleSquare.topMiddle.set_point_state(currentPlayer.color);
-								return board.middleSquare.topMiddle.isPartOfMill();
-							}
-							}
+							return PointID.middleSquare_topMiddle;
 						}
 						else
 						{
-							if (move == "place piece") {
-							if(board.outerSquare.topMiddle.isEmpty())
-							{
-								board.outerSquare.topMiddle.set_point_state(currentPlayer.color);
-								return board.outerSquare.topMiddle.isPartOfMill();
-							}
-							}
+							return PointID.outerSquare_topMiddle;
 						}
 					}
 				}
@@ -268,26 +178,19 @@ public class Controller {
 				{
 					if(ycoord > 200)
 					{
-						if (move == "place piece") {
-						if(board.innerSquare.topLeft.isEmpty())
-						{
-							board.innerSquare.topLeft.set_point_state(currentPlayer.color);
-							board.innerSquare.topLeft.isPartOfMill();
-						}
-						}
+						return PointID.innerSquare_topLeft;
 					}
 					else
 					{
 						if (move == "place piece") {
 						if(ycoord > 100)
 						{
-							board.middleSquare.topLeft.set_point_state(currentPlayer.color);
-							return board.middleSquare.topLeft.isPartOfMill();
+							return PointID.middleSquare_topLeft;
+							
 						}
 						else
 						{
-							board.outerSquare.topLeft.set_point_state(currentPlayer.color);
-							return board.outerSquare.topLeft.isPartOfMill();
+							return PointID.outerSquare_topLeft;
 						}
 					}
 					}
@@ -303,35 +206,17 @@ public class Controller {
 				{
 					if(xcoord < 700)
 					{
-						if (move == "place piece") {
-						if(board.innerSquare.middleRight.isEmpty()) 
-						{
-							board.innerSquare.middleRight.set_point_state(currentPlayer.color);
-							return board.innerSquare.middleRight.isPartOfMill();
-						}
-						}
+						return PointID.innerSquare_middleRight;
 					}
 					else
 					{
 						if(xcoord < 800)
 						{
-							if (move == "place piece") {
-							if(board.middleSquare.middleRight.isEmpty()) 
-							{
-								board.middleSquare.middleRight.set_point_state(currentPlayer.color);
-								return board.middleSquare.middleRight.isPartOfMill();
-							}
-							}
+							return PointID.middleSquare_middleRight;
 						}
 						else
 						{
-							{
-							if(board.outerSquare.middleRight.isEmpty())
-							{
-								board.outerSquare.middleRight.set_point_state(currentPlayer.color);
-								return board.outerSquare.middleRight.isPartOfMill();
-							}
-							}
+							return PointID.outerSquare_middleRight;
 						}
 					}
 				}
@@ -341,34 +226,16 @@ public class Controller {
 					{
 						if(ycoord < 440)
 						{
-							if (move == "place piece") {
-							if(board.innerSquare.bottomRight.isEmpty()) 
-							{
-								board.innerSquare.bottomRight.set_point_state(currentPlayer.color);
-								return board.innerSquare.bottomRight.isPartOfMill();
-							}
-							}
+							return PointID.innerSquare_bottomRight;
 						}
 						else
 						{
-							if (move == "place piece") {
-							if(board.middleSquare.bottomRight.isEmpty())
-							{
-								board.middleSquare.bottomRight.set_point_state(currentPlayer.color);
-								return board.middleSquare.bottomRight.isPartOfMill();
-							}
-							}
+							return PointID.middleSquare_bottomRight;
 						}
 					}
 					else
 					{
-						if (move == "place piece") {
-						if(board.outerSquare.bottomRight.isEmpty()) 
-						{
-							board.outerSquare.bottomRight.set_point_state(currentPlayer.color);
-							return board.outerSquare.bottomRight.isPartOfMill();
-						}
-						}
+						return PointID.outerSquare_bottomRight;
 					}
 				}
 			}
@@ -376,326 +243,27 @@ public class Controller {
 			{
 				if(xcoord > 700)
 				{
-					if (move == "place piece") {
-					if(board.outerSquare.topRight.isEmpty()) 
-					{
-						board.outerSquare.topRight.set_point_state(currentPlayer.color);
-						return board.outerSquare.topRight.isPartOfMill();
-					}
-					}
+					return PointID.outerSquare_topRight;
 				}
 				else
 				{
 					if(ycoord > 200)
 					{
-						{
-						if(board.innerSquare.topRight.isEmpty()) 
-						{
-							board.innerSquare.topRight.set_point_state(currentPlayer.color);
-							return board.innerSquare.topRight.isPartOfMill();
-						}
-						}
+						return PointID.innerSquare_topRight;
 					}
 					else
 					{
-						if (move == "place piece") {
-						if(board.middleSquare.topRight.isEmpty()) 
-						{
-							board.middleSquare.topRight.set_point_state(currentPlayer.color);
-							return board.middleSquare.topRight.isPartOfMill();
-						}
-						}
+						return PointID.middleSquare_topRight;
 					}
 				}
 			}
 		}
-		return false;
+		
 	}
 
 
 
-	public void removePiece(String color, int xcoord, int ycoord)
-	{
-
-		if(xcoord < 600) 
-		{
-			if(ycoord > 320)
-			{
-				if(ycoord < 440)
-				{
-					if(xcoord > 500)
-					{
-						if(xcoord < 550)
-						{
-							if(ycoord < 350)
-							{
-								//cannot remove a piece from a point that is already empty, cannot remove your own piece, and cannot remove a piece that is in a mill
-								if(board.innerSquare.middleLeft.get_point_state() != "none" && board.innerSquare.middleLeft.get_point_state() != color && !board.innerSquare.middleLeft.isPartOfMill()) 
-								{
-
-									board.innerSquare.middleLeft.set_point_state("none");
-								}
-
-							}
-							else
-							{
-								if(board.innerSquare.bottomLeft.get_point_state() != "none" && board.innerSquare.bottomLeft.get_point_state() != color && !board.innerSquare.bottomLeft.isPartOfMill()) 
-								{
-									board.innerSquare.bottomLeft.set_point_state("none");
-								}
-
-
-
-							}
-						}
-						else
-						{
-							if(board.innerSquare.bottomMiddle.get_point_state() != "none" && board.innerSquare.bottomMiddle.get_point_state() != color && !board.innerSquare.bottomMiddle.isPartOfMill()) 
-							{
-								board.innerSquare.bottomMiddle.set_point_state("none");
-							}
-
-
-						}
-					}
-					else
-					{
-						if(xcoord < 400)
-						{
-							if(board.outerSquare.middleLeft.get_point_state() != "none" && board.outerSquare.middleLeft.get_point_state() != color && !board.outerSquare.middleLeft.isPartOfMill()) 
-							{
-								board.outerSquare.middleLeft.set_point_state("none");
-							}
-
-
-						}
-						else
-						{
-							if(board.middleSquare.middleLeft.get_point_state() != "none" && board.middleSquare.middleLeft.get_point_state() != color && !board.middleSquare.middleLeft.isPartOfMill()) 
-							{
-								board.middleSquare.middleLeft.set_point_state("none");
-							}
-
-
-						}
-					}
-				}
-				else
-				{
-					if(ycoord > 500)
-					{
-						if(xcoord < 440)
-						{
-							if(board.outerSquare.bottomLeft.get_point_state() != "none" && board.outerSquare.bottomLeft.get_point_state() != color && !board.outerSquare.bottomLeft.isPartOfMill()) 
-							{
-								board.outerSquare.bottomLeft.set_point_state("none");
-							}
-
-
-						}
-						else
-						{
-							if(board.outerSquare.bottomMiddle.get_point_state() != "none" && board.outerSquare.bottomMiddle.get_point_state() != color && !board.outerSquare.bottomMiddle.isPartOfMill()) 
-							{
-								board.outerSquare.bottomMiddle.set_point_state("none");
-							}
-
-
-						}
-					}
-					else
-					{
-						if(xcoord < 500)
-						{
-							if(board.middleSquare.bottomLeft.get_point_state() != "none" && board.middleSquare.bottomLeft.get_point_state() != color && !board.middleSquare.bottomLeft.isPartOfMill()) 
-							{
-								board.middleSquare.bottomLeft.set_point_state("none");
-							}
-
-
-
-						}
-						else
-						{
-							if(board.middleSquare.bottomMiddle.get_point_state() != "none" && board.middleSquare.bottomMiddle.get_point_state() != color && !board.middleSquare.bottomMiddle.isPartOfMill()) 
-							{
-								board.middleSquare.bottomMiddle.set_point_state("none");
-							}
-
-
-
-						}
-					}
-				}
-
-			} 
-			else
-			{
-				if(xcoord > 550)
-				{
-					if(ycoord > 200)
-					{
-						if(board.innerSquare.topMiddle.get_point_state() != "none" && board.innerSquare.topMiddle.get_point_state() != color && !board.innerSquare.topMiddle.isPartOfMill()) 
-						{
-							board.innerSquare.topMiddle.set_point_state("none");
-						}
-
-
-
-					}
-					else
-					{
-						if(ycoord > 100)
-						{
-							if(board.middleSquare.topMiddle.get_point_state() != "none" && board.middleSquare.topMiddle.get_point_state() != color && !board.middleSquare.topMiddle.isPartOfMill()) 
-							{
-								board.middleSquare.topMiddle.set_point_state("none");
-							}
-
-						}
-						else
-						{
-							if(board.outerSquare.topMiddle.get_point_state() != "none" && board.outerSquare.topMiddle.get_point_state() != color && !board.outerSquare.topMiddle.isPartOfMill()) 
-							{
-								board.outerSquare.topMiddle.set_point_state("none");
-							}
-
-						}
-					}
-				}
-				else
-				{
-					if(ycoord > 200)
-					{
-						if(board.innerSquare.topLeft.get_point_state() != "none" && board.innerSquare.topLeft.get_point_state() != color && !board.innerSquare.topLeft.isPartOfMill()) 
-						{
-							board.innerSquare.topLeft.set_point_state("none");
-						}
-
-					}
-					else
-					{
-						if(ycoord > 100)
-						{
-							if(board.middleSquare.topLeft.get_point_state() != "none" && board.middleSquare.topLeft.get_point_state() != color && !board.middleSquare.topLeft.isPartOfMill()) 
-							{
-								board.middleSquare.topLeft.set_point_state("none");
-							}
-
-						}
-						else
-						{
-							if(board.outerSquare.topLeft.get_point_state() != "none" && board.outerSquare.topLeft.get_point_state() != color && !board.outerSquare.topLeft.isPartOfMill()) 
-							{
-								board.outerSquare.topLeft.set_point_state("none");
-							}
-
-						}
-					}
-				}
-			}
-
-		}
-		else // x > 600
-		{
-			if(ycoord > 320)
-			{
-				if(ycoord < 350)
-				{
-					if(xcoord < 700)
-					{
-						if(board.innerSquare.middleRight.get_point_state() != "none" && board.innerSquare.middleRight.get_point_state() != color && !board.innerSquare.middleRight.isPartOfMill()) 
-						{
-							board.innerSquare.middleRight.set_point_state("none");
-						}
-
-					}
-					else
-					{
-						if(xcoord < 800)
-						{
-							if(board.middleSquare.middleRight.get_point_state() != "none" && board.middleSquare.middleRight.get_point_state() != color && !board.middleSquare.middleRight.isPartOfMill()) 
-							{
-								board.middleSquare.middleRight.set_point_state("none");
-							}
-
-						}
-						else
-						{
-							if(board.outerSquare.middleRight.get_point_state() != "none" && board.outerSquare.middleRight.get_point_state() != color && !board.outerSquare.middleRight.isPartOfMill()) 
-							{
-								board.outerSquare.middleRight.set_point_state("none");
-							}
-
-						}
-					}
-				}
-				else
-				{
-					if(xcoord < 700)
-					{
-						if(ycoord < 440)
-						{
-							if(board.innerSquare.bottomLeft.get_point_state() != "none" && board.innerSquare.bottomLeft.get_point_state() != color && !board.innerSquare.bottomLeft.isPartOfMill()) 
-							{
-								board.innerSquare.bottomLeft.set_point_state("none");
-							}
-
-						}
-						else
-						{
-							if(board.middleSquare.bottomLeft.get_point_state() != "none" && board.middleSquare.bottomLeft.get_point_state() != color && !board.middleSquare.bottomLeft.isPartOfMill()) 
-							{
-								board.middleSquare.bottomLeft.set_point_state("none");
-							}
-
-						}
-					}
-					else
-					{
-						if(board.outerSquare.bottomLeft.get_point_state() != "none" && board.outerSquare.bottomLeft.get_point_state() != color && !board.outerSquare.bottomLeft.isPartOfMill()) 
-						{
-							board.outerSquare.bottomLeft.set_point_state("none");
-						}
-
-					}
-				}
-			}
-			else // y < 320
-			{
-				if(xcoord > 700)
-				{
-					if(board.outerSquare.topRight.get_point_state() != "none" && board.outerSquare.topRight.get_point_state() != color && !board.outerSquare.topRight.isPartOfMill()) 
-					{
-						board.outerSquare.topRight.set_point_state("none");
-					}
-
-				}
-				else
-				{
-					if(ycoord > 200)
-					{
-						if(board.innerSquare.topRight.get_point_state() != "none" && board.innerSquare.topRight.get_point_state() != color && !board.innerSquare.topRight.isPartOfMill()) 
-						{
-							board.innerSquare.topRight.set_point_state("none");
-						}
-
-					}
-					else
-					{
-						if(board.middleSquare.topRight.get_point_state() != "none" && board.middleSquare.topRight.get_point_state() != color && !board.middleSquare.topRight.isPartOfMill()) 
-						{
-							board.middleSquare.topRight.set_point_state("none");
-						}
-
-					}
-				}
-			}
-		}
-
-	}
-
-
+	
 
 
 }
