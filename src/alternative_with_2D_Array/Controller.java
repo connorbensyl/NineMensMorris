@@ -86,18 +86,12 @@ public void control_game(Gui1 controllerGui)
 		}
 	}
 }
-public void has_valid_move(String color)
+public boolean has_valid_move(Player p) //check if player of color still has valid move and thus is still in the game
 {
-	for(int i = 0; i < 6; i++)
-	{
-		for(int j = 0; j < 6; j++)
-		{
-			if(board.grid[i][j].get_point_state() == color)
-			{
-				
-			}
-		}
-	}
+	
+	
+	
+	return false;
 }
 
 }
