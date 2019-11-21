@@ -63,11 +63,16 @@ public class Board
 		
 	}
 	
-	public boolean checkValidMove(int x, int y)
+	public boolean checkValidMove(int x, int y, Player player)
 	{
+		
+		if(player.getPiecesOnBoard() > 2)
+		{
+			
+		
 		if(grid[x][y].getUsable() && grid[x][y].get_point_state() != "none")
 		{
-		if((x == 0 || x == 3 || x == 6) && (y == 0 || y == 3 || y == 6))//outer square
+		if((x == 0 || x == 3 || x == 6) && (y == 0 || y == 3 || y == 6))//OUTER SQUARE
 		{
 		   if(y == 0 || y == 6)
 		   {
@@ -80,12 +85,79 @@ public class Board
 			   }
 			   else if(x == 0 || x == 6)
 			   {
-				 if(grid[x+3][y].get_point_state() == "none" || grid[x-3][y].get_point_state() == "none" || grid[x+3]cd)  
+				 if(grid[x+3][y].get_point_state() == "none" || grid[x-3][y].get_point_state() == "none" || grid[x][y+3].get_point_state() == "none" || grid[x][y-3].get_point_state() == "none")
+				 {
+					 return true;
+				 }
 			   }
 		   }
+		   else if(y == 3)
+		   {
+			   if(grid[x+1][y].get_point_state() == "none" || grid[x-1][y].get_point_state() == "none" || grid[x][y+3].get_point_state() == "none" || grid[x][y-3].get_point_state() == "none")
+			   {
+				   return true;
+			   }
+			   
+		   }
+		}
+		else if((x == 1 || x == 3 || x == 5) && (y == 1 || y == 3 || y == 5)) //MIDDLE SQUARE
+		{
+			if(y == 1 || y == 5)
+			{
+				if(x == 3)
+				{
+					if(grid[x][y+1].get_point_state() == "none" || grid[x][y-1].get_point_state() == "none" || grid[x+2][y].get_point_state() == "none" || grid[x-2][y].get_point_state() == "none")
+					{
+						return true;
+					}
+				}
+				else if(x == 1 || x == 5)
+				{
+					if(grid[x][y+2].get_point_state() == "none" || grid[x][y-2].get_point_state() == "none" || grid[x+2][y].get_point_state() == "none" || grid[x-2][y].get_point_state() == "none")
+					{
+						return true;
+					}
+				}
+			}
+			else if(y == 3)
+			{
+				if(grid[x][y+2].get_point_state() == "none" || grid[x][y-2].get_point_state() == "none" || grid[x+1][y].get_point_state() == "none" || grid[x-1][y].get_point_state() == "none")
+				{
+					return true;
+				}
+			}
+		}
+		else if((x == 2 || x == 3 || x == 4) && (y == 2 || y == 3 || y == 4))
+		{
+			if(x == 3)
+			{
+				if(grid[x+1][y].get_point_state() == "none" || grid[x-1][y].get_point_state() == "none" || grid[x][y+1].get_point_state() == "none" || grid[x][y-1].get_point_state() == "none")
+				{
+					return true;
+				}
+			}
+			else if(x == 2 || x == 4)
+			{
+				if(y == 2 || y == 4)
+				{
+					if(grid[x+1][y].get_point_state() == "none" || grid[x-1][y].get_point_state() == "none" || grid[x][y+1].get_point_state() == "none" || grid[x][y-1].get_point_state() == "none")
+					{
+						return true;
+					}
+				}
+				else if( y == 3)
+				{
+					if(grid[x+1][y].get_point_state() == "none" || grid[x-1][y].get_point_state() == "none" || grid[x][y+1].get_point_state() == "none" || grid[x][y-1].get_point_state() == "none")
+					{
+						return true;
+					}
+				}
+			}
 		}
 		
+	  }
 		}
+		return false;
 	}
 	
 	public boolean CheckForMill(int x, int y)
