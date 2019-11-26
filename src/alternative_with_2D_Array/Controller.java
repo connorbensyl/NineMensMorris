@@ -23,7 +23,8 @@ public void control_game(Gui1 controllerGui)
 	player1.setPhase("placing pieces");
 	player2.setPhase("placing pieces");
 	is_player1_turn = true;
-	
+	int gridx = -1;
+	int gridy = -1;
 	
 	//piece placement start
 	while(player1.getPhase() != "moving pieces" || player2.getPhase() != "moving pieces")
@@ -33,8 +34,26 @@ public void control_game(Gui1 controllerGui)
 
 			if(player1.getPiecesLeftToPlace() != 0)
 			{
-				moveType = "place piece";
-				playPiece(player1,moveType, gui.xRecieved,gui.yRecieved);
+				gridx = getxCoord(gui.xRecieved);
+				gridy = getyCoord(gui.yRecieved);
+				
+					      playPiece(gridx,gridy,player1.color);
+					      if(board.CheckForMill(gridx, gridy))
+					      {
+					    	  gridx = getxCoord(gui.xRecieved);
+					    	  gridy = getyCoord(gui.yRecieved);
+					    	  if(!board.CheckForMill(gridx, gridy)) //this will be false if 
+					    	  {
+					    		  if(board.grid[gridx][gridy].get_point_state() != player1.color)
+					    		  {
+					    		  removeByMill(gridx,gridy);
+					    		  player2.decrementpiecesOnBoard();
+					    		  }
+					    	  }
+					    			  
+					      }
+						
+				
 				player1.increment_after_piece_played();
 			}
 			else
@@ -47,7 +66,25 @@ public void control_game(Gui1 controllerGui)
 		{
 			if(player2.getPiecesLeftToPlace() != 0)
 			{
-				playPiece(player2,moveType,gui.xRecieved,gui.yRecieved);
+				gridx = getxCoord(gui.xRecieved);
+				gridy = getyCoord(gui.yRecieved);
+				
+			      playPiece(gridx,gridy,player2.color);
+			      if(board.CheckForMill(gridx, gridy))
+			      {
+			    	  gridx = getxCoord(gui.xRecieved);
+			    	  gridy = getyCoord(gui.yRecieved);
+			    	  if(!board.CheckForMill(gridx, gridy))
+			    	  {
+			    		  if(board.grid[gridx][gridy].get_point_state() != player2.color)
+			    		  {
+			    		  removeByMill(gridx,gridy);
+			    		  player1.decrementpiecesOnBoard();
+			    		  }
+			    	  }
+			    			  
+			      }
+				
 				player2.increment_after_piece_played();
 			}
 			else
@@ -58,31 +95,64 @@ public void control_game(Gui1 controllerGui)
 		}
 	}
 	//piece movement start
-	while(player1.getPhase() != "flying" || player2.getPhase() != "flying")
+	while(player1.getPiecesOnBoard() > 2 && player2.getPiecesOnBoard() > 2)
 	{
-		moveType = "move from";
+		
 		if(is_player1_turn)
 		{
-			if(player1.getPiecesOnBoard() > 3)
+			if(!player1.canFly())
 			{
-				playPiece(player1, moveType, gui.xRecieved,gui.yRecieved);
+				gridx = getxCoord(gui.xRecieved);
+				gridy = getyCoord(gui.yRecieved);
+				if(board.checkValidMove_noFlying(gridx, gridy, player1))
+				{
+					
+				}
+			}
+			else
+			{
+				
+			}
+			
+			
+		}
+		else //player 2's turn
+		{
+			
+			if(!player2.canFly())
+			{
+				gridx = getxCoord(gui.xRecieved);
+				gridy = getyCoord(gui.yRecieved);
 			}
 			else
 			{
 				player1.setPhase("flying");
 			}
 		}
-		else //player 2's turn
+	}
+}
+
+public void remove_move(int x, int y, Player player)
+{
+	if(board.grid[x][y].getUsable() && board.grid[x][y].get_point_state() == player.color)
+	{
+		board.grid[x][y].set_point_state("none");
+	}
+}
+public void removeByMill(int x, int y) 
+{
+	if(board.grid[x][y].getUsable() && board.grid[x][y].get_point_state() != "none")
+	{
+		board.grid[x][y].set_point_state("none");
+	}
+}
+public void playPiece(int x, int y, String color)
+{
+	if(board.grid[x][y].getUsable())
+	{
+		if(board.grid[x][y].get_point_state() == "none")
 		{
-			moveType = "move from";
-			if(player1.getPiecesOnBoard() > 3)
-			{
-				playPiece(player2, moveType, gui.xRecieved,gui.yRecieved);
-			}
-			else
-			{
-				player1.setPhase("flying");
-			}
+			board.grid[x][y].set_point_state(color);
 		}
 	}
 }

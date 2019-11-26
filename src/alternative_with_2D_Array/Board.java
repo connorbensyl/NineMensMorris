@@ -63,7 +63,7 @@ public class Board
 		
 	}
 	
-	public boolean checkValidMove(int x, int y, Player player)
+	public boolean checkValidMove_noFlying(int x, int y, Player player)
 	{
 		
 		if(player.getPiecesOnBoard() > 2)
