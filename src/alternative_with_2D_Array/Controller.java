@@ -42,9 +42,9 @@ public void control_game(Gui1 controllerGui)
 					      {
 					    	  gridx = getxCoord(gui.xRecieved);
 					    	  gridy = getyCoord(gui.yRecieved);
-					    	  if(!board.CheckForMill(gridx, gridy)) //this will be false if 
+					    	  if(!board.CheckForMill(gridx, gridy))
 					    	  {
-					    		  if(board.grid[gridx][gridy].get_point_state() != player1.color)
+					    		  if(board.grid[gridx][gridy].get_point_state() == player2.color)
 					    		  {
 					    		  removeByMill(gridx,gridy);
 					    		  player2.decrementpiecesOnBoard();
@@ -76,7 +76,7 @@ public void control_game(Gui1 controllerGui)
 			    	  gridy = getyCoord(gui.yRecieved);
 			    	  if(!board.CheckForMill(gridx, gridy))
 			    	  {
-			    		  if(board.grid[gridx][gridy].get_point_state() != player2.color)
+			    		  if(board.grid[gridx][gridy].get_point_state() == player1.color)
 			    		  {
 			    		  removeByMill(gridx,gridy);
 			    		  player1.decrementpiecesOnBoard();
@@ -106,12 +106,45 @@ public void control_game(Gui1 controllerGui)
 				gridy = getyCoord(gui.yRecieved);
 				if(board.checkValidMove_noFlying(gridx, gridy, player1))
 				{
-					
+					playPiece(gridx,gridy,player1.color);
+				      if(board.CheckForMill(gridx, gridy))
+				      {
+				    	  gridx = getxCoord(gui.xRecieved);
+				    	  gridy = getyCoord(gui.yRecieved);
+				    	  if(!board.CheckForMill(gridx, gridy))
+				    	  {
+				    		  if(board.grid[gridx][gridy].get_point_state() == player2.color)
+				    		  {
+				    		  removeByMill(gridx,gridy);
+				    		  player1.decrementpiecesOnBoard();
+				    		  }
+				    	  }
+				    			  
+				      }
 				}
 			}
 			else
 			{
-				
+				gridx = getxCoord(gui.xRecieved);
+				gridy = getyCoord(gui.yRecieved);
+				if(board.grid[gridx][gridy].get_point_state() == "none")
+				{
+					playPiece(gridx,gridy,player1.color);
+					 if(board.CheckForMill(gridx, gridy))
+				      {
+				    	  gridx = getxCoord(gui.xRecieved); //take in mouseclick for which piece of player 2's player 1 wants to remove
+				    	  gridy = getyCoord(gui.yRecieved);
+				    	  if(!board.CheckForMill(gridx, gridy))
+				    	  {
+				    		  if(board.grid[gridx][gridy].get_point_state() == player2.color)
+				    		  {
+				    		  removeByMill(gridx,gridy);
+				    		  player2.decrementpiecesOnBoard();
+				    		  }
+				    	  }
+				    			  
+				      }
+				}
 			}
 			
 			
@@ -123,10 +156,47 @@ public void control_game(Gui1 controllerGui)
 			{
 				gridx = getxCoord(gui.xRecieved);
 				gridy = getyCoord(gui.yRecieved);
+				if(board.checkValidMove_noFlying(gridx, gridy, player2))
+				{
+					playPiece(gridx,gridy,player1.color);
+				      if(board.CheckForMill(gridx, gridy))
+				      {
+				    	  gridx = getxCoord(gui.xRecieved);
+				    	  gridy = getyCoord(gui.yRecieved);
+				    	  if(!board.CheckForMill(gridx, gridy))
+				    	  {
+				    		  if(board.grid[gridx][gridy].get_point_state() == player1.color)
+				    		  {
+				    		  removeByMill(gridx,gridy);
+				    		  player1.decrementpiecesOnBoard();
+				    		  }
+				    	  }
+				    			  
+				      }
+				}
 			}
 			else
 			{
-				player1.setPhase("flying");
+				gridx = getxCoord(gui.xRecieved);
+				gridy = getyCoord(gui.yRecieved);
+				if(board.grid[gridx][gridy].get_point_state() == "none")
+				{
+					playPiece(gridx,gridy,player2.color);
+					 if(board.CheckForMill(gridx, gridy))
+				      {
+				    	  gridx = getxCoord(gui.xRecieved); //take in mouseclick for which piece of player 1's player 2 wants to remove
+				    	  gridy = getyCoord(gui.yRecieved);
+				    	  if(!board.CheckForMill(gridx, gridy))
+				    	  {
+				    		  if(board.grid[gridx][gridy].get_point_state() == player1.color)
+				    		  {
+				    		  removeByMill(gridx,gridy);
+				    		  player1.decrementpiecesOnBoard();
+				    		  }
+				    	  }
+				    			  
+				      }
+				}
 			}
 		}
 	}
