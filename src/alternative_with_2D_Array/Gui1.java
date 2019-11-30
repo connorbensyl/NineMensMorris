@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 
 import javax.swing.SwingConstants;
+import alternative_with_2D_Array.Board;
 
 
 public class Gui1 extends JFrame{
@@ -45,6 +46,22 @@ public class Gui1 extends JFrame{
 	/**
 	 * Launch the application.
 	 */
+	
+	/*class GameBoardCanvas extends JPanel {
+			
+			GameBoardCanvas(){
+				addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent e) {  
+						if (Board.getGameState() == GameState.PLAYING) {
+							int x = e.getY();
+							int y = e.getX();
+							}
+						
+						repaint();  // Call-back paintComponent().
+					}
+				});
+			}*/
+		
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

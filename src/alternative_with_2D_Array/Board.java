@@ -4,7 +4,15 @@ package alternative_with_2D_Array;
 
 public class Board 
 {
+	public enum GameState{
+		PLAYING
+	}
+	
+	private GameState currentGameState;
+	
 	Point grid[][];
+	
+	
 	
 	public Board()
 	{
@@ -380,7 +388,9 @@ public class Board
 		else return false;
 	}
 	
-	
+	public GameState getGameState() {
+		return currentGameState;
+	}
 
 	
 }

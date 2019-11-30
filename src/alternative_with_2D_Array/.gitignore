@@ -12,3 +12,5 @@
 /Rectangles.class
 /GUI.class
 /AI.class
+/Board$GameState.class
+/Gui1$GameBoardCanvas.class
