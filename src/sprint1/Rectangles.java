@@ -1,6 +1,7 @@
 package sprint1;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -19,11 +20,13 @@ import sprint1.Controller;
 
 public class Rectangles extends JPanel {
 	
+
 	
 	@Override
 	   public Dimension getPreferredSize() {
 	        return new Dimension(1920, 1080);
 	    }
+	
 	
 	@Override
 	public void paintComponent(Graphics g) {

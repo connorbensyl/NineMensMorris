@@ -1,9 +1,10 @@
 package sprint1;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Graphics;
-
+import java.awt.Graphics2D;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +13,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import sprint1.Controller;
@@ -68,12 +70,6 @@ public class Gui1 extends JFrame{
 		initialize();
 		
 		
-		addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {  
-					int yRecieved = e.getY(); /// CELL_SIZE;
-					int xRecieved = e.getX(); /// CELL_SIZE;
-			}
-		});
 		controller = new Controller(this);
 	}
 	
@@ -159,9 +155,45 @@ public class Gui1 extends JFrame{
 				NineMensMorrisBG.add(txtplayer1);
 				NineMensMorrisBG.add(txtplayer2);
 				NineMensMorrisBG.add(pvprect);
-			//	NineMensMorrisBG.add(WButton);
 				NineMensMorrisBG.repaint();
 				NineMensMorrisBG.revalidate();
+				NineMensMorrisBG.addMouseListener(new MouseListener(){
+				@Override
+				public void mouseClicked(MouseEvent e) {
+				    int x=e.getX();
+				    int y=e.getY();
+				    Graphics g = getGraphics();
+					Graphics2D g2d = (Graphics2D) g;
+					g2d.fillRect(x,y,25,25);  
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mouseExited(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mousePressed(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+				
+
+
 				
 
 			}
@@ -197,6 +229,8 @@ public class Gui1 extends JFrame{
 
 	}
 	
+
+
 	/* update visual elements of board*/
 	
 void updateBoard() {
