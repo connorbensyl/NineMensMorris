@@ -1,7 +1,8 @@
 package alternative_with_2D_Array;
 
+import java.awt.Graphics;
 
-public class Player {
+public class Player extends GameObject{
 
 	private int initialPieceCount = 9;
 	private int numPiecesPlayed = 0;
@@ -10,9 +11,18 @@ public class Player {
 	private boolean canFly = false;
 	private String name;
 	private String phase;
-	public  String color;
-	public Player(String colorIn) {
-		color = colorIn;
+	private String color;
+	public int getInitialPieceCount() {
+		return initialPieceCount;
+	}
+
+	
+	private String playerPhase ="placing pieces";
+	
+	public Player(String color, String name){
+		super();
+		this.color = color;
+		this.name = name;
 		canFly = false;
 		phase = "placing pieces";
 	}
@@ -101,5 +111,51 @@ public class Player {
 	{
 		numGamesWon++;
 	}
+
+	@Override
+	public void tick() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void render(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void setInitialPieceCount(int initialPieceCount) {
+		this.initialPieceCount = initialPieceCount;
+	}
+
+
+	public void setCanFly(boolean canFly) {
+		this.canFly = canFly;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getPlayerPhase() {
+		return playerPhase;
+	}
+
+	public void setPlayerPhase(String playerPhase) {
+		this.playerPhase = playerPhase;
+	}
+
+	public void setNumGamesWon(int numGamesWon) {
+		this.numGamesWon = numGamesWon;
+	}
+
+	public void setPiecesOnBoard(int piecesOnBoard) {
+		this.piecesOnBoard = piecesOnBoard;
+	}
+
 	
 }
