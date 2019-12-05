@@ -17,6 +17,7 @@ public class Board
 	public Board()
 	{
 		grid = new Point[6][6];
+		
 		grid[0][0].setUsable(true);
 		grid[0][1].setUsable(false);
 		grid[0][2].setUsable(false);
@@ -58,7 +59,7 @@ public class Board
 		grid[5][3].setUsable(true);
 		grid[5][4].setUsable(false);
 		grid[5][5].setUsable(true);
-		grid[5][6].setUsable(true);
+		grid[5][6].setUsable(false);
 		grid[6][0].setUsable(true);
 		grid[6][1].setUsable(false);
 		grid[6][2].setUsable(false);
@@ -68,8 +69,60 @@ public class Board
 		grid[6][6].setUsable(true);
 		
 		
+		grid[0][0].setId(objectID.outerTopLeft);
+		grid[0][3].setId(objectID.outerMiddleLeft);
+		grid[0][6].setId(objectID.outerBottomLeft);
+		grid[1][1].setId(objectID.middleTopLeft);
+		grid[1][3].setId(objectID.middleMiddleLeft);
+		grid[1][5].setId(objectID.middleBottomLeft);
+		grid[2][2].setId(objectID.innerTopLeft);
+		grid[2][3].setId(objectID.innerMiddleLeft);
+		grid[2][4].setId(objectID.innerBottomLeft);
+		grid[3][0].setId(objectID.outerTopMiddle);
+		grid[3][1].setId(objectID.middleTopMiddle);
+		grid[3][2].setId(objectID.innerTopMiddle);
+		grid[3][4].setId(objectID.innerBottomMiddle);
+		grid[3][5].setId(objectID.middleBottomMiddle);
+		grid[3][6].setId(objectID.outerBottomMiddle);
+		grid[4][2].setId(objectID.innerTopRight);
+		grid[4][3].setId(objectID.innerMiddleRight);
+		grid[4][4].setId(objectID.innerBottomRight);
+		grid[5][1].setId(objectID.middleTopRight);
+		grid[5][3].setId(objectID.middleMiddleRight);
+		grid[5][5].setId(objectID.middleBottomRight);
+		grid[6][0].setId(objectID.outerTopRight);
+		grid[6][3].setId(objectID.outerMiddleRight);
+		grid[6][6].setId(objectID.outerBottomRight);
 		
+		//under construction//
+		/*
+		grid[0][0].setCoords();
+		grid[0][3].setCoords();
+		grid[0][6].setCoords();
+		grid[1][1].setCoords();
+		grid[1][3].setCoords();
+		grid[1][5].setCoords();
+		grid[2][2].setCoords();
+		grid[2][3].setCoords();
+		grid[2][4].setCoords();
+		grid[3][0].setCoords();
+		grid[3][1].setCoords();
+		grid[3][2].setCoords();
+		grid[3][4].setCoords();
+		grid[3][5].setCoords();
+		grid[3][6].setCoords();
+		grid[4][2].setCoords();
+		grid[4][3].setCoords();
+		grid[4][4].setCoords();
+		grid[5][1].setCoords();
+		grid[5][3].setCoords();
+		grid[5][5].setCoords();
+		grid[6][0].setCoords();
+		grid[6][3].setCoords();
+		grid[6][6].setCoords();
+		*/
 	}
+	
 	
 	public boolean checkValidMove_noFlying(int x, int y, Player player)
 	{

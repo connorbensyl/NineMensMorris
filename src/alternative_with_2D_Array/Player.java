@@ -12,12 +12,8 @@ public class Player extends GameObject{
 	private String name;
 	private String phase;
 	private String color;
-	public int getInitialPieceCount() {
-		return initialPieceCount;
-	}
-
 	
-	private String playerPhase ="placing pieces";
+private String playerPhase ="placing pieces";
 	
 	public Player(String color, String name){
 		super();
@@ -26,95 +22,12 @@ public class Player extends GameObject{
 		canFly = false;
 		phase = "placing pieces";
 	}
-	
-	public void setPhase(String phase)
-	{
-		this.phase = phase;
-	}
-	
-	public String getPhase()
-	{
-		return this.phase;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) 
-	{
-		this.name = name;
-	}
-	
-	public int getinitialPieceCount() {
-		return initialPieceCount;
-	}
-	
-	public int getNumPiecesPlayed() {
-		return numPiecesPlayed;
-	}
-	
-	public int getPiecesLeftToPlace() {
-		return (initialPieceCount - numPiecesPlayed);
-	}
-	public int getPiecesOnBoard() {
-		return piecesOnBoard;
-	}
-	
-	public int getNumGamesWon()
-	{
-		return numGamesWon;
-	}
-	
-	
-	public void setNumPiecesPlayed(int num) 
-	{
-		this.numPiecesPlayed = num;
-	}
-	
-	
-	
-	public void setpiecesOnBoard(int num) 
-	{
-		this.piecesOnBoard = num;
-	}
-	public
-	//Can player fly
-	
-	boolean canFly() {
-		int a = getPiecesLeftToPlace();
-		if ((a == 0) && (piecesOnBoard == 3 )) {
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-		
-		
-		
-	}
-	
-	
-	public void increment_after_piece_played()
-	{
-		this.piecesOnBoard++;
-		this.numPiecesPlayed++;
-	}
-	
-	public void decrementpiecesOnBoard()
-	{
-		piecesOnBoard--;
-	}
-	
-	public void incrementGamesWon()
-	{
-		numGamesWon++;
-	}
 
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
+		if (this.canFlyTest()) {
+			canFly = true;
+		}
 		
 	}
 
@@ -127,7 +40,6 @@ public class Player extends GameObject{
 	public void setInitialPieceCount(int initialPieceCount) {
 		this.initialPieceCount = initialPieceCount;
 	}
-
 
 	public void setCanFly(boolean canFly) {
 		this.canFly = canFly;
@@ -156,6 +68,82 @@ public class Player extends GameObject{
 	public void setPiecesOnBoard(int piecesOnBoard) {
 		this.piecesOnBoard = piecesOnBoard;
 	}
-
+	public int getInitialPieceCount() {
+		return initialPieceCount;
+	}
 	
+	public void setPhase(String phase){
+		this.phase = phase;
+	}
+	
+	public String getPhase(){
+		return this.phase;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getinitialPieceCount() {
+		return initialPieceCount;
+	}
+	
+	public int getNumPiecesPlayed() {
+		return numPiecesPlayed;
+	}
+	
+	public int getPiecesLeftToPlace() {
+		return (initialPieceCount - numPiecesPlayed);
+	}
+	
+	public int getPiecesOnBoard() {
+		return piecesOnBoard;
+	}
+	
+	public int getNumGamesWon(){
+		return numGamesWon;
+	}
+	
+	public void setNumPiecesPlayed(int num) {
+		this.numPiecesPlayed = num;
+	}
+	
+	public void setpiecesOnBoard(int num) {
+		this.piecesOnBoard = num;
+	}
+	public
+	//Can player fly
+	
+	boolean canFlyTest() {
+		int a = getPiecesLeftToPlace();
+		if ((a == 0) && (piecesOnBoard == 3 )) {
+			return true;
+		}
+		else{
+			return false;
+		}	
+	}
+	
+	
+	public void increment_after_piece_played(){
+		this.piecesOnBoard++;
+		this.numPiecesPlayed++;
+	}
+	
+	public void decrementpiecesOnBoard(){
+		piecesOnBoard--;
+	}
+	
+	public void incrementGamesWon(){
+		numGamesWon++;
+	}
+
+	public boolean getCanFly() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

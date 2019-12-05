@@ -24,8 +24,13 @@ int gridy;
 
 public Controller(Gui1 parentGui) {
 	handler = new Handler();
+	
 	new GameGuiCanvas(WIDTH, HEIGHT, "9-Men's Morris", this);
 	Gui1 gui = parentGui;
+	
+	ObjectListener listener = new ObjectListener(handler.object,this );
+	this.addMouseListener(listener);
+	
 	
 	for (int i = 0; i<100;i++) {
 		player1 = new Player("black", "Jake");
@@ -109,7 +114,7 @@ public Controller(Gui1 parentGui) {
 			
 			if(is_player1_turn)
 			{
-				if(!player1.canFly())
+				if(!player1.getCanFly())
 				{
 					gridx = getxCoord(gui.xRecieved);
 					gridy = getyCoord(gui.yRecieved);
@@ -161,7 +166,7 @@ public Controller(Gui1 parentGui) {
 			else //player 2's turn
 			{
 				
-				if(!player2.canFly())
+				if(!player2.canFlyTest())
 				{
 					gridx = getxCoord(gui.xRecieved);
 					gridy = getyCoord(gui.yRecieved);
@@ -213,6 +218,7 @@ public Controller(Gui1 parentGui) {
 		
 	}
 
+
 /*public static void main(String args[]) {
 	new Controller();
 }*/
@@ -257,7 +263,7 @@ public int getxCoord(int xgui) //take in raw coordinate x value from gui
 	{
 		if(xgui > 330 && xgui < 430)//if x is in 0th column
 		{
-			return 0; //so the xvalue on the grid of the point that was clicked is 0
+			return 0; //so the x-value on the grid of the point that was clicked is 0
 		}
 		else if(xgui > 430 && xgui < 509)//if x is in 1st column...etc. I add some margin of error so it's not exactly the same as the point coordinates, this will probably need to be adjusted
 		{
@@ -357,7 +363,8 @@ private void render() {
 	BufferStrategy bs = this.getBufferStrategy();
 	if (bs ==null) {
 		this.createBufferStrategy(3);
-		
+		return;
+	}
 Graphics g = bs.getDrawGraphics();
 		
 		g.setColor(Color.lightGray);
@@ -366,7 +373,7 @@ Graphics g = bs.getDrawGraphics();
 		g.dispose();
 		bs.show();
 	}
-}
+
 
 private void tick() {
 	handler.tick();
@@ -388,7 +395,11 @@ public synchronized void stop() {
 		e.printStackTrace();
 	}
 }
-
+////under construction////
+/*
+public void main(Strings args[]) {
+	new Controller();
+}*/
 
 }
 

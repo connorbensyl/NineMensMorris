@@ -2,16 +2,19 @@ package alternative_with_2D_Array;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.List;
+import java.util.LinkedList;
 
 public class ObjectListener implements MouseListener{
 
-	private List<GameObject> gameObjects;
-	private GameGuiCanvas gui;
+	private LinkedList<GameObject> gameObjects;
+	private Controller controller;
 	
 	private GameObject gameObject;
 	
-	
+	public ObjectListener(LinkedList<GameObject> objects, Controller controller)  {
+		this.gameObjects = objects;
+		this.controller = controller;
+	}
 	
 	@Override
 	public void mouseClicked(MouseEvent event) {
