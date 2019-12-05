@@ -2,7 +2,6 @@ package sprint1;
 
 public enum PointID 
 {
-	 
 	 		outerSquare_topLeft,
 	 		outerSquare_middleLeft,
 	 		outerSquare_bottomLeft,
