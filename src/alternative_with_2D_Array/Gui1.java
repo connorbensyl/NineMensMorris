@@ -115,7 +115,7 @@ public class Gui1 extends JFrame{
 		
 		txtWelcome = new JTextField();
 		txtWelcome.setBackground(new Color(245, 245, 220));
-		txtWelcome.setForeground(Color.BLUE);
+		txtWelcome.setForeground(Color.lightGray);
 		txtWelcome.setEditable(false);
 		txtWelcome.setText("Welcome to Nine Men's Morris");
 		txtWelcome.setBounds(488, 165, 273, 92);
