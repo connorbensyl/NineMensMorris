@@ -45,6 +45,7 @@ public class Gui1 extends JFrame{
 	private JTextField txtWelcome;
 	int yRecieved;
 	int xRecieved;
+	
 
 
 	/**
@@ -124,23 +125,6 @@ public class Gui1 extends JFrame{
 		txtaiplayer.setBounds(1050, 16, 273, 92);
 
 		
-	    // Buttons
-	//	Controller testButtons;
-		
-	    JButton WButton = new JButton("White");
-	    WButton.setBounds(554,290,147,29);
-	    WButton.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    	
-	    	
-	    	}
-	    });
-	    
-	    
-	    
-	    JButton BButton = new JButton("Black");
-	    
-		
 		JButton PVPButton = new JButton("Player VS Player");
 		PVPButton.setForeground(Color.RED);
 		PVPButton.setBounds(554,290,147,29);
@@ -160,11 +144,8 @@ public class Gui1 extends JFrame{
 				NineMensMorrisBG.addMouseListener(new MouseListener(){
 				@Override
 				public void mouseClicked(MouseEvent e) {
-				    int x=e.getX();
-				    int y=e.getY();
-				    Graphics g = getGraphics();
-					Graphics2D g2d = (Graphics2D) g;
-					g2d.fillRect(x,y,25,25);  
+		 
+
 				}
 
 				@Override
@@ -188,6 +169,14 @@ public class Gui1 extends JFrame{
 				@Override
 				public void mouseReleased(MouseEvent arg0) {
 					// TODO Auto-generated method stub
+				    int x=arg0.getX();
+				    int y=arg0.getY();
+				   
+
+			        NineMensMorrisBG.revalidate();
+			        NineMensMorrisBG.repaint();
+			        System.out.println(x+ "," +y);
+			        
 					
 				}
 			});

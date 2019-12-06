@@ -81,13 +81,7 @@ public class Gui1 extends JFrame{
 	public Gui1(){
 		initialize();
 		
-		
-		addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {  
-					int yRecieved = e.getY(); /// CELL_SIZE;
-					int xRecieved = e.getX(); /// CELL_SIZE;
-			}
-		});
+
 		controller = new Controller(this);
 	}
 	
