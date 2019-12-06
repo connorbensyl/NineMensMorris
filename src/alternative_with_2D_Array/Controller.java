@@ -18,7 +18,7 @@ boolean is_player1_turn;
 private Board board;
 Gui1 gui;
 Random r;
-String moveType = "none";//something
+String moveType = "none";
 int gridx;
 int gridy;
 
