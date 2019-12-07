@@ -10,13 +10,12 @@ public class Board
 	
 	private GameState currentGameState;
 	
-	Point grid[][];
+	Point grid[][] = new Point[6][6];
 	
 	
 	
 	public Board()
 	{
-		grid = new Point[6][6];
 		
 		grid[0][0].setUsable(true);
 		grid[0][1].setUsable(false);
@@ -122,6 +121,7 @@ public class Board
 		grid[6][6].setCoords();
 		*/
 	}
+	
 	
 	
 	public boolean checkValidMove_noFlying(int x, int y, Player player)
