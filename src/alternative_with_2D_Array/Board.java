@@ -10,12 +10,62 @@ public class Board
 	
 	private GameState currentGameState;
 	
-	Point grid[][] = new Point[6][6];
+	Point grid[][] = new Point[7][7];
 	
 	
 	
 	public Board()
 	{
+		
+		grid[0][0] = new Point();
+		grid[0][1] = new Point();
+		grid[0][2] = new Point();
+		grid[0][3] = new Point();
+		grid[0][4] = new Point();
+		grid[0][5] = new Point();
+		grid[0][6] = new Point();
+		grid[1][0] = new Point();
+		grid[1][1] = new Point();
+		grid[1][2] = new Point();
+		grid[1][3] = new Point();
+		grid[1][4] = new Point();
+		grid[1][5] = new Point();
+		grid[1][6] = new Point();
+		grid[2][0] = new Point();
+		grid[2][1] = new Point();
+		grid[2][2] = new Point();
+		grid[2][3] = new Point();
+		grid[2][4] = new Point();
+		grid[2][5] = new Point();
+		grid[2][6] = new Point();
+		grid[3][0] = new Point();
+		grid[3][1] = new Point();
+		grid[3][2] = new Point();
+		grid[3][3] = new Point();
+		grid[3][4] = new Point();
+		grid[3][5] = new Point();
+		grid[3][6] = new Point();
+		grid[4][0] = new Point();
+		grid[4][1] = new Point();
+		grid[4][2] = new Point();
+		grid[4][3] = new Point();
+		grid[4][4] = new Point();
+		grid[4][5] = new Point();
+		grid[4][6] = new Point();
+		grid[5][0] = new Point();
+		grid[5][1] = new Point();
+		grid[5][2] = new Point();
+		grid[5][3] = new Point();
+		grid[5][4] = new Point();
+		grid[5][5] = new Point();
+		grid[5][6] = new Point();
+		grid[6][0] = new Point();
+		grid[6][1] = new Point();
+		grid[6][2] = new Point();
+		grid[6][3] = new Point();
+		grid[6][4] = new Point();
+		grid[6][5] = new Point();
+		grid[6][6] = new Point();
 		
 		grid[0][0].setUsable(true);
 		grid[0][1].setUsable(false);
@@ -262,9 +312,19 @@ public class Board
 			{
 				return true;
 			}
-			else if(rightMill(x,y,3) || leftMill(x,y,3))
+			else if(x == 0)
 			{
-				return true;
+				if(rightMill(x,y,3))
+				{
+					return true;
+				}
+			}
+			else if(x == 6)
+			{
+				if(leftMill(x,y,3))
+				{
+					return true;
+				}
 			}
 			
 			
